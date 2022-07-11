@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+        <f:attribute name="titulo" value="#{bnd.usuario_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.usuario_listaFrg_descripcion}"/>
+        <f:facet name="elementoAcciones">
+            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                    crearTexto="#{bnd.usuario_listaFrg_boton_crear}"
+                                    crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
+        </f:facet>
+        <f:facet name="elementoBusqueda">
+            <af:query id="qryId1" value="#{bindings.UsuarioViewCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.UsuarioViewCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.UsuarioViewCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.UsuarioViewCriteriaQuery.processQueryOperation}"
+                      headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true"
+                      searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240"
+                      saveQueryMode="hidden" modeChangeVisible="false" disclosed="true" resultComponentId="::resId1"/>
+        </f:facet>
+        <f:facet name="elementoCentro">
+            <af:table value="#{bindings.UsuarioView1.collectionModel}" var="row"
+                      rows="#{bindings.UsuarioView1.rangeSize}"
+                      emptyText="#{bindings.UsuarioView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="1" selectedRowKeys="#{bindings.UsuarioView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.UsuarioView1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.UsuarioView1.rangeSize}" id="resId1" columnStretching="column:c1"
+                      scrollPolicy="page">
+                <?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                <af:column headerText="#{bindings.UsuarioView1.hints.IdUsuario.label}" id="resId1c1" width="60">
+                    <af:outputText value="#{row.IdUsuario}" shortDesc="#{bindings.UsuarioView1.hints.IdUsuario.tooltip}"
+                                   id="ot1">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.UsuarioView1.hints.IdUsuario.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.UsuarioView1.hints.Nick.label}" id="resId1c3">
+                    <af:link text="#{row.Nick}" id="l1" action="Editar"/>
+                </af:column>
+                <af:column headerText="#{bindings.UsuarioView1.hints.NombreCompleto.label}" id="c1">
+                    <af:outputText value="#{row.NombreCompleto}"
+                                   shortDesc="#{bindings.UsuarioView1.hints.NombreCompleto.tooltip}" id="ot2"/>
+                </af:column>
+                <af:column headerText="#{bindings.UsuarioView1.hints.UsuarioFecha.label}" id="resId1c8">
+                    <af:outputText value="#{row.UsuarioFecha}"
+                                   shortDesc="#{bindings.UsuarioView1.hints.UsuarioFecha.tooltip}" id="ot8">
+                        <af:convertDateTime pattern="#{bindings.UsuarioView1.hints.UsuarioFecha.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.UsuarioView1.hints.Estado.label}" id="resId1c10">
+                    <af:selectOneChoice value="#{row.bindings.Estado.inputValue}" label="#{row.bindings.Estado.label}"
+                                        required="#{bindings.UsuarioView1.hints.Estado.mandatory}"
+                                        shortDesc="#{bindings.UsuarioView1.hints.Estado.tooltip}" readOnly="true"
+                                        id="soc1">
+                        <f:selectItems value="#{row.bindings.Estado.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.Estado.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+            </af:table>
+        </f:facet>
+    </af:pageTemplate>
+</jsp:root>

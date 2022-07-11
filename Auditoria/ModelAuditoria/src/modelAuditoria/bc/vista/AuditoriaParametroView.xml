@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaParametroView"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="AuditoriaParametro"
+    Entity="modelAuditoria.bc.entidad.AuditoriaParametro"/>
+  <ViewAttribute
+    Name="IdAuditoriaParametro"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdAuditoriaParametro"
+    EntityUsage="AuditoriaParametro"
+    AliasName="id_auditoria_parametro"/>
+  <ViewAttribute
+    Name="IdAuditoria"
+    PrecisionRule="true"
+    EntityAttrName="IdAuditoria"
+    EntityUsage="AuditoriaParametro"
+    AliasName="id_auditoria"/>
+  <ViewAttribute
+    Name="Nombre"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Nombre"
+    EntityUsage="AuditoriaParametro"
+    AliasName="nombre"/>
+  <ViewAttribute
+    Name="Direccion"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Direccion"
+    EntityUsage="AuditoriaParametro"
+    AliasName="direccion"/>
+  <ViewAttribute
+    Name="Valor"
+    PrecisionRule="true"
+    EntityAttrName="Valor"
+    EntityUsage="AuditoriaParametro"
+    AliasName="valor"/>
+</ViewObject>

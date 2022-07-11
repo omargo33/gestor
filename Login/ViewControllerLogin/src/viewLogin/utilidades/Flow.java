@@ -1,0 +1,1 @@
+package viewLogin.utilidades;/** * Obejeto para contener esquemas de flow repetitivos * * @author omargo33@hotmail.com * */public class Flow {    public static final String BUNDLE = "viewLogin.ViewControllerLoginBundle";   }

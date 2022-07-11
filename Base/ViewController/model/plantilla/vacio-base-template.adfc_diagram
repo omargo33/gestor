@@ -1,0 +1,67 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <note
+      id="note3">
+      <property
+         name="sdm:nodeHeight">80.0</property>
+      <property
+         name="sdm:nodeWidth">100.0</property>
+      <property
+         name="x">584.0</property>
+      <property
+         name="y">113.0</property>
+      <property
+         name="label">
+         <![CDATA[<html>
+  <head>
+    
+  </head>
+  <body>
+    <p style="margin-top: 0">
+      <font face="Dialog" size="3" color="#000000">Sobrecargar pagina de 
+      presentaci&#243;n 
+</font>    </p>
+    <p style="margin-top: 0">
+      <font face="Dialog" size="3" color="#000000">
+</font>    </p>
+    <p style="margin-top: 0">
+      <font face="Dialog" size="3" color="#000000">Se debe poner el mismo 
+      nombre
+</font>    </p>
+    <p style="margin-top: 0">
+      <font face="Dialog" size="3" color="#000000"> </font>
+    </p>
+  </body>
+</html>]]>
+      </property>
+   </note>
+   <View
+      id="View5">
+      <property
+         name="activityId">Presentacion</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">187.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Presentacion&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">193.90625</property>
+      <property
+         name="page">/paginasError/Presentacion.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <attachment
+      islink="true"
+      id="attachment6"
+      from="View5"
+      to="note3">
+      <property
+         name="sdm:polyPoints">R50,229.05756,193.875,522.44244,113.0,L50</property>
+   </attachment>
+</SDM>

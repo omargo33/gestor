@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-template id="detalle-template">
+    <template-reference>
+      <document>/plantilla/detalle-base-template.xml</document>
+      <id>detalle-base-template</id>
+    </template-reference>
+    <default-activity>router</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <exception-handler>Error</exception-handler>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ActionCrearHijo">
+      <method>#{BaseBean.accionTaskFlowCrearHijo}</method>
+    </method-call>
+    <method-call id="ActionEditarHijo">
+      <method>#{BaseBean.accionTaskFlowEditarHijo}</method>
+    </method-call>
+    <use-page-fragments/>
+  </task-flow-template>
+</adfc-config>

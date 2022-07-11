@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ModuloParametroFkLink"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="modelAdministrativo.bc.entidad.asociacion.ModuloParametroFkAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="modelAdministrativo.bc.vista.link.ModuloParametroFkLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ModuloView"
+    Cardinality="1"
+    Source="true"
+    Owner="modelAdministrativo.bc.vista.ModuloView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ModuloView"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.vista.ModuloView.IdModulo"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ParametroView"
+    Cardinality="-1"
+    Owner="modelAdministrativo.bc.vista.ParametroView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ParametroView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.vista.ParametroView.IdModulo"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAdministrativo.ModelAdministrativoBundle"/>
+  </ResourceBundle>
+</ViewLink>

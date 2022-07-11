@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaEventoView"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="AuditoriaEvento"
+    Entity="modelAuditoria.bc.entidad.AuditoriaEvento"/>
+  <ViewAttribute
+    Name="IdAuditoriaEvento"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdAuditoriaEvento"
+    EntityUsage="AuditoriaEvento"
+    AliasName="id_auditoria_evento"/>
+  <ViewAttribute
+    Name="IdAuditoria"
+    PrecisionRule="true"
+    EntityAttrName="IdAuditoria"
+    EntityUsage="AuditoriaEvento"
+    AliasName="id_auditoria"/>
+  <ViewAttribute
+    Name="Descripcion"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Descripcion"
+    EntityUsage="AuditoriaEvento"
+    AliasName="descripcion"/>
+  <ViewAttribute
+    Name="Tipo"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Tipo"
+    EntityUsage="AuditoriaEvento"
+    AliasName="tipo"/>
+  <ViewAttribute
+    Name="Orden"
+    PrecisionRule="true"
+    EntityAttrName="Orden"
+    EntityUsage="AuditoriaEvento"
+    AliasName="orden"/>
+  <ViewAttribute
+    Name="Parte"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Parte"
+    EntityUsage="AuditoriaEvento"
+    AliasName="parte"/>
+  <ViewAttribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UsuarioFecha"
+    EntityUsage="AuditoriaEvento"
+    AliasName="usuario_fecha"/>
+</ViewObject>

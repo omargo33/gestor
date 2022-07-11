@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Auditoria"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="AR_001_00.auditoria"
+  AliasName="Auditoria"
+  BindingStyle="JDBC"
+  RowClass="modelAuditoria.bc.entidad.AuditoriaImpl">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+  </DesignTime>
+  <Attribute
+    Name="IdAuditoria"
+    ColumnName="id_auditoria"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    Domain="model.bc.dominio.IdEntidad">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Nombre"
+    Precision="128"
+    ColumnName="nombre"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Valor01"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="valor_01"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.Descripcion">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Valor02"
+    Precision="256"
+    ColumnName="valor_02"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.Descripcion">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Usuario"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="usuario"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.Usuario">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.UsuarioFecha"/>
+  <Attribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="usuario_programa"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.UsuarioPrograma">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Elemento"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="elemento"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="AuditoriaEvento"
+    Association="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc"
+    AssociationEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc.AuditoriaEvento"
+    AssociationOtherEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc.Auditoria"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="AuditoriaParametro"
+    Association="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc"
+    AssociationEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc.AuditoriaParametro"
+    AssociationOtherEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc.Auditoria"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.Auditoria.IdAuditoria"/>
+    </AttrArray>
+  </Key>
+</Entity>

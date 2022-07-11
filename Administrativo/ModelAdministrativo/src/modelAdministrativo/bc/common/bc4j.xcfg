@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="modelAdministrativo.bc.AdministrativoModulo" default="AdministrativoModuloLocal">
+    <AppModuleConfig name="AdministrativoModuloLocal" jbo.project="modelAdministrativo.ModelAdministrativo"
+                     ApplicationName="modelAdministrativo.bc.AdministrativoModulo" DeployPlatform="LOCAL"
+                     JDBCName="Administrativo-001">
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"/>
+      <Security AppModuleJndiName="modelAdministrativo.bc.AdministrativoModulo"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AdministrativoModuloShared" jbo.project="modelAdministrativo.ModelAdministrativo"
+                     ApplicationName="modelAdministrativo.bc.AdministrativoModulo" DeployPlatform="LOCAL"
+                     JDBCName="Administrativo-001">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"
+                jbo.locking.mode="optimistic"/>
+      <Security AppModuleJndiName="modelAdministrativo.bc.AdministrativoModulo"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AdministrativoModuloWeb" jbo.project="modelAdministrativo.ModelAdministrativo"
+                     ApplicationName="modelAdministrativo.bc.AdministrativoModulo" DeployPlatform="LOCAL"
+                     jbo.passivationstore="file">
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"
+                JDBCDataSource="jdbc/Administrativo-001DS" jbo.locking.mode="optimistic"/>
+      <Security AppModuleJndiName="modelAdministrativo.bc.AdministrativoModulo"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

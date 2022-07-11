@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="rol_task_flow_rol_task_flow_CreatePageDef" Package="viewAdministrativo.pageDefs"
+                SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="RolView1" RangeSize="25" DataControl="AdministrativoModuloDataControl" id="RolView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="RolView1Iterator" id="Create" RequiresUpdateModel="true" Action="createWithParams"
+            InstanceName="AdministrativoModuloDataControl.RolView1" DataControl="AdministrativoModuloDataControl">
+      <NamedData NDName="Usuario" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+      <NamedData NDName="UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

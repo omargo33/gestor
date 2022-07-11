@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="cdu-task-flow">
+    <template-reference>
+      <document>/WEB-INF/plantilla/maestro-template.xml</document>
+      <id>maestro-template</id>
+    </template-reference>
+    <view id="ListaFrg">
+      <page>/cdu/ListaFrg.jsff</page>
+    </view>
+    <view id="ItemFrg">
+      <page>/cdu/ItemFrg.jsff</page>
+    </view>
+    <method-call id="Create">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>Create</fixed-outcome>
+      </outcome>
+    </method-call>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

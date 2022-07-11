@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ModuloCodigoDefinidoUsuarioFkAssoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Modulo"
+    Cardinality="1"
+    Source="true"
+    Owner="modelAdministrativo.bc.entidad.Modulo"
+    LockLevel="NONE">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Modulo"/>
+      <Attr Name="_foreignKey" Value="modelAdministrativo.bc.entidad.Modulo.Primary1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Modulo.IdModulo"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="CodigoDefinidoUsuario"
+    Cardinality="-1"
+    Owner="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="CodigoDefinidoUsuario"/>
+      <Attr Name="_foreignKey" Value="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.fk_CodigoDefinidoUsuario"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.IdModulo"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

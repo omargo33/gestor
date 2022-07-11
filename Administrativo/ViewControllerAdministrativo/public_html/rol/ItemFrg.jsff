@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:panelGroupLayout id="pgl4">
+        <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
+        <f:attribute name="titulo" value="#{bnd.rol_itemFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion" value="#{bnd.rol_itemFrg_descripcion}"/>
+            <f:attribute name="permisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+            <f:facet name="elementoCentro">
+                <af:panelFormLayout id="pfl1" labelWidth="140">
+                    <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                                  required="#{bindings.Nombre.hints.mandatory}"
+                                  columns="#{bindings.Nombre.hints.displayWidth}"
+                                  maximumLength="#{bindings.Nombre.hints.precision}"
+                                  shortDesc="#{bindings.Nombre.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.Nombre.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Tipo.inputValue}" label="#{bindings.Tipo.label}"
+                                        required="#{bindings.Tipo.hints.mandatory}"
+                                        shortDesc="#{bindings.Tipo.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.Tipo.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Tipo.validator}"/>
+                    </af:selectOneChoice>
+                    <f:facet name="footer">
+                    
+                    
+                    <bl01:botonesGuardarBorrar id="bgb1" actualizarAccion="#{BackingItemFrg.actionGuardar}"
+                                                   actualizarPermiso="#{pageFlowScope.pPermisoActualizar}"
+                                                   borrarAccion="#{BackingItemFrg.actionDelete}"
+                                                   borrarDisabled="#{bindings.IdRol.inputValue eq 0}"
+                                                   borrarPermiso="#{pageFlowScope.pPermisoBorrar}"/>
+                    
+                    </f:facet>
+                </af:panelFormLayout>
+            </f:facet>
+            <f:facet name="elementoCancelar">
+             <bl01:botonesCancelar id="bc1" inicioAccion="Inicio">
+                    <f:facet name="botonesAcciones"/>
+                </bl01:botonesCancelar>
+            
+            </f:facet>
+            <f:facet name="elementoAuditoria">
+                <af:panelFormLayout id="pfl2" labelWidth="110">
+                    <f:facet name="footer"/>
+                    <af:inputText value="#{bindings.IdRol.inputValue}" label="#{bindings.IdRol.hints.label}"
+                                  required="#{bindings.IdRol.hints.mandatory}"
+                                  columns="#{bindings.IdRol.hints.displayWidth}"
+                                  maximumLength="#{bindings.IdRol.hints.precision}"
+                                  shortDesc="#{bindings.IdRol.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.IdRol.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IdRol.format}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Estado.inputValue}" label="#{bindings.Estado.label}"
+                                        required="#{bindings.Estado.hints.mandatory}"
+                                        shortDesc="#{bindings.Estado.hints.tooltip}" id="soc2">
+                        <f:selectItems value="#{bindings.Estado.items}" id="si2"/>
+                        <f:validator binding="#{bindings.Estado.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{bindings.Usuario.inputValue}" label="#{bindings.Usuario.hints.label}"
+                                  required="#{bindings.Usuario.hints.mandatory}"
+                                  columns="#{bindings.Usuario.hints.displayWidth}"
+                                  maximumLength="#{bindings.Usuario.hints.precision}"
+                                  shortDesc="#{bindings.Usuario.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.Usuario.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.UsuarioFecha.inputValue}"
+                                  label="#{bindings.UsuarioFecha.hints.label}"
+                                  required="#{bindings.UsuarioFecha.hints.mandatory}"
+                                  columns="#{bindings.UsuarioFecha.hints.displayWidth}"
+                                  shortDesc="#{bindings.UsuarioFecha.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.UsuarioFecha.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.UsuarioFecha.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.UsuarioPrograma.inputValue}"
+                                  label="#{bindings.UsuarioPrograma.hints.label}"
+                                  required="#{bindings.UsuarioPrograma.hints.mandatory}"
+                                  columns="#{bindings.UsuarioPrograma.hints.displayWidth}"
+                                  maximumLength="#{bindings.UsuarioPrograma.hints.precision}"
+                                  shortDesc="#{bindings.UsuarioPrograma.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.UsuarioPrograma.validator}"/>
+                    </af:inputText>
+                </af:panelFormLayout>
+            </f:facet>
+            
+        </af:pageTemplate>
+    </af:panelGroupLayout>
+</jsp:root>

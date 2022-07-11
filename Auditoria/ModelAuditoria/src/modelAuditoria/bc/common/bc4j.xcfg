@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+  <AppModuleConfigBag ApplicationName="modelAuditoria.bc.AuditoriaModulo" default="AuditoriaModuloLocal">
+    <AppModuleConfig name="AuditoriaModuloLocal" jbo.project="modelAuditoria.ModelAuditoria"
+                     ApplicationName="modelAuditoria.bc.AuditoriaModulo" DeployPlatform="LOCAL"
+                     JDBCName="AuditoriaRegistros">
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"
+                jbo.locking.mode="optimistic"/>
+      <Security AppModuleJndiName="modelAuditoria.bc.AuditoriaModulo"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AuditoriaModuloShared" jbo.project="modelAuditoria.ModelAuditoria"
+                     ApplicationName="modelAuditoria.bc.AuditoriaModulo" DeployPlatform="LOCAL"
+                     JDBCName="AuditoriaRegistros">
+      <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"/>
+      <Security AppModuleJndiName="modelAuditoria.bc.AuditoriaModulo"/>
+    </AppModuleConfig>
+    <AppModuleConfig name="AuditoriaModuloWeb" jbo.project="modelAuditoria.ModelAuditoria"
+                     ApplicationName="modelAuditoria.bc.AuditoriaModulo"
+                     DeployPlatform="LOCAL"
+                     jbo.passivationstore="file"
+                     >
+      <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"
+                JDBCDataSource="jdbc/Auditoria-001DS"/>
+      <Security AppModuleJndiName="modelAuditoria.bc.AuditoriaModulo"/>
+    </AppModuleConfig>
+  </AppModuleConfigBag>
+</BC4JConfig>

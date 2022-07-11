@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaEventoFkLink"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc">
+  <ViewLinkDefEnd
+    Name="AuditoriaView"
+    Cardinality="1"
+    Source="true"
+    Owner="modelAuditoria.bc.vista.AuditoriaView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="AuditoriaView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.vista.AuditoriaView.IdAuditoria"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AuditoriaEventoView"
+    Cardinality="-1"
+    Owner="modelAuditoria.bc.vista.AuditoriaEventoView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="AuditoriaEventoView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.vista.AuditoriaEventoView.IdAuditoria"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

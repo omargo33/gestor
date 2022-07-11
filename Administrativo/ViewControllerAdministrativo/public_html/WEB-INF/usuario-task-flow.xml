@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="usuario-task-flow">
+    <template-reference>
+      <document>/WEB-INF/plantilla/maestro-template.xml</document>
+      <id>maestro-template</id>
+    </template-reference>
+    <default-activity>router</default-activity>
+    <data-control-scope>
+      <isolated/>
+    </data-control-scope>
+    <exception-handler>Error</exception-handler>
+    <view id="ListaFrg">
+      <page>/usuario/ListaFrg.jsff</page>
+    </view>
+    <method-call id="Create">
+      <method>#{bindings.Create.execute}</method>
+      <outcome>
+        <fixed-outcome>Create</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="ItemFrg">
+      <page>/usuario/ItemFrg.jsff</page>
+    </view>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

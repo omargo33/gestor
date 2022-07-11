@@ -1,0 +1,74 @@
+#{pageFlowScope.idValue}
+
+
+<parameters>
+        <parameter id="idValue" value="#{bindings.IdUsuario.inputValue}"/>
+        <parameter id="ubicacionCampo" value="data.viewManifiesto_ItemFrgPageDef.IdUsuario.inputValue"/>
+        <parameter id="nombreCampo" value="idUsuario"/>
+      </parameters>
+
+
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" 
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+    <af:resource type="javascript">
+      //P1Xxxx
+      function hidePopupP1Xxxx() {
+          var popup = AdfPage.PAGE.findComponentByAbsoluteId('p1Xxxx');
+          popup.hide();
+      }
+    </af:resource>
+    <af:panelGroupLayout id="pgl2">
+        <af:panelGroupLayout id="pgl3" layout="horizontal">
+            <af:button id="b1"
+                       icon="../../Imagen-001/icons/7548857_search_glass_interface_user_magnifier_zoom_find.svg">
+                <af:showPopupBehavior popupId="p1Xxxx"/>
+            </af:button>
+            <af:outputText value="#{bindings.Yyyyy1.inputValue} #{bindings.Yyyyy2.inputValue}" id="ot1"
+                           truncateAt="45"
+                           rendered="#{(pageFlowScope.idValue ne null) and  (pageFlowScope.idValue > 0)}"/>
+            <af:outputText value="#{bnd.msg_no_definido}" id="ot4"
+                           rendered="#{(pageFlowScope.idValue eq null) or (pageFlowScope.idValue eq 0)}"/>
+            <f:facet name="separator">
+                <af:spacer id="s2" height="3" width="3"/>
+            </f:facet>
+        </af:panelGroupLayout>
+
+
+
+
+        <af:popup childCreation="deferred" id="p1Xxxx">
+            <af:dialog id="d1" type="cancel" title="#{bnd.btn_buscar}">
+                <f:facet name="buttonBar">
+                    <af:spacer id="s1" height="3" width="3"/>
+                </f:facet>
+                <af:panelGroupLayout layout="vertical" id="pgl1">
+                    
+                              <!--
+                              <af:query 
+                              headerText="#{bnd.msg_busquea_titulo}"
+                              conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}"
+                              resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden"
+                              modeChangeVisible="false" disclosed="true"/>-->
+
+
+
+                    <!-- 
+                    <af:table 
+                        columnStretching="column:cX" scrollPolicy="page" 
+                        rowBandingInterval="1" inlineStyle="width:60vw;">
+                            
+                            <!-- 
+                            <af:link text="#{row.Yyyyy1}" id="l1" styleClass="linkSelected">
+                                <af:clientListener method="hidePopupP1Xxxx" type="action"/>
+                                <af:setActionListener from="#{row.IdYyyy1}"
+                                                      to="#{BackingLOVFrg.idValueSeleccionado}"/>
+                            </af:link>
+                            -->
+
+                    <!-- </af:table> -->
+                </af:panelGroupLayout>
+            </af:dialog>
+        </af:popup>
+    </af:panelGroupLayout>
+</jsp:root>

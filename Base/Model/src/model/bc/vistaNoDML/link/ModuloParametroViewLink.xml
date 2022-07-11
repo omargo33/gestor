@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ModuloParametroViewLink"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.bc.vistaNoDML.link.ModuloParametroViewLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="ModuloView"
+    Cardinality="1"
+    Source="true"
+    Owner="model.bc.vistaNoDML.ModuloViewNoDML">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ModuloView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.bc.vistaNoDML.ModuloViewNoDML.IdModulo"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ParametroView"
+    Cardinality="-1"
+    Owner="model.bc.vistaNoDML.ParametroViewNoDML">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ParametroView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.bc.vistaNoDML.ParametroViewNoDML.IdModulo"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

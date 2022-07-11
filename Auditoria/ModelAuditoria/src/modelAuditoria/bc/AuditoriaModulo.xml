@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE AppModule SYSTEM "jbo_03_01.dtd">
+<!---->
+<AppModule
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaModulo"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  ClearCacheOnRollback="true"
+  ComponentClass="modelAuditoria.bc.AuditoriaModuloImpl"
+  Extends="model.bc.Modulo">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <ViewUsage
+    Name="Auditoria_AuditoriaView1"
+    ViewObjectName="modelAuditoria.bc.vista.AuditoriaView"/>
+  <ViewUsage
+    Name="Auditoria_AuditoriaEventoView1"
+    ViewObjectName="modelAuditoria.bc.vista.AuditoriaEventoView"/>
+  <ViewUsage
+    Name="Auditoria_AuditoriaParametroView1"
+    ViewObjectName="modelAuditoria.bc.vista.AuditoriaParametroView"/>
+  <ViewUsage
+    Name="Auditoria_AccesoView1"
+    ViewObjectName="modelAuditoria.bc.vista.AccesoView"/>
+  <ViewUsage
+    Name="Auditoria_DireccionView1"
+    ViewObjectName="modelAuditoria.bc.vista.DireccionView"/>
+  <ViewUsage
+    Name="Auditoria_InformacionView1"
+    ViewObjectName="modelAuditoria.bc.vista.InformacionView"/>
+  <ViewUsage
+    Name="Auditoria_AccesoTokenViewNoDML1"
+    ViewObjectName="modelAuditoria.bc.vistaNoDML.AccesoTokenViewNoDML"/>
+  <ViewLinkUsage
+    Name="AuditoriaEventoFkLink1"
+    ViewLinkObjectName="modelAuditoria.bc.vista.link.AuditoriaEventoFkLink"
+    SrcViewUsageName="modelAuditoria.bc.AuditoriaModulo.Auditoria_AuditoriaView1"
+    DstViewUsageName="modelAuditoria.bc.AuditoriaModulo.Auditoria_AuditoriaEventoView1"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AuditoriaParametroFkLink1"
+    ViewLinkObjectName="modelAuditoria.bc.vista.link.AuditoriaParametroFkLink"
+    SrcViewUsageName="modelAuditoria.bc.AuditoriaModulo.Auditoria_AuditoriaView1"
+    DstViewUsageName="modelAuditoria.bc.AuditoriaModulo.Auditoria_AuditoriaParametroView1"
+    Reversed="false"/>
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="modelAuditoria.bc.AuditoriaModulo_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAuditoria.ModelAuditoriaBundle"/>
+  </ResourceBundle>
+</AppModule>

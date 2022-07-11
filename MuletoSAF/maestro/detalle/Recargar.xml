@@ -1,0 +1,25 @@
+#{pageFlowScope.hAccionValueId}
+
+
+
+<parameter id="hAccion" value="0"/>
+<parameter id="hAccionValueId" value="#{bindings.IdUsuario.inputValue}"/>
+
+<parameter id="hPermisoCrear" value="#{pageFlowScope.pPermisoCrear}"/>
+<parameter id="hPermisoActualizar" value="#{pageFlowScope.pPermisoActualizar}"/>
+<parameter id="hPermisoBorrar" value="#{pageFlowScope.pPermisoBorrar}"/>
+<parameter id="hPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+
+
+
+
+<!--Sin Seguriades-->
+"Usuario" NDValue="[13a]" NDType="java.lang.String"/>
+"UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+<!--Con Seguriades-->
+"Usuario" NDValue="#{securityContext.userName}" NDType="java.lang.String"/>
+"UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+ 
+
+
+>>>> rendered="#{bindings.Idxxxxx.inputValue  ne 0}

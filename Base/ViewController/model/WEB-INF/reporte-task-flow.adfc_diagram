@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <MethodCall
+      id="MethodCall2">
+      <property
+         name="activityId">base_excelBuscarArchivos</property>
+      <property
+         name="x">305.41406</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>base_excelBuscarArchivos&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">245.46875</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <View
+      id="View3">
+      <property
+         name="activityId">ListaFrg</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">636.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ListaFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">239.75</property>
+      <property
+         name="page">/reporte/ListaFrg.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="MethodCall2"
+      to="View3">
+      <property
+         name="fromOutcome">base_excelBuscarArchivos</property>
+      <property
+         name="sdm:polyPoints">R50,346.41406,245.4375,595.0,239.71875,L50</property>
+   </ControlFlowCase>
+</SDM>

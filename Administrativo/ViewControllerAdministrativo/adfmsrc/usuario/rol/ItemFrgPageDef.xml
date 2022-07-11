@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ItemFrgPageDef"
+                Package="usuario.rol">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RolUsuarioView1" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="RolUsuarioView1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="RolUsuarioView1Iterator" id="IdRolUsuario">
+      <AttrNames>
+        <Item Value="IdRolUsuario"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="RolUsuarioView1Iterator" StaticList="false" Uses="LOV_IdRol" id="IdRol" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <list IterBinding="RolUsuarioView1Iterator" StaticList="false" Uses="LOV_IdUsuario" id="IdUsuario"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="RolUsuarioView1Iterator" id="Usuario">
+      <AttrNames>
+        <Item Value="Usuario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RolUsuarioView1Iterator" id="UsuarioFecha">
+      <AttrNames>
+        <Item Value="UsuarioFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RolUsuarioView1Iterator" id="UsuarioPrograma">
+      <AttrNames>
+        <Item Value="UsuarioPrograma"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="RolUsuarioView1Iterator" id="Execute"
+            InstanceName="AdministrativoModuloDataControl.RolUsuarioView1"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="RolUsuarioView1Iterator" id="Delete"
+            InstanceName="AdministrativoModuloDataControl.RolUsuarioView1" DataControl="AdministrativoModuloDataControl"
+            RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

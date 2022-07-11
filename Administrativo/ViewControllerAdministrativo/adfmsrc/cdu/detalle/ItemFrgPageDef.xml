@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ItemFrgPageDef"
+                Package="cdu.detalle">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CodigoDefinidoUsuarioDetalleView2" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="CodigoDefinidoUsuarioDetalleView2Iterator"/>
+    <page path="plantilla.itemFrgPageDef" id="ptb2" Refresh="ifNeeded"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="IdCodigoDefinidoUsuario">
+      <AttrNames>
+        <Item Value="IdCodigoDefinidoUsuario"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" StaticList="false" Uses="LOV_IdModulo" id="IdModulo"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" StaticList="false" Uses="LOV_Grupo" id="Grupo"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="CodigoTexto">
+      <AttrNames>
+        <Item Value="CodigoTexto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="CodigoNumero">
+      <AttrNames>
+        <Item Value="CodigoNumero"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="Descripcion">
+      <AttrNames>
+        <Item Value="Descripcion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="Orden">
+      <AttrNames>
+        <Item Value="Orden"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" StaticList="false" Uses="LOV_Estado" id="Estado"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="Usuario">
+      <AttrNames>
+        <Item Value="Usuario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="UsuarioFecha">
+      <AttrNames>
+        <Item Value="UsuarioFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="UsuarioPrograma">
+      <AttrNames>
+        <Item Value="UsuarioPrograma"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <action IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="Execute"
+            InstanceName="AdministrativoModuloDataControl.CodigoDefinidoUsuarioDetalleView2"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="Delete"
+            InstanceName="AdministrativoModuloDataControl.CodigoDefinidoUsuarioDetalleView2"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-template id="maestro-template">
+    <template-reference>
+      <document>/plantilla/maestro-base-template.xml</document>
+      <id>maetro-base-template</id>
+    </template-reference>
+    <default-activity>router</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <exception-handler>Error</exception-handler>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="ActionCrear">
+      <method>#{BaseBean.accionTaskFlowCrear}</method>
+    </method-call>
+    <method-call id="ActionEditar">
+      <method>#{BaseBean.accionTaskFlowEditar}</method>
+    </method-call>
+    <use-page-fragments/>
+  </task-flow-template>
+</adfc-config>

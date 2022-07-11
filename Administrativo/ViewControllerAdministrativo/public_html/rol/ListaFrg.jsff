@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1" >
+        <f:attribute name="titulo" value="#{bnd.rol_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.rol_listaFrg_descripcion}"/>
+        <f:facet name="elementoBusqueda">
+            <af:query id="qryId1" headerText="#{bnd.msg_busquea_titulo}"
+                      value="#{bindings.RolViewCriteriaQuery.queryDescriptor}"
+                      model="#{bindings.RolViewCriteriaQuery.queryModel}"
+                      queryListener="#{bindings.RolViewCriteriaQuery.processQuery}"
+                      queryOperationListener="#{bindings.RolViewCriteriaQuery.processQueryOperation}"
+                      
+                      
+                      conjunctionReadOnly="true" searchButtonText="#{bnd.btn_buscar}"
+                      resetButtonText="#{bnd.btn_limpiar}" labelWidth="240" saveQueryMode="hidden"
+                      modeChangeVisible="false" disclosed="true" resultComponentId="::resId1"
+                      
+                      
+                      />
+        </f:facet>
+        <f:facet name="elementoCentro">
+            <af:table value="#{bindings.RolView1.collectionModel}" var="row" rows="#{bindings.RolView1.rangeSize}"
+                      emptyText="#{bindings.RolView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.RolView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.RolView1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.RolView1.rangeSize}" id="resId1" columnStretching="column:resId1c2"
+                      scrollPolicy="page"
+                      >
+                <?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                <af:column headerText="#{bindings.RolView1.hints.IdRol.label}" id="resId1c1">
+                    <af:outputText value="#{row.IdRol}" shortDesc="#{bindings.RolView1.hints.IdRol.tooltip}" id="ot1">
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.RolView1.hints.IdRol.format}"/>
+                    </af:outputText>
+                </af:column>
+                <af:column headerText="#{bindings.RolView1.hints.Nombre.label}" id="resId1c2">
+                    <af:link text="#{row.Nombre}" id="l1" action="Editar"/>
+                </af:column>
+                <af:column headerText="#{bindings.RolView1.hints.Tipo.label}" id="resId1c3">
+                    <af:selectOneChoice value="#{row.bindings.Tipo.inputValue}" label="#{row.bindings.Tipo.label}"
+                                        required="#{bindings.RolView1.hints.Tipo.mandatory}"
+                                        shortDesc="#{bindings.RolView1.hints.Tipo.tooltip}" readOnly="true" id="soc1">
+                        <f:selectItems value="#{row.bindings.Tipo.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.Tipo.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.RolView1.hints.Estado.label}" id="resId1c4">
+                    <af:selectOneChoice value="#{row.bindings.Estado.inputValue}" label="#{row.bindings.Estado.label}"
+                                        required="#{bindings.RolView1.hints.Estado.mandatory}"
+                                        shortDesc="#{bindings.RolView1.hints.Estado.tooltip}" readOnly="true" id="soc2">
+                        <f:selectItems value="#{row.bindings.Estado.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.Estado.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+            </af:table>
+        </f:facet>
+        <f:facet name="elementoAcciones">
+                            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                        crearTexto="#{bnd.menu_listaFrg_boton_crear}"
+                                        crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
+        </f:facet>
+    </af:pageTemplate>
+</jsp:root>

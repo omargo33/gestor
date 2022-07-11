@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+        <f:attribute name="titulo" value="#{bnd.usuario_rol_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.usuario_rol_listaFrg_descripcion}"/>
+        <f:facet name="elementoBusqueda"/>
+        <f:facet name="elementoCentro">
+            <af:table value="#{bindings.RolUsuarioView1.collectionModel}" var="row"
+                      rows="#{bindings.RolUsuarioView1.rangeSize}"
+                      emptyText="#{bindings.RolUsuarioView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0" selectedRowKeys="#{bindings.RolUsuarioView1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.RolUsuarioView1.collectionModel.makeCurrent}" rowSelection="single"
+                      fetchSize="#{bindings.RolUsuarioView1.rangeSize}" id="t1" columnStretching="column:c3"
+                      scrollPolicy="page">
+                <?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                <af:column headerText="#{bindings.RolUsuarioView1.hints.IdRolUsuario.label}" id="c1">
+                    <af:link text="#{row.IdRolUsuario}" id="l1" action="Editar"/>
+                </af:column>
+                <af:column headerText="#{bindings.RolUsuarioView1.hints.IdRol.label}" id="c2">
+                    <af:selectOneChoice value="#{row.bindings.IdRol.inputValue}" label="#{row.bindings.IdRol.label}"
+                                        required="#{bindings.RolUsuarioView1.hints.IdRol.mandatory}"
+                                        shortDesc="#{bindings.RolUsuarioView1.hints.IdRol.tooltip}" readOnly="true"
+                                        id="soc1">
+                        <f:selectItems value="#{row.bindings.IdRol.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.IdRol.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.RolUsuarioView1.hints.IdUsuario.label}" id="c3">
+                    <af:selectOneChoice value="#{row.bindings.IdUsuario.inputValue}"
+                                        label="#{row.bindings.IdUsuario.label}"
+                                        required="#{bindings.RolUsuarioView1.hints.IdUsuario.mandatory}"
+                                        shortDesc="#{bindings.RolUsuarioView1.hints.IdUsuario.tooltip}" readOnly="true"
+                                        id="soc2">
+                        <f:selectItems value="#{row.bindings.IdUsuario.items}" id="si2"/>
+                        <f:validator binding="#{row.bindings.IdUsuario.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+                <af:column headerText="#{bindings.RolUsuarioView1.hints.UsuarioFecha.label}" id="c4">
+                    <af:outputText value="#{row.UsuarioFecha}"
+                                   shortDesc="#{bindings.RolUsuarioView1.hints.UsuarioFecha.tooltip}" id="ot2">
+                        <af:convertDateTime pattern="#{bindings.RolUsuarioView1.hints.UsuarioFecha.format}"/>
+                    </af:outputText>
+                </af:column>
+            </af:table>
+        </f:facet>
+        <f:facet name="elementoAcciones">
+            <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                    crearTexto="#{bnd.usuario_rol_listaFrg_boton_crear}"
+                                    crearPermiso="#{pageFlowScope.hPermisoCrear}"/>
+        </f:facet>
+    </af:pageTemplate>
+</jsp:root>

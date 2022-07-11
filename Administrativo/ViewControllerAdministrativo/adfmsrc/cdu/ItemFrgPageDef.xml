@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ItemFrgPageDef" Package="cdu">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CodigoDefinidoUsuarioEncabezadoView1" RangeSize="25"
+              DataControl="AdministrativoModuloDataControl" id="CodigoDefinidoUsuarioEncabezadoView1Iterator"/>
+    <taskFlow id="cdudetalletaskflow1" taskFlowId="/WEB-INF/cdu-detalle-task-flow.xml#cdu-detalle-task-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="hAccion" value="0"/>
+        <parameter id="hAccionValueId" value="#{bindings.IdCodigoDefinidoUsuario.inputValue}"/>
+        <parameter id="hPermisoCrear" value="#{pageFlowScope.pPermisoCrear}"/>
+        <parameter id="hPermisoActualizar" value="#{pageFlowScope.pPermisoActualizar}"/>
+        <parameter id="hPermisoBorrar" value="#{pageFlowScope.pPermisoBorrar}"/>
+        <parameter id="hPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="IdCodigoDefinidoUsuario">
+      <AttrNames>
+        <Item Value="IdCodigoDefinidoUsuario"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" StaticList="false" Uses="LOV_IdModulo"
+          id="IdModulo" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="Grupo">
+      <AttrNames>
+        <Item Value="Grupo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="CodigoTexto">
+      <AttrNames>
+        <Item Value="CodigoTexto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="CodigoNumero">
+      <AttrNames>
+        <Item Value="CodigoNumero"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="Descripcion">
+      <AttrNames>
+        <Item Value="Descripcion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="Orden">
+      <AttrNames>
+        <Item Value="Orden"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" StaticList="false" Uses="LOV_Estado" id="Estado"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="Usuario">
+      <AttrNames>
+        <Item Value="Usuario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="UsuarioFecha">
+      <AttrNames>
+        <Item Value="UsuarioFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="UsuarioPrograma">
+      <AttrNames>
+        <Item Value="UsuarioPrograma"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="Execute"
+            InstanceName="AdministrativoModuloDataControl.CodigoDefinidoUsuarioEncabezadoView1"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+  </bindings>
+</pageDefinition>

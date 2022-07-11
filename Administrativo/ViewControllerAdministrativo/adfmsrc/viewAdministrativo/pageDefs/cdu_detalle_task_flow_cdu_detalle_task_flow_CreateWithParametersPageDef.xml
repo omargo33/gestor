@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="cdu_detalle_task_flow_cdu_detalle_task_flow_CreateWithParametersPageDef"
+                Package="viewAdministrativo.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="CodigoDefinidoUsuarioDetalleView2" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="CodigoDefinidoUsuarioDetalleView2Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="CodigoDefinidoUsuarioDetalleView2Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams"
+            InstanceName="AdministrativoModuloDataControl.CodigoDefinidoUsuarioDetalleView2"
+            DataControl="AdministrativoModuloDataControl">      
+      <NamedData NDName="Usuario" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+      <NamedData NDName="UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+      
+    </action>
+  </bindings>
+</pageDefinition>

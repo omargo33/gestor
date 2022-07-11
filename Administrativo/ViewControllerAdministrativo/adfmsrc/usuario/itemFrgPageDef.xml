@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="itemFrgPageDef"
+                Package="usuario">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UsuarioView1" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="UsuarioView1Iterator" Refresh="ifNeeded"/>
+    <taskFlow id="usuarioroldetalletaskflow1"
+              taskFlowId="/WEB-INF/usuario-rol-detalle-task-flow.xml#usuario-rol-detalle-task-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"
+              RefreshCondition="#{bindings.IdUsuario.inputValue ne 0}">
+      <parameters>
+        <parameter id="hAccion" value="0"/>
+        <parameter id="hAccionValueId" value="#{bindings.IdUsuario.inputValue}"/>
+        <parameter id="hPermisoCrear" value="#{pageFlowScope.pPermisoCrear}"/>
+        <parameter id="hPermisoActualizar" value="#{pageFlowScope.pPermisoActualizar}"/>
+        <parameter id="hPermisoBorrar" value="#{pageFlowScope.pPermisoBorrar}"/>
+        <parameter id="hPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="usuariotokentaskflow1" taskFlowId="/WEB-INF/usuario-token-task-flow.xml#usuario-token-task-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"
+              RefreshCondition="#{bindings.IdUsuario.inputValue ne 0}">
+      <parameters>
+        <parameter id="pNick" value="#{bindings.Nick.inputValue}"/>
+        <parameter id="hAccion" value="0"/>
+        <parameter id="hAccionValueId" value="#{bindings.IdUsuario.inputValue}"/>
+        <parameter id="hPermisoCrear" value="#{pageFlowScope.pPermisoCrear}"/>
+        <parameter id="hPermisoActualizar" value="#{pageFlowScope.pPermisoActualizar}"/>
+        <parameter id="hPermisoBorrar" value="#{pageFlowScope.pPermisoBorrar}"/>
+        <parameter id="hPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+      </parameters>
+    </taskFlow>
+    <taskFlow id="usuariomodulotaskflow1" taskFlowId="/WEB-INF/usuario-modulo-task-flow.xml#usuario-modulo-task-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"
+              RefreshCondition="#{bindings.IdUsuario.inputValue ne 0}">
+      <parameters>
+        <parameter id="hAccion" value="0"/>
+        <parameter id="hPermisoCrear" value="#{bindings.IdUsuario.inputValue}"/>
+        <parameter id="hPermisoActualizar" value="#{pageFlowScope.pPermisoCrear}"/>
+        <parameter id="hPermisoBorrar" value="#{pageFlowScope.pPermisoActualizar}"/>
+        <parameter id="hPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="IdUsuario">
+      <AttrNames>
+        <Item Value="IdUsuario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="Nick">
+      <AttrNames>
+        <Item Value="Nick"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="Apellido">
+      <AttrNames>
+        <Item Value="Apellido"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="Usuario1">
+      <AttrNames>
+        <Item Value="Usuario1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="Validador">
+      <AttrNames>
+        <Item Value="Validador"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="UsuarioFecha">
+      <AttrNames>
+        <Item Value="UsuarioFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UsuarioView1Iterator" id="UsuarioPrograma">
+      <AttrNames>
+        <Item Value="UsuarioPrograma"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="UsuarioView1Iterator" StaticList="false" Uses="LOV_Estado" id="Estado" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action IterBinding="UsuarioView1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction"
+            DataControl="AdministrativoModuloDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction"
+            DataControl="AdministrativoModuloDataControl"/>
+    <action IterBinding="UsuarioView1Iterator" id="Delete" InstanceName="AdministrativoModuloDataControl.UsuarioView1"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>
