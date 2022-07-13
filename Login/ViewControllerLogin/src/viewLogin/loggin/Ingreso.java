@@ -1,1 +1,83 @@
-package viewLogin.loggin;import javax.faces.context.ExternalContext;import oracle.adf.model.BindingContext;import oracle.binding.BindingContainer;import oracle.binding.OperationBinding;import view.plantilla.BaseBean;import viewLogin.utilidades.Flow;/** * Objeto para dar soporte de ingreso. * * @author omargo33@hotmail.com */public class Ingreso extends BaseBean {    String token = "";    String url = "";    ExternalContext externalContext;    /**     * Metodo para crear objeto.     */    public Ingreso() {        super();        setNombreBundle(Flow.BUNDLE);    }    public BindingContainer getBindings() {        return BindingContext.getCurrent().getCurrentBindingsEntry();    }    /**     * Metodo para conocer el token y el URL.     *     * @return     */    public String actionIngresar() {        if (crearToken()) {            if (crearUrl()) {                                getSession().setAttribute("url", url);                getSession().setAttribute("token", token);                                return "login";                            }        }        return null;    }    /**     * Metodo para crear el token.     *     * @return     */    public boolean crearToken() {        BindingContainer bindings = getBindings();        OperationBinding operationBinding = bindings.getOperationBinding("validarUsuario");        token = String.valueOf(operationBinding.execute());        return operationBinding.getErrors().isEmpty();    }    /**     * Metodo para crear la URL.     *     * @return     */    private boolean crearUrl() {        BindingContainer bindings = getBindings();        OperationBinding operationBinding = bindings.getOperationBinding("contextoInicial");        url = String.valueOf(operationBinding.execute());        return operationBinding.getErrors().isEmpty();    }}
+  package WEB-INF.classes.viewLogin.loggin;
+  
+  import javax.faces.context.ExternalContext;
+  import oracle.adf.model.BindingContext;
+  import oracle.binding.BindingContainer;
+  import oracle.binding.OperationBinding;
+  import view.plantilla.BaseBean;
+  import viewLogin.loggin.Ingreso;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  public class Ingreso
+    extends BaseBean
+  {
+    String token = "";
+    String url = "";
+  
+  
+    
+    ExternalContext externalContext;
+  
+  
+    
+    public Ingreso() { setNombreBundle("viewLogin.ViewControllerLoginBundle"); }
+  
+  
+    
+    public BindingContainer getBindings() { return BindingContext.getCurrent().getCurrentBindingsEntry(); }
+  
+  
+  
+  
+  
+  
+    
+    public String actionIngresar() {
+      if (crearToken() && 
+        crearUrl()) {
+        getSession().setAttribute("url", this.url);
+        getSession().setAttribute("token", this.token);
+        return "login";
+      } 
+      
+      return null;
+    }
+  
+  
+  
+  
+  
+    
+    public boolean crearToken() {
+      BindingContainer bindings = getBindings();
+      OperationBinding operationBinding = bindings.getOperationBinding("validarUsuario");
+      this.token = String.valueOf(operationBinding.execute());
+      return operationBinding.getErrors().isEmpty();
+    }
+  
+  
+  
+  
+  
+    
+    private boolean crearUrl() {
+      BindingContainer bindings = getBindings();
+      OperationBinding operationBinding = bindings.getOperationBinding("contextoInicial");
+      this.url = String.valueOf(operationBinding.execute());
+      return operationBinding.getErrors().isEmpty();
+    }
+  }
+
+
+/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Login-001/Login-0013288132286885651299.war!/WEB-INF/classes/viewLogin/loggin/Ingreso.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.2
+ */

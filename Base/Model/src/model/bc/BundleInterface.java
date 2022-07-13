@@ -1,27 +1,13 @@
 package model.bc;
 
-
-/**
- * Implementaciones para entidades, Modulo de aplicacion y demas elemetnos.
- *
- * @author omargo33@hotmail.com
- *
- */
 public interface BundleInterface {
-
-    /**
-     * Metodo para setear el nombre del bundle.
-     *
-     * @param nombreBundle
-     */
-    public void setNombreBundle(String nombreBundle);
-
-    /**
-     * Metodo para usar el bundle.
-     *
-     * @param llaveBundle
-     * @param parametros
-     * @return
-     */
-    public String getBundle(String llaveBundle, Object... parametros);
+  void setNombreBundle(String paramString);
+  
+  String getBundle(String paramString, Object... paramVarArgs);
 }
+
+
+/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/bc/BundleInterface.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.2
+ */

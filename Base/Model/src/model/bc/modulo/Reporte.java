@@ -1,1 +1,114 @@
-package model.bc.modulo;import java.io.File;import java.io.IOException;import java.nio.file.Files;import java.nio.file.Path;import java.nio.file.Paths;import java.sql.ResultSet;import java.util.logging.Level;import java.util.logging.Logger;import model.bc.ModuloImpl;import model.utilidades.GeneradorClaves;import model.utilidades.GeneradorFile;import oracle.jbo.JboException;import oracle.jbo.Row;import oracle.jbo.VariableValueManager;import oracle.jbo.ViewCriteria;import oracle.jbo.ViewCriteriaManager;import oracle.jbo.ViewObject;/** * Objeto para generar un archivo y la entrada en el sistema de archivos. * * @author omargo33@hotmail.com */public class Reporte {    /**     * Metodo para generar un excel a partir desde una respuesta de ResulSet y esta se guarda en el sistema de archivos.     *     * @param moduloAplicacion     * @param resultSet     * @param nombreArchivo     * @param esquema     * @param tabla     * @param usuario     * @param usuarioPrograma     * @return idGr     */    public static int crearReporteExcel(ModuloImpl moduloAplicacion, ResultSet resultSet, String nombreArchivo,                                        String esquema, String tabla, String usuario, String usuarioPrograma) {        int codigoArchivo = 0;        int codigoUsuario = buscarUsuario(moduloAplicacion, usuario);        int codigoGrupo = Grupo.buscarGrupo(moduloAplicacion, codigoUsuario, esquema, tabla);        int largo = 0;        String nombreRamdon = codigoGrupo + "-" + GeneradorClaves.getPassword(GeneradorClaves.KEY_ALFANUMERICOS, 12);        String pathBase = moduloAplicacion.base_obtenerParametroTexto01("200");        String fullPath = GeneradorFile.creaDirectorio(pathBase, esquema, tabla, nombreRamdon);        String pathRelativo = fullPath.replaceFirst(pathBase, "");        String extension = "none";        if (codigoGrupo == 0) {            codigoGrupo =                Grupo.crearGrupo(moduloAplicacion, codigoUsuario, esquema, tabla, -1, "xls, xlsx, ", 1900, 1080, -1,                                 usuario, usuarioPrograma);        }        if (GeneradorFile.crearExcelFromResultSet(resultSet, tabla, fullPath)) {            try {                Path source = Paths.get(fullPath);                extension = Files.probeContentType(source);            } catch (IOException e) {                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.SEVERE, e.toString());            }            largo = (int) new File(fullPath).length();            codigoArchivo =                moduloAplicacion.base_archivoCrear(codigoGrupo, nombreArchivo, nombreRamdon, extension, pathRelativo,                                                   largo, "Archivo Generado al solicitar un reporte", usuario,                                                   usuarioPrograma);        } else {            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)                .log(Level.SEVERE, "No se pudo generar el repoerte " + nombreArchivo);            throw new JboException("No se pudo generar el repoerte " + nombreArchivo);        }        return codigoArchivo;    }        /**     * Metodo para buscar usuario a partir de un nick.     *     * @param moduloAplicacion     * @param nick     * @return     */    public static int buscarUsuario(ModuloImpl moduloAplicacion, String nick) {        int codigo = 0;        ViewObject vo = moduloAplicacion.getBase_UsuarioViewNoDML1();        ViewCriteriaManager vcm = vo.getViewCriteriaManager();        ViewCriteria vc = vcm.getViewCriteria("UsuarioViewNoDMLCriteriaByNick");        VariableValueManager vvm = vc.ensureVariableManager();        vvm.setVariableValue("v_nick", nick);        vo.applyViewCriteria(vc);        vo.executeQuery();        while (vo.hasNext()) {            Row r = vo.next();            codigo = (Integer) r.getAttribute("IdUsuario");        }        return codigo;    }}
+package model.bc.modulo;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.sql.ResultSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.bc.ModuloImpl;
+import model.bc.vistaNoDML.UsuarioViewNoDMLImpl;
+import model.utilidades.GeneradorClaves;
+import model.utilidades.GeneradorFile;
+import oracle.jbo.JboException;
+import oracle.jbo.Row;
+import oracle.jbo.VariableValueManager;
+import oracle.jbo.ViewCriteria;
+import oracle.jbo.ViewCriteriaManager;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class Reporte
+{
+  public static int crearReporteExcel(ModuloImpl moduloAplicacion, ResultSet resultSet, String nombreArchivo, String esquema, String tabla, String usuario, String usuarioPrograma) {
+      int codigoArchivo = 0;
+      int codigoUsuario = buscarUsuario(moduloAplicacion, usuario);
+      int codigoGrupo = Grupo.buscarGrupo(moduloAplicacion, codigoUsuario, esquema, tabla);
+      int largo = 0;
+    
+      String nombreRamdon = codigoGrupo + "-" + GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 12);
+      String pathBase = moduloAplicacion.base_obtenerParametroTexto01("200");
+      String fullPath = GeneradorFile.creaDirectorio(pathBase, esquema, tabla, nombreRamdon);
+      String pathRelativo = fullPath.replaceFirst(pathBase, "");
+      String extension = "none";
+    
+      if (codigoGrupo == 0)
+    {
+        codigoGrupo = Grupo.crearGrupo(moduloAplicacion, codigoUsuario, esquema, tabla, -1, "xls, xlsx, ", 1900, 1080, -1, usuario, usuarioPrograma);
+    }
+    
+      if (GeneradorFile.crearExcelFromResultSet(resultSet, tabla, fullPath)) {
+      try {
+          Path source = Paths.get(fullPath, new String[0]);
+          extension = Files.probeContentType(source);
+        } catch (IOException e) {
+          Logger.getLogger("global").log(Level.SEVERE, e.toString());
+      } 
+        largo = (int)(new File(fullPath)).length();
+      
+        codigoArchivo = moduloAplicacion.base_archivoCrear(codigoGrupo, nombreArchivo, nombreRamdon, extension, pathRelativo, largo, "Archivo Generado al solicitar un reporte", usuario, usuarioPrograma);
+    }
+    else {
+      
+        Logger.getLogger("global")
+          .log(Level.SEVERE, "No se pudo generar el repoerte " + nombreArchivo);
+        throw new JboException("No se pudo generar el repoerte " + nombreArchivo);
+    } 
+      return codigoArchivo;
+  }
+
+
+
+
+
+
+
+
+  
+  public static int buscarUsuario(ModuloImpl moduloAplicacion, String nick) {
+      int codigo = 0;
+    
+      UsuarioViewNoDMLImpl usuarioViewNoDMLImpl = moduloAplicacion.getBase_UsuarioViewNoDML1();
+      ViewCriteriaManager vcm = usuarioViewNoDMLImpl.getViewCriteriaManager();
+      ViewCriteria vc = vcm.getViewCriteria("UsuarioViewNoDMLCriteriaByNick");
+      VariableValueManager vvm = vc.ensureVariableManager();
+      vvm.setVariableValue("v_nick", nick);
+      usuarioViewNoDMLImpl.applyViewCriteria(vc);
+      usuarioViewNoDMLImpl.executeQuery();
+      while (usuarioViewNoDMLImpl.hasNext()) {
+        Row r = usuarioViewNoDMLImpl.next();
+        codigo = ((Integer)r.getAttribute("IdUsuario")).intValue();
+    } 
+      return codigo;
+  }
+}
+
+
+/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/bc/modulo/Reporte.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.2
+ */

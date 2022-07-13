@@ -300,5 +300,15 @@
           Type="java.lang.String"/>
       </Parameter>
     </Method>
+    <Method
+      Name="base_rolesByNick"
+      MethodName="base_rolesByNick">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="nick"
+        Type="java.lang.String"/>
+    </Method>
   </ClientInterface>
 </AppModule>

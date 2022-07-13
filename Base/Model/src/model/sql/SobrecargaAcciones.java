@@ -1,45 +1,50 @@
-package model.sql;
-
-import java.io.Serializable;
-
-import java.sql.SQLException;
-
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-/**
- * Objeto para poder sobrecargar la forma de actuar de los mentodos de conexion a la base de datos y a procesos en backgroud.
- *
- * @author omargo33@hotmail.com
- *
- */
-public class SobrecargaAcciones implements Serializable {
-    @SuppressWarnings("compatibility:6414916207457291239")
-
-    /**
-     * 
-     */
+  package model.sql;
+  
+  import java.io.Serializable;
+  import java.sql.SQLException;
+  import java.util.logging.Level;
+  import java.util.logging.Logger;
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  public class SobrecargaAcciones
+    implements Serializable
+  {
     private static final long serialVersionUID = 1L;
-    /**
-     * 
-     */
     private String NO_DEFINIDO = "<NO-DEFINIDO>";
+  
+  
+  
+  
+    
+    public void accionExtra() { Logger.getLogger("global").log(Level.INFO, this.NO_DEFINIDO); }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    public void eachWorkResultSet() throws SQLException, Exception { Logger.getLogger("global").log(Level.INFO, this.NO_DEFINIDO); }
+  }
 
-    /**
-     * Accion a ser invocada, la misma que tendra que ser reescrita pra su funcionamiento.
-     */
-    public void accionExtra() {
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, NO_DEFINIDO);
-    }
 
-    /**
-     * Metodo para eachWorkResult.
-     *
-     * @throws SQLException
-     * @throws Exception
-     */
-    @SuppressWarnings("oracle.jdeveloper.java.tag-is-missing")
-    public void eachWorkResultSet() throws SQLException, java.lang.Exception {
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, NO_DEFINIDO);
-    }
-}
+/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/sql/SobrecargaAcciones.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.2
+ */

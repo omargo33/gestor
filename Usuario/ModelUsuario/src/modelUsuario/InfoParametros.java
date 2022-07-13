@@ -1,1 +1,0 @@
-package modelUsuario;/** * Metodo para crear informacion de parametros del modulo. * * @author omargo33@hotmail.com */public class InfoParametros {    public static final String PARAMETRO_EXPRESION_REGULAR = "001";    public static final String PARAMETRO_PLANTILLA_NOTIFICACION = "002";    public static final String PARAMETRO_SERVER = "100";}

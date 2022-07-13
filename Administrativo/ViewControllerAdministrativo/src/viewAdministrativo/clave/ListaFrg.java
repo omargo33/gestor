@@ -1,1 +1,56 @@
-package viewAdministrativo.clave;import view.plantilla.BaseBean;import view.plantilla.utilidades.Flow;import view.utilidades.ADFUtils;public class ListaFrg extends BaseBean {    public ListaFrg() {        super();        setNombreBundle(Flow.BUNDLE);    }    public String cambiarClave() {        /* *         Map map = new HashMap<String, Object>();        Object rolUsuario = ADFUtils.evaluateEL("#{sessionScope.isCLI02}");        boolean isUsuario = (Boolean) rolUsuario;        if (isUsuario) {            map.put("idUsuario", convertirInt(ADFUtils.evaluateEL("#{sessionScope.idUsuario}")));        } else {            map.put("idUsuario", 0);        }        map.put("indiceAerolinea", convertirInt(getIt1().getValue()));        map.put("indiceAeropuertoOrigen", convertirInt(getIt2().getValue()));        map.put("indiceAeropuertoDestino", convertirInt(getIt3().getValue()));        map.put("indiceAeronave", convertirInt(getIt4().getValue()));        map.put("noVuelo", convertirString(getIt5().getValue()));        map.put("fechaInicio", convertirString(getId1().getValue()));        map.put("fechaFin", convertirString(getId2().getValue()));        ADFUtils.ejecutaAction(getBindings(), "ejecutarConsulta", null, null, map);        doPartialRefresh(getResId5()); */        if (ADFUtils.ejecutaAction(getBindings(), "cambiarClaveCompleto", null, null)) {            return "salir";        }        return null;    }}
+  package WEB-INF.classes.viewAdministrativo.clave;
+  
+  import view.plantilla.BaseBean;
+  import view.utilidades.ADFUtils;
+  import viewAdministrativo.clave.ListaFrg;
+  
+  
+  public class ListaFrg
+    extends BaseBean
+  {
+    public ListaFrg() { setNombreBundle("view.ViewUtilidadesBundle"); }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    public String cambiarClave() {
+      if (ADFUtils.ejecutaAction(getBindings(), "cambiarClaveCompleto", null, null))
+      {
+        return "salir";
+      }
+  
+      
+      return null;
+    }
+  }
+
+
+/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Administrativo-001/Administrativo-0013319179167455158583.war!/WEB-INF/classes/viewAdministrativo/clave/ListaFrg.class
+ * Java compiler version: 8 (52.0)
+ * JD-Core Version:       1.1.2
+ */
