@@ -1,11 +1,7 @@
-  package WEB-INF.classes.viewAdministrativo.utilidades;
-  
-  
-  
-  
-  
-  
-  public class Flow
+  package viewAdministrativo.utilidades;
+
+
+public class Flow
   {
     public static final String BUNDLE = "viewAdministrativo.ViewControllerAdministrativoBundle";
     public static final String ACCION_ROLLBACK = "Rollback";
