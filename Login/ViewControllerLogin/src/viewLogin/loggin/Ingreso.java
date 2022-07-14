@@ -1,4 +1,4 @@
-  package WEB-INF.classes.viewLogin.loggin;
+  package viewLogin.loggin;
   
   import javax.faces.context.ExternalContext;
   import oracle.adf.model.BindingContext;

@@ -1,4 +1,4 @@
-  package WEB-INF.classes.modelLogin.bc.modulo;
+  package modelLogin.bc.modulo;
   
   import java.sql.ResultSet;
   import java.sql.Timestamp;

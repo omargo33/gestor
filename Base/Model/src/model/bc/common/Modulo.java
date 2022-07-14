@@ -1,5 +1,7 @@
 package model.bc.common;
 
+import java.math.BigDecimal;
+
 import java.util.Date;
 import java.util.Map;
 import oracle.jbo.ApplicationModule;
@@ -24,6 +26,12 @@ public interface Modulo extends ApplicationModule {
   int base_crearNotificacion(int paramInt1, int paramInt2, String paramString1, String paramString2, String paramString3, String paramString4, Date paramDate, String paramString5, String paramString6, Map<String, String> paramMap1, Map<String, String> paramMap2);
   
   String base_rolesByNick(String paramString);
+
+    BigDecimal base_obtenerParametroNumerico01(String indiceParametro);
+
+    BigDecimal base_obtenerParametroNumerico02(String indiceParametro);
+
+    String base_obtenerParametroTexto02(String indiceParametro);
 }
 
 

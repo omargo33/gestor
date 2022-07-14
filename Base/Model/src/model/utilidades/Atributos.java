@@ -1,118 +1,69 @@
 package model.utilidades;
 
-import java.sql.Date;
+
 import java.sql.Timestamp;
+
 import java.util.Date;
+
 import oracle.jbo.Row;
+
 import org.apache.commons.lang3.StringUtils;
 
 
+public class Atributos {
+    public static final String NO_APLICA = "<NO APLICA>";
 
-
-
-
-
-
-
-
-
-
-
-
-
-public class Atributos
-{
-  public static final String NO_APLICA = "<NO APLICA>";
-  
-  public static String stringNoNull(Object valor, String datoIntercambio) {
-      if (StringUtils.isBlank(String.valueOf(valor))) {
-        return datoIntercambio;
+    public static String stringNoNull(Object valor, String datoIntercambio) {
+        if (StringUtils.isBlank(String.valueOf(valor))) {
+            return datoIntercambio;
+        }
+        return String.valueOf(valor).trim();
     }
-      return String.valueOf(valor).trim();
-  }
 
 
+    public static Integer intValue(Object valor) {
+        Integer respuesta = Integer.valueOf(0);
+        if (valor != null)
+            if (valor instanceof Integer) {
+                respuesta = (Integer) valor;
+            } else {
+
+                respuesta = Integer.valueOf(-1);
+            }
+        return respuesta;
+    }
 
 
+    public static String stringLargo(Object valor, String datoIntercambio, int largo) {
+        String respuesta = stringNoNull(valor, datoIntercambio);
+        return StringUtils.substring(respuesta, 0, largo);
+    }
 
 
-  
-  public static Integer intValue(Object valor) {
-      Integer respuesta = Integer.valueOf(0);
-      if (valor != null)
-        if (valor instanceof Integer) {
-          respuesta = (Integer)valor;
-      } else {
-        
-          respuesta = Integer.valueOf(-1);
-      }  
-      return respuesta;
-  }
+    public String nvl(Row row, int campo, String datoIntercambio) {
+        return (row.getAttribute(campo) == null) ? datoIntercambio : row.getAttribute(campo).toString();
+    }
 
 
+    public static Timestamp sysTime(long milisegundos) {
+        return new Timestamp((new Date()).getTime() + milisegundos);
+    }
 
 
+    public static Timestamp sysTime() {
+        return sysTime(0L);
+    }
 
 
+    public static Date sysDate() {
+        return sysDate(0L);
+    }
 
 
-
-  
-  public static String stringLargo(Object valor, String datoIntercambio, int largo) {
-      String respuesta = stringNoNull(valor, datoIntercambio);
-      return StringUtils.substring(respuesta, 0, largo);
-  }
-
-
-
-
-
-
-
-
-
-  
-    public String nvl(Row row, int campo, String datoIntercambio) { return (row.getAttribute(campo) == null) ? datoIntercambio : row.getAttribute(campo).toString(); }
-
-
-
-
-
-
-
-
-  
-    public static Timestamp sysTime(long milisegundos) { return new Timestamp((new Date()).getTime() + milisegundos); }
-
-
-
-
-
-
-
-  
-    public static Timestamp sysTime() { return sysTime(0L); }
-
-
-
-
-
-
-
-  
-    public static Date sysDate() { return sysDate(0L); }
-
-
-
-
-
-
-
-  
-  public static Date sysDate(long milisegundos) {
-      Date sqlDate = new Date((new Date()).getTime() + milisegundos);
-      return sqlDate;
-  }
+    public static Date sysDate(long milisegundos) {
+        Date sqlDate = new Date((new Date()).getTime() + milisegundos);
+        return sqlDate;
+    }
 }
 
 

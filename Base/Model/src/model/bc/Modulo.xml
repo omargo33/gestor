@@ -310,5 +310,35 @@
         Name="nick"
         Type="java.lang.String"/>
     </Method>
+    <Method
+      Name="base_obtenerParametroNumerico01"
+      MethodName="base_obtenerParametroNumerico01">
+      <Return
+        Name="_return_type_"
+        Type="java.math.BigDecimal"/>
+      <Parameter
+        Name="indiceParametro"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="base_obtenerParametroNumerico02"
+      MethodName="base_obtenerParametroNumerico02">
+      <Return
+        Name="_return_type_"
+        Type="java.math.BigDecimal"/>
+      <Parameter
+        Name="indiceParametro"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="base_obtenerParametroTexto02"
+      MethodName="base_obtenerParametroTexto02">
+      <Return
+        Name="_return_type_"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="indiceParametro"
+        Type="java.lang.String"/>
+    </Method>
   </ClientInterface>
 </AppModule>

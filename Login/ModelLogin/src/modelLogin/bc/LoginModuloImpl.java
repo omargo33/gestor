@@ -1,4 +1,4 @@
-  package WEB-INF.classes.modelLogin.bc;
+  package modelLogin.bc;
   
   import modelAuditoria.bc.AuditoriaModuloImpl;
   import modelLogin.bc.LoginModuloImpl;

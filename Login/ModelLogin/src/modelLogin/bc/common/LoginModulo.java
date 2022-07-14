@@ -1,6 +1,7 @@
-package WEB-INF.classes.modelLogin.bc.common;
+package modelLogin.bc.common;
 
 import java.math.BigDecimal;
+
 import model.bc.common.Modulo;
 
 public interface LoginModulo extends Modulo {

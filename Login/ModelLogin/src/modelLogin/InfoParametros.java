@@ -1,4 +1,4 @@
-package WEB-INF.classes.modelLogin;
+package modelLogin;
 
 public class InfoParametros {
   public static final String PARAMETRO_CONTADOR_INGRESO = "001";

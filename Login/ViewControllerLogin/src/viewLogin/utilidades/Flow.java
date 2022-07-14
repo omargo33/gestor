@@ -1,4 +1,4 @@
-package WEB-INF.classes.viewLogin.utilidades;
+package viewLogin.utilidades;
 
 public class Flow {
   public static final String BUNDLE = "viewLogin.ViewControllerLoginBundle";
