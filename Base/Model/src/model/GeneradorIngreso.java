@@ -12,8 +12,8 @@ public class GeneradorIngreso {
         //String usuario = "aerocivil";
         String usuario = "admin";
         String clave = "admin1admin";
-        //String aplicacion = "Manifiesto-001";
-        String aplicacion = "Administrativo-001";        
+        String aplicacion = "Manifiesto-001";
+        //String aplicacion = "Administrativo-001";        
         String puertoWebLogic = "7101";
         String puertoGlass = "28083";
 

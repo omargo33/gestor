@@ -69,6 +69,9 @@
       <string v="oracle.adfdtinternal.model.ide.settings.ADFMSettings/adfmContentSet"/>
    </list>
    <value n="defaultPackage" v="viewAdministrativo"/>
+   <hash n="oracle.adfdtinternal.model.ide.settings.ADFMSettings">
+      <value n="hasDataControls" v="true"/>
+   </hash>
    <hash n="oracle.adfdtinternal.view.rich.setting.ADFViewSettings">
       <value n="ENABLE_ADF_WEBAPP_LIB_SUPPORT" v="true"/>
    </hash>
@@ -315,10 +318,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="BC4J Security"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -370,6 +369,10 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -381,14 +384,6 @@
                <value n="description" v="LibModel-1.0-SNAPSHOT.jar"/>
                <value n="id" v="LibModel-1.0-SNAPSHOT.jar"/>
                <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ADF Library"/>
-               <value n="id" v="ADF Library"/>
             </hash>
             <hash>
                <list n="classPath">
@@ -407,6 +402,14 @@
                <value n="description" v="BaseViewLib-01.jar"/>
                <value n="id" v="BaseViewLib-01.jar"/>
                <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
             </hash>
          </list>
       </hash>
@@ -512,10 +515,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <value n="id" v="BC4J Security"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -569,6 +568,10 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>
@@ -744,17 +747,6 @@
          </hash>
          <hash>
             <hash n="baseLibrary">
-               <value n="name" v="baseLib01"/>
-               <value n="version" v="1.0"/>
-            </hash>
-            <value n="jspVersion" v="2.1"/>
-            <value n="name" v="baseLib01"/>
-            <value n="tldURL" v="jar:file:/home/omarv/jdeveloper/mywork12214/SAF/Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
-            <value n="URI" v="/baseLib01"/>
-            <value n="version" v="1.0"/>
-         </hash>
-         <hash>
-            <hash n="baseLibrary">
                <value n="name" v="ADF Data Visualization"/>
                <value n="version" v="1.1"/>
             </hash>
@@ -763,6 +755,17 @@
             <value n="tldURL" v="@oracle.home@../oracle_common/modules/oracle.adf.view/dvt-faces.jar!/META-INF/bi.tld"/>
             <value n="URI" v="http://xmlns.oracle.com/dss/adf/faces"/>
             <value n="version" v="1.1"/>
+         </hash>
+         <hash>
+            <value n="jspVersion" v="2.1"/>
+            <value n="libraries" v="ADF Library"/>
+            <value n="name" v="baseLib01"/>
+            <value n="prefix" v="bl01"/>
+            <value n="runInEditor" v="true"/>
+            <value n="showInPalette" v="true"/>
+            <value n="tldURL" v="@project@../../Lib/BaseViewADFLib-01.jar!/META-INF/baseLib01.tld"/>
+            <value n="URI" v="/baseLib01"/>
+            <value n="version" v="1.0"/>
          </hash>
       </list>
    </hash>
