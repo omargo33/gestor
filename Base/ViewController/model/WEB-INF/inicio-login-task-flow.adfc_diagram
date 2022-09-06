@@ -63,11 +63,15 @@
    </UrlView>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase6"
+      id="ControlFlowCase7"
       from="View3"
       to="MethodCall2">
       <property
-         name="fromOutcome">salir</property>
+         name="tosrcid">__2</property>
+      <property
+         name="fromOutcome">Salir</property>
+      <property
+         name="fromsrcid">__1</property>
       <property
          name="sdm:polyPoints">R50,163.0,154.59375,292.15625,148.375,L50</property>
    </ControlFlowCase>
