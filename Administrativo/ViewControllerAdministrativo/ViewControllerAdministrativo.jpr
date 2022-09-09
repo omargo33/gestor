@@ -92,6 +92,7 @@
          <string v="ADFc"/>
          <string v="ADFm"/>
          <string v="Database"/>
+         <string v="JAVASCRIPT"/>
          <string v="JSF"/>
          <string v="JSP"/>
          <string v="Java"/>
@@ -396,20 +397,20 @@
             </hash>
             <hash>
                <list n="classPath">
+                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
+            </hash>
+            <hash>
+               <list n="classPath">
                   <url path="../../Lib/BaseViewLib-01.jar" jar-entry=""/>
                </list>
                <value n="deployedByDefault" v="true"/>
                <value n="description" v="BaseViewLib-01.jar"/>
                <value n="id" v="BaseViewLib-01.jar"/>
                <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ADF Library"/>
-               <value n="id" v="ADF Library"/>
             </hash>
          </list>
       </hash>

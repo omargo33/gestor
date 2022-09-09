@@ -10,17 +10,19 @@ import model.utilidades.estructuras.AccesoXML;
 public class GeneradorIngreso {
     public static void main(String[] args) {
         //String usuario = "aerocivil";
-        String usuario = "admin";
+        String usuario = "aerocivil";
+        
+        //String usuario = "joy";
         String clave = "admin1admin";
-        String aplicacion = "Manifiesto-001";
-        //String aplicacion = "Administrativo-001";        
+        //String aplicacion = "Manifiesto-001";
+        String aplicacion = "Manifiesto-001";        
         String puertoWebLogic = "7101";
-        String puertoGlass = "28083";
+        String puertoGlass = "28082";
 
 
         String semilla = GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 32);
         Date fechaInicio = new Date();
-        Date fechaFin = addMinutosToDate(fechaInicio, 1440);
+        Date fechaFin = addMinutosToDate(fechaInicio, 20);
 
         AccesoXML accesoXML = new AccesoXML();
         accesoXML.setFechaEmision(fechaInicio.getTime());
@@ -53,7 +55,7 @@ public class GeneradorIngreso {
     private static Date addMinutosToDate(Date fecha, int minutos) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(fecha);
-        calendar.add(12, minutos);
+        calendar.add(Calendar.MINUTE, minutos);
         return calendar.getTime();
     }
 }
