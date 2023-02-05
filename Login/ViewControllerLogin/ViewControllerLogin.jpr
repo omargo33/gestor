@@ -305,10 +305,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <url n="id" path="../../../../../.jdeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/BaseViewADFLib-01.jar.library"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -318,10 +314,6 @@
          </hash>
          <hash>
             <value n="id" v="Adf-share-glassfish.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BaseViewLib-01.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -356,6 +348,14 @@
             <value n="id" v="BC4J Oracle Domains"/>
             <value n="isJDK" v="false"/>
          </hash>
+         <hash>
+            <value n="id" v="BaseViewLib-01.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
+            <value n="isJDK" v="false"/>
+         </hash>
       </list>
       <hash n="internalDefinitions">
          <list n="libraryDefinitions">
@@ -367,14 +367,6 @@
                <value n="description" v="LibModel-1.0-SNAPSHOT.jar"/>
                <value n="id" v="LibModel-1.0-SNAPSHOT.jar"/>
                <value n="locked" v="true"/>
-            </hash>
-            <hash>
-               <list n="classPath">
-                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
-               </list>
-               <value n="deployedByDefault" v="true"/>
-               <value n="description" v="ADF Library"/>
-               <value n="id" v="ADF Library"/>
             </hash>
             <hash>
                <list n="classPath">
@@ -393,6 +385,14 @@
                <value n="description" v="BaseViewLib-01.jar"/>
                <value n="id" v="BaseViewLib-01.jar"/>
                <value n="locked" v="true"/>
+            </hash>
+            <hash>
+               <list n="classPath">
+                  <url path="../../Lib/BaseViewADFLib-01.jar" jar-entry=""/>
+               </list>
+               <value n="deployedByDefault" v="true"/>
+               <value n="description" v="ADF Library"/>
+               <value n="id" v="ADF Library"/>
             </hash>
          </list>
       </hash>
@@ -494,10 +494,6 @@
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
-            <value n="id" v="ADF Library"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
             <url n="id" path="../../../../../.jdeveloper/system12.2.1.4.42.190911.2248/o.jdeveloper/BaseViewADFLib-01.jar.library"/>
             <value n="isJDK" v="false"/>
          </hash>
@@ -507,10 +503,6 @@
          </hash>
          <hash>
             <value n="id" v="Adf-share-glassfish.jar"/>
-            <value n="isJDK" v="false"/>
-         </hash>
-         <hash>
-            <value n="id" v="BaseViewLib-01.jar"/>
             <value n="isJDK" v="false"/>
          </hash>
          <hash>
@@ -543,6 +535,14 @@
          </hash>
          <hash>
             <value n="id" v="BC4J Oracle Domains"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="BaseViewLib-01.jar"/>
+            <value n="isJDK" v="false"/>
+         </hash>
+         <hash>
+            <value n="id" v="ADF Library"/>
             <value n="isJDK" v="false"/>
          </hash>
       </list>

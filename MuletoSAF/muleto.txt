@@ -1,0 +1,6 @@
+## 
+## Informacion para 
+##
+## Configuring the WebLogic Server SQL Authenticator
+##
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12_2_1/sqlauthenticator/sqlauthenticator.html#section3 

@@ -1,34 +1,35 @@
   package view.servlet;
-  
-  import java.io.File;
-  import java.io.FileInputStream;
-  import java.io.IOException;
-  import java.io.OutputStream;
-  import java.util.logging.Level;
-  import java.util.logging.Logger;
-  import javax.servlet.ServletConfig;
-  import javax.servlet.ServletException;
-  import javax.servlet.ServletOutputStream;
-  import javax.servlet.annotation.WebServlet;
-  import javax.servlet.http.HttpServlet;
-  import javax.servlet.http.HttpServletRequest;
-  import javax.servlet.http.HttpServletResponse;
-  import model.bc.ModuloImpl;
-  import oracle.jbo.ApplicationModule;
-  import oracle.jbo.Key;
-  import oracle.jbo.Row;
-  import oracle.jbo.common.Configuration;
-  
-  
-  
-  
-  
-  @WebServlet(name = "Download", urlPatterns = {"/faces/Download"})
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.OutputStream;
+
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import model.bc.ModuloImpl;
+
+import oracle.jbo.ApplicationModule;
+import oracle.jbo.Key;
+import oracle.jbo.Row;
+import oracle.jbo.common.Configuration;
+
+
+@WebServlet(name = "Download", urlPatterns = {"/faces/Download"})
   public class Download
     extends HttpServlet
   {
+    @SuppressWarnings("compatibility:601844940500337986")
     private static final long serialVersionUID = 1L;
-    private static final int PDF_SIZE = 4096;
     private static String IMPLEMENTACION = "model.bc.ModuleImpl";
     private static String CONFIG = "ModuloWeb";
   

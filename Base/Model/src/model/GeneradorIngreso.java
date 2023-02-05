@@ -12,12 +12,14 @@ public class GeneradorIngreso {
         //String usuario = "aerocivil";
         String usuario = "aerocivil";
         
-        //String usuario = "joy";
+        //String usuario = "omar78";
+        // {SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=
+        //8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41
         String clave = "admin1admin";
-        //String aplicacion = "Manifiesto-001";
-        String aplicacion = "Manifiesto-001";        
+        String aplicacion = "Manifiesto-001";
+        //String aplicacion = "Administrativo-001";        
         String puertoWebLogic = "7101";
-        String puertoGlass = "28082";
+        String puertoGlass = "28083";
 
 
         String semilla = GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 32);

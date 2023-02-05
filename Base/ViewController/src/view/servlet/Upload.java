@@ -1,47 +1,40 @@
   package view.servlet;
-  
-  import java.io.File;
-  import java.io.IOException;
-  import java.io.PrintWriter;
-  import java.nio.file.Files;
-  import java.nio.file.Path;
-  import java.nio.file.Paths;
-  import java.util.Iterator;
-  import java.util.logging.Level;
-  import java.util.logging.Logger;
-  import javax.servlet.ServletConfig;
-  import javax.servlet.ServletException;
-  import javax.servlet.annotation.MultipartConfig;
-  import javax.servlet.annotation.WebServlet;
-  import javax.servlet.http.HttpServlet;
-  import javax.servlet.http.HttpServletRequest;
-  import javax.servlet.http.HttpServletResponse;
-  import javax.servlet.http.Part;
-  import model.bc.ModuloImpl;
-  import model.utilidades.GeneradorClaves;
-  import model.utilidades.GeneradorFile;
-  import oracle.jbo.ApplicationModule;
-  import oracle.jbo.common.Configuration;
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  @WebServlet(name = "Upload", urlPatterns = {"/faces/Upload"})
-  @MultipartConfig(location = "/tmp", fileSizeThreshold = 2097152, maxFileSize = 5242880L, maxRequestSize = 6291456L)
+
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.Part;
+
+import model.bc.ModuloImpl;
+
+import model.utilidades.GeneradorClaves;
+import model.utilidades.GeneradorFile;
+
+import oracle.jbo.ApplicationModule;
+import oracle.jbo.common.Configuration;
+
+
+@WebServlet(name = "Upload", urlPatterns = {"/faces/Upload"})
+  @MultipartConfig(location = "/tmp", 
+                   fileSizeThreshold=1024*1024, 
+                   maxFileSize=1024*1024*10, 
+                   maxRequestSize=1024*1024*5*5)
   public class Upload
     extends HttpServlet
   {
