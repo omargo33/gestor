@@ -9,15 +9,13 @@ import model.utilidades.estructuras.AccesoXML;
 
 public class GeneradorIngreso {
     public static void main(String[] args) {
-        //String usuario = "aerocivil";
-        String usuario = "aerocivil";
-        
+        String usuario = "admin";
         //String usuario = "omar78";
         // {SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=
         //8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41
         String clave = "admin1admin";
-        String aplicacion = "Manifiesto-001";
-        //String aplicacion = "Administrativo-001";        
+        //String aplicacion = "Manifiesto-001";
+        String aplicacion = "Administrativo-001";        
         String puertoWebLogic = "7101";
         String puertoGlass = "28083";
 
@@ -35,7 +33,7 @@ public class GeneradorIngreso {
 
 
         String data =
-            "http://192.168.1.7:" + puertoWebLogic + "/" + aplicacion + "/faces/LOG001?server=WLS12&token=" +
+            "http://localhost:" + puertoWebLogic + "/" + aplicacion + "/faces/LOG001?server=WLS12&token=" +
             accesoXML.code();
         System.out.println("Weblogic\n" + data + "\n");
 
