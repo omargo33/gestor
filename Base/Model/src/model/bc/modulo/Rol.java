@@ -22,7 +22,7 @@ public class Rol {
         "select count(*) from GS_001_00.rol_usuario ru, GS_001_00.rol r, GS_001_00.usuario u where ru.id_rol = r.id_rol and ru.id_usuario = u.id_usuario and upper(r.tipo) = upper( ? ) and upper(u.nick) = upper( ? )";
 
     private static String SQL_ROLES_USUARIO =
-        "select r.nombre from rol r where r.estado = 'A' and r.id_rol in (select id_rol from rol_usuario ru where id_usuario = (select id_usuario from usuario u  where upper(nick) = upper(?) ))";
+        "select r.nombre from GS_001_00.rol r where r.estado = 'A' and r.id_rol in (select id_rol from rol_usuario ru where id_usuario = (select id_usuario from GS_001_00.usuario u  where upper(nick) = upper(?) ))";
 
     private static String SQL_ROLES_POR_USUARIO =
         "SELECT r.tipo from GS_001_00.usuario u, GS_001_00.rol_usuario ru, GS_001_00.rol r, GS_001_00.permiso p, GS_001_00.menu m, GS_001_00.modulo m2 where r.id_rol = ru.id_rol and ru.id_usuario = u.id_usuario and p.id_rol = r.id_rol and p.id_menu = m.id_menu and m.id_modulo = m2.id_modulo and upper(u.nick) = upper(?) and upper(m2.indice) = upper(?) GROUP by r.tipo";
@@ -89,6 +89,11 @@ public class Rol {
      */
     public static boolean validarRolPorModulo(ModuloImpl moduloAplicacion, String indiceModulo, String rol,
                                               String nick) {
+
+        //TODO
+        Logger.getLogger("global")
+            .log(Level.SEVERE, String.format("inicio de consulta de socio %s %s %s", indiceModulo, rol, nick));
+
         List<String> listaRespuestas = new ArrayList<String>();
         ResultSet resultSet = moduloAplicacion.getBaseDML().ejecutaConsulta(SQL_ROLES_POR_USUARIO, nick, indiceModulo);
         if (moduloAplicacion.getBaseDML().getMensaje() != null) {
@@ -105,9 +110,17 @@ public class Rol {
 
         if (listaRespuestas.size() == 1) {
             if (listaRespuestas.get(0).compareToIgnoreCase(rol) == 0) {
+                //TODO
+                Logger.getLogger("global")
+                    .log(Level.SEVERE,
+                         String.format("inicio TRUE de consulta de socio %s %s %s", indiceModulo, rol, nick));
                 return true;
             }
         }
+
+        //TODO
+        Logger.getLogger("global")
+            .log(Level.SEVERE, String.format("inicio false de consulta de socio %s %s %s", indiceModulo, rol, nick));
 
         return false;
     }

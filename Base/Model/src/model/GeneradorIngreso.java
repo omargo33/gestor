@@ -9,13 +9,14 @@ import model.utilidades.estructuras.AccesoXML;
 
 public class GeneradorIngreso {
     public static void main(String[] args) {
-        String usuario = "admin";
+        //String usuario = "admin";
+        String usuario = "aerocivil";
         //String usuario = "omar78";
         // {SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=
         //8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41
         String clave = "admin1admin";
-        //String aplicacion = "Manifiesto-001";
-        String aplicacion = "Administrativo-001";        
+        String aplicacion = "Manifiesto-001";
+        //String aplicacion = "Administrativo-001";        
         String puertoWebLogic = "7101";
         String puertoGlass = "28083";
 
