@@ -32,6 +32,8 @@ public interface Modulo extends ApplicationModule {
     BigDecimal base_obtenerParametroNumerico02(String indiceParametro);
 
     String base_obtenerParametroTexto02(String indiceParametro);
+
+    boolean base_isOnlyUsuarioRol(String nick, String rol, String indiceModulo);
 }
 
 

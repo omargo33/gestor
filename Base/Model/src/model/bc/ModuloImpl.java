@@ -83,6 +83,11 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
     }
 
 
+    public boolean base_isOnlyUsuarioRol(String nick, String rol, String indiceModulo) {
+        return Rol.validarRolPorModulo(this, indiceModulo,rol, nick);        
+    }
+
+
     public String base_obtenerParametroTexto01(String indiceParametro) {
         return obtenerParametro(indiceParametro).getValorTexto01();
     }
