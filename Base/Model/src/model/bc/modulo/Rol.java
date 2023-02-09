@@ -88,12 +88,7 @@ public class Rol {
      * @return
      */
     public static boolean validarRolPorModulo(ModuloImpl moduloAplicacion, String indiceModulo, String rol,
-                                              String nick) {
-
-        //TODO
-        Logger.getLogger("global")
-            .log(Level.SEVERE, String.format("inicio de consulta de socio %s %s %s", indiceModulo, rol, nick));
-
+                                              String nick) {        
         List<String> listaRespuestas = new ArrayList<String>();
         ResultSet resultSet = moduloAplicacion.getBaseDML().ejecutaConsulta(SQL_ROLES_POR_USUARIO, nick, indiceModulo);
         if (moduloAplicacion.getBaseDML().getMensaje() != null) {
@@ -109,19 +104,10 @@ public class Rol {
         }
 
         if (listaRespuestas.size() == 1) {
-            if (listaRespuestas.get(0).compareToIgnoreCase(rol) == 0) {
-                //TODO
-                Logger.getLogger("global")
-                    .log(Level.SEVERE,
-                         String.format("inicio TRUE de consulta de socio %s %s %s", indiceModulo, rol, nick));
+            if (listaRespuestas.get(0).compareToIgnoreCase(rol) == 0) {                
                 return true;
             }
-        }
-
-        //TODO
-        Logger.getLogger("global")
-            .log(Level.SEVERE, String.format("inicio false de consulta de socio %s %s %s", indiceModulo, rol, nick));
-
+        }        
         return false;
     }
 }
