@@ -9,18 +9,38 @@ import model.utilidades.estructuras.AccesoXML;
 
 public class GeneradorIngreso {
     public static void main(String[] args) {
-        //String usuario = "admin";
-        String usuario = "aerocivil";
-        //String usuario = "omar78";
-        // {SHA-1}5KwhAbbpcWybIfBzdkOj9991P6U=
-        //8DF79DEB606C9A5955D4D7FBD93037C29F736659B06AEF73A377626DCD404B41
-        String clave = "admin1admin";
-        String aplicacion = "Manifiesto-001";
-        //String aplicacion = "Administrativo-001";        
-        String puertoWebLogic = "7101";
-        String puertoGlass = "28083";
+        GeneradorIngreso.administradorWeblogic("aerocivil", "admin1admin", "Manifiesto-001", "localhost:7101");
+        GeneradorIngreso.administradorWeblogic("admin", "admin1admin", "Administrativo-001", "localhost:7101");
+
+        /*GeneradorIngreso.administradorGlassfish("adim", "admin1admin", "Manifiesto-001", "localhost:28083");
+        GeneradorIngreso.administradorGlassfish("adim", "admin1admin", "Administrativo-001", "localhost:28083");*/
+    }
 
 
+    private static Date addMinutosToDate(Date fecha, int minutos) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.MINUTE, minutos);
+        return calendar.getTime();
+    }
+
+
+    private static void administradorWeblogic(String usuario, String clave, String aplicacion, String hostoPuerto) {
+        String data =
+            "http://" + hostoPuerto + "/" + aplicacion + "/faces/LOG001?server=WLS12&token=" + GeneradorIngreso.generaXML(usuario, clave);
+        System.out.println("Weblogic:" + aplicacion + "\n" + data + "\n");
+    }
+
+
+    private static void administradorGlassfish(String usuario, String clave, String aplicacion, String hostoPuerto) {
+        String data =
+            "http://" + hostoPuerto + "/" + aplicacion + "/faces/LOG001?server=GF5&token=" +
+            GeneradorIngreso.generaXML(usuario, clave);
+        System.out.println("Glassfish:" + aplicacion + "\n" + data + "\n");
+
+    }
+
+    private static String generaXML(String usuario, String clave) {
         String semilla = GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 32);
         Date fechaInicio = new Date();
         Date fechaFin = addMinutosToDate(fechaInicio, 20);
@@ -31,38 +51,8 @@ public class GeneradorIngreso {
         accesoXML.setSemilla(semilla);
         accesoXML.setUsuario(usuario);
         accesoXML.setPassword(clave);
-
-
-        String data =
-            "http://localhost:" + puertoWebLogic + "/" + aplicacion + "/faces/LOG001?server=WLS12&token=" +
-            accesoXML.code();
-        System.out.println("Weblogic\n" + data + "\n");
-
-        accesoXML = new AccesoXML();
-        accesoXML.setFechaEmision(fechaInicio.getTime());
-        accesoXML.setFechaValido(fechaFin.getTime());
-        accesoXML.setSemilla(semilla);
-        accesoXML.setUsuario(usuario);
-        accesoXML.setPassword(clave);
-
-
-        data =
-            "http://192.168.1.7:" + puertoGlass + "/" + aplicacion + "/faces/LOG001?server=GF5&token=" +
-            accesoXML.code();
-        System.out.println("Glassfish\n" + data + "\n");
-    }
-
-
-    private static Date addMinutosToDate(Date fecha, int minutos) {
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(fecha);
-        calendar.add(Calendar.MINUTE, minutos);
-        return calendar.getTime();
+        return accesoXML.code();
     }
 }
 
 
-/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/GeneradorIngreso.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.2
- */

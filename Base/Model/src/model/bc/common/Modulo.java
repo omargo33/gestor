@@ -24,8 +24,7 @@ public interface Modulo extends ApplicationModule {
   int base_excelBuscarArchivos(String paramString1, String paramString2, String paramString3);
   
   int base_crearNotificacion(int paramInt1, int paramInt2, String paramString1, String paramString2, String paramString3, String paramString4, Date paramDate, String paramString5, String paramString6, Map<String, String> paramMap1, Map<String, String> paramMap2);
-  
-  String base_rolesByNick(String paramString);
+
 
     BigDecimal base_obtenerParametroNumerico01(String indiceParametro);
 
@@ -34,6 +33,8 @@ public interface Modulo extends ApplicationModule {
     String base_obtenerParametroTexto02(String indiceParametro);
 
     boolean base_isOnlyUsuarioRol(String nick, String rol, String indiceModulo);
+
+    String base_rolesByNick(String nick);
 }
 
 
