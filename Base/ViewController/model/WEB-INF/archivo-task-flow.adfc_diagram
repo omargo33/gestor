@@ -14,11 +14,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">1701.5781</property>
+         name="x">1553.627</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionEditar&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">314.59375</property>
+         name="y">326.13803</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -29,9 +29,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">87.44336</property>
       <property
@@ -61,11 +61,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">1701.5781</property>
+         name="x">1553.627</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>Create&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">147.53125</property>
+         name="y">159.07553</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -76,11 +76,11 @@
       <property
          name="inherited">true</property>
       <property
-         name="x">1557.2246</property>
+         name="x">1409.2734</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ActionCrear&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">199.29688</property>
+         name="y">210.84116</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -146,7 +146,7 @@
       <property
          name="fromsrcid">__17</property>
       <property
-         name="sdm:polyPoints">R50,1742.5781,147.5,1803.8027,230.03125,L46</property>
+         name="sdm:polyPoints">R50,1594.627,159.04428,1655.8516,241.57553,L46</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -162,7 +162,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R54,1456.0957,254.16406,1660.5781,314.5625,L50</property>
+         name="sdm:polyPoints">R54,1308.1445,282.84116,1512.627,326.10678,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -178,7 +178,7 @@
       <property
          name="fromsrcid">__9</property>
       <property
-         name="sdm:polyPoints">R50,1598.2246,199.26562,1660.5781,147.5,L50</property>
+         name="sdm:polyPoints">R50,1450.2734,210.8099,1512.627,159.04428,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -210,7 +210,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T44,403.88672,185.62587,1557.2246,145.26562,T50</property>
+         name="sdm:polyPoints">T44,403.88672,185.48523,1409.2734,156.8099,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -226,7 +226,7 @@
       <property
          name="fromsrcid">__6</property>
       <property
-         name="sdm:polyPoints">T56,410.88672,192.5,1415.0957,196.66406,T50</property>
+         name="sdm:polyPoints">T56,410.88672,192.5,1267.1445,225.34116,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -242,7 +242,7 @@
       <property
          name="fromsrcid">__11</property>
       <property
-         name="sdm:polyPoints">R46,1456.0957,247.16406,1516.2246,199.26562,L50</property>
+         name="sdm:polyPoints">R46,1308.1445,275.84116,1368.2734,210.8099,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -258,7 +258,7 @@
       <property
          name="fromsrcid">__15</property>
       <property
-         name="sdm:polyPoints">R50,1742.5781,314.5625,1803.8027,237.03125,L54</property>
+         name="sdm:polyPoints">R50,1594.627,326.10678,1655.8516,248.57553,L54</property>
    </ControlFlowCase>
    <View
       id="View20">
@@ -267,11 +267,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">1415.0957</property>
+         name="x">1267.1445</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ListaFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">250.69531</property>
+         name="y">279.3724</property>
       <property
          name="page">/archivo/ListaFrg.jsff</property>
       <property
@@ -284,11 +284,11 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">1844.8027</property>
+         name="x">1696.8516</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>ItemFrg&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">233.5625</property>
+         name="y">245.10678</property>
       <property
          name="page">/archivo/ItemFrg.jsff</property>
       <property
@@ -299,11 +299,11 @@
       <property
          name="activityId">base_archivoCrearGrupo</property>
       <property
-         name="x">752.6211</property>
+         name="x">604.6699</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_archivoCrearGrupo&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">267.82812</property>
+         name="y">296.50522</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -312,11 +312,11 @@
       <property
          name="activityId">base_obtenerParametroTexto01</property>
       <property
-         name="x">984.56055</property>
+         name="x">836.6094</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">267.82812</property>
+         name="y">296.50522</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -328,18 +328,18 @@
       <property
          name="fromOutcome">base_archivoCrearGrupo</property>
       <property
-         name="sdm:polyPoints">R50,793.6211,267.79688,943.56055,267.79688,L50</property>
+         name="sdm:polyPoints">R50,645.6699,296.47397,795.6094,296.47397,L50</property>
    </ControlFlowCase>
    <MethodCall
       id="MethodCall25">
       <property
          name="activityId">SetCurrentRowWithKeyValue</property>
       <property
-         name="x">1227.6562</property>
+         name="x">1079.7051</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SetCurrentRowWithKeyValue&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">267.82812</property>
+         name="y">296.50522</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -351,7 +351,7 @@
       <property
          name="fromOutcome">base_obtenerParametroTexto01</property>
       <property
-         name="sdm:polyPoints">R50,1025.5605,267.79688,1186.6562,267.79688,L50</property>
+         name="sdm:polyPoints">R50,877.6094,296.47397,1038.7051,296.47397,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -361,7 +361,7 @@
       <property
          name="fromOutcome">setCurrentRowWithKeyValue</property>
       <property
-         name="sdm:polyPoints">R50,1268.6562,267.79688,1374.0957,250.66406,L50</property>
+         name="sdm:polyPoints">R50,1120.7051,296.47397,1226.1445,279.34116,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -371,6 +371,6 @@
       <property
          name="fromOutcome">Listar</property>
       <property
-         name="sdm:polyPoints">R50,448.38672,246.5,711.6211,267.79688,L50</property>
+         name="sdm:polyPoints">R50,448.38672,246.5,563.6699,296.47397,L50</property>
    </ControlFlowCase>
 </SDM>
