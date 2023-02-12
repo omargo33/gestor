@@ -17,6 +17,7 @@ import model.bc.vistaNoDML.UsuarioViewNoDMLImpl;
 
 import model.utilidades.GeneradorClaves;
 import model.utilidades.GeneradorFile;
+import com.aplicaciones13.tools.Archivo;
 
 import oracle.jbo.JboException;
 import oracle.jbo.Row;
@@ -37,7 +38,8 @@ public class Reporte {
             codigoGrupo + "-" +
             GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 12);
         String pathBase = moduloAplicacion.base_obtenerParametroTexto01("200");
-        String fullPath = GeneradorFile.creaDirectorio(pathBase, esquema, tabla, nombreRamdon);
+        
+        String fullPath = Archivo.creaDirectorio(pathBase, esquema, tabla, nombreRamdon);
         String pathRelativo = fullPath.replaceFirst(pathBase, "");
         String extension = "none";
 
@@ -85,9 +87,3 @@ public class Reporte {
         return codigo;
     }
 }
-
-
-/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/bc/modulo/Reporte.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.2
- */
