@@ -166,7 +166,7 @@ public class ImpresionBaseIText {
      * Metodo para guardar agregando una firma electronica.
      *
      * @param currentPosition
-     * @param mapaParametros <documentoArchivoP12Clave>
+     * @param mapaParametros  <documentoArchivoP12Clave>
      */
     public void guardar(ImpresionBaseElementos.CurrentPosition currentPosition, Map<String, String> mapaParametros) {
         try {
@@ -213,7 +213,7 @@ public class ImpresionBaseIText {
      * @param pk
      * @param chain
      * @param currentPosition
-     * @param mapaParametros <documentoCiudad>
+     * @param mapaParametros  <documentoCiudad>
      * @param signer
      * @throws IOException
      * @throws GeneralSecurityException
@@ -260,20 +260,29 @@ public class ImpresionBaseIText {
      * mismo.Sole ejecuta si hay datos a imprimir Configura la pagina Prepara
      * documento sobre el Sream de salida Abre el documento De acuerdo al tipo
      * de impresion ejecuta Cierra el documento (contiene el Stream).
+     * 
      *
      * @param margenSuperior
      * @param margenDerecho
      * @param margenInferior
      * @param margenIzquierdo
-     * @param mapaParametros <documentoArchivoP12>
+     * @param isVertical      true: vertical, false: horizontal
+     * @param mapaParametros  <documentoArchivoP12>
      */
-    public void ejecutar(float margenSuperior, float margenDerecho, float margenInferior, float margenIzquierdo,
+    public boolean ejecutar(float margenSuperior, float margenDerecho, float margenInferior, float margenIzquierdo,
+            boolean isVertical,
             Map<String, String> mapaParametros) {
+        boolean estado = true;
         try {
             PdfWriter pdfWriter = new PdfWriter(getByteArrayOutputStream(),
                     new WriterProperties().setPdfVersion(PdfVersion.PDF_2_0));
             pdfDocument = new PdfDocument(pdfWriter);
-            document = new Document(pdfDocument, pageSize, false);
+            if (isVertical) {
+                document = new Document(pdfDocument, pageSize, false);
+            } else {
+                document = new Document(pdfDocument, pageSize.rotate(), false);
+            }
+
             document.setMargins(margenSuperior, margenDerecho, margenInferior, margenIzquierdo);
             impresionBaseElementos.setDocumento(document);
             impresionBaseElementos.setMargenSuperiorOriginal(margenSuperior);
@@ -300,7 +309,9 @@ public class ImpresionBaseIText {
             encriptar(mapaParametros);
         } catch (Exception e) {
             log.error(e.toString());
+            estado = false;
         }
+        return estado;
     }
 
     /**

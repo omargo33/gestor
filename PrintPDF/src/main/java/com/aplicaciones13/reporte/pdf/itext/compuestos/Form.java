@@ -78,6 +78,47 @@ public class Form extends Conjunto {
         }        
     }
 
+
+    /**
+     * Metodo para generar la tabla de presentacion.
+     *
+     */
+    public void procesarMargenes() {
+        if (getListaFormatos().size() != this.listaValores.size()) {
+            log.info("Falta de formatos para los datos");            
+            return;
+        }
+
+        setTabla(new Table(getArrayDimensiones()));
+        int i = 0;
+        for (Object obj : listaValores) {
+            P pTitulo = new P(getListaTitulos().get(i), P.TEXTO);            
+            pTitulo.negrita();            
+            Cell cellTitulo = new Cell();
+            cellTitulo.add(pTitulo.getParagraph());            
+            cellTitulo.setTextAlignment(TextAlignment.LEFT);
+            cellTitulo.setVerticalAlignment(VerticalAlignment.MIDDLE);
+            getTabla().addCell(cellTitulo);
+
+            P pDato = new P(datoFormatoManual(obj, getListaFormatos().get(i)),P.TEXTO);
+            Cell cellValor = new Cell();
+            cellValor.add(pDato.getParagraph());            
+            cellValor.setTextAlignment(getAlineamientoColumna(i+1, TextAlignment.LEFT));
+            cellValor.setVerticalAlignment(VerticalAlignment.MIDDLE);
+            getTabla().addCell(cellValor);
+            i++;
+        }        
+    }
+
+    /**
+     * Metodo para procesar y escribir en el pdf.
+     * 
+     */
+    public void procesarMargenesEscribir() {
+        procesarMargenes();
+        getDocumento().add(getTabla());
+    }
+
     /**
      * Metodo para ingresar los datos en la tabla correcta.
      *

@@ -9,9 +9,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 
+import java.math.BigDecimal;
+
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
@@ -92,35 +95,38 @@ public class GeneradorFile {
         }
     }
 
-
+    /**
+     * Metodo para crear un documento excel directo desde una consulta.
+     *
+     * @param resultSet
+     * @param nombrePagina
+     * @param pathFile
+     * @return
+     */
     public static boolean crearExcelFromResultSet(ResultSet resultSet, String nombrePagina, String pathFile) {
-        boolean estado = true;        
+        boolean estado = true;
         HojaCalculoEngine hce;
-        List<Object[]> valores;
-        Map<String, String> parametrosBusqueda;
-
+        int linea = 0;
         try {
-            HSSFWorkbook hSSFWorkbook = new HSSFWorkbook();
-            Sheet sheet = hSSFWorkbook.createSheet(nombrePagina);
+            File file = new File(pathFile);
+            FileOutputStream outputStream = new FileOutputStream(file);
+            hce = new HojaCalculoEngine(outputStream);
+            hce.addSheet(nombrePagina);
 
             ResultSetMetaData resultSetMetaData = resultSet.getMetaData();
             int cantidadColumnas = resultSetMetaData.getColumnCount();
-            Row row = sheet.createRow(0);
+
             for (int i = 0; i < cantidadColumnas; i++) {
-                Cell newpath = row.createCell(i);
-                newpath.setCellValue(resultSetMetaData.getColumnLabel(i + 1));
+                hce.addValorCelda(i,linea, resultSetMetaData.getColumnLabel(i + 1), HojaCalculoEngine.P_STRONG);
             }
             while (resultSet.next()) {
-                Row rowData = sheet.createRow(resultSet.getRow());
+                linea++;
                 for (int i = 0; i < cantidadColumnas; i++) {
-                    Cell newpath = rowData.createCell(i);
-                    newpath.setCellValue(resultSet.getString(i + 1));
+                    hce.addValorCelda(i, linea, resultSet.getString(i + 1), HojaCalculoEngine.P);
                 }
             }
 
-            FileOutputStream fileOutputStream = new FileOutputStream(new File(pathFile));
-            hSSFWorkbook.write(fileOutputStream);
-            fileOutputStream.close();
+            hce.cerrarLibro();
         } catch (Exception e) {
             estado = false;
             Logger.getLogger("global").log(Level.SEVERE, e.toString());

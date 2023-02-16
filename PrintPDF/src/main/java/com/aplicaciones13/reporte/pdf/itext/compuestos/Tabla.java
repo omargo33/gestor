@@ -91,6 +91,56 @@ public class Tabla extends Conjunto {
     }
 
     /**
+     * Metodo para procesar con margenes de la tabla.
+     * 
+     */
+    private void procesarMargenes() {
+        if (getListaDimensiones().size() != getListaFormatos().size()) {
+            log.error(".tabla()");
+            return;
+        }
+
+        setTabla(new Table(getArrayDimensiones()));
+
+        for (String a : getListaTitulos()) {
+            P pTitulo = new P(a, P.TEXTO);
+            pTitulo.negrita();
+            Cell cell = new Cell();
+            cell.add(pTitulo.getParagraph());
+            cell.setTextAlignment(TextAlignment.LEFT);
+            /*cell.setBorderLeft(Border.SOLID);
+            cell.setBorderRight(Border.SOLID);
+            cell.setBorderTop(Border.SOLID);*/
+            getTabla().addHeaderCell(cell);
+        }
+
+        for (Object[] fila : listaValores) {
+            int columna = 0;
+            for (Object celda : fila) {
+                P pValor = new P(datoFormatoManual(celda, getListaFormatos().get(columna)), P.TEXTO);
+                if (isSumatoria()) {
+                    pValor.negrita();
+                }
+                Cell cell = new Cell();
+                cell.add(pValor.getParagraph());
+                //cell.setBorder(Border.SOLID);
+                cell.setTextAlignment(getAlineamientoColumna(columna, TextAlignment.LEFT));
+                getTabla().addCell(cell);
+                columna++;
+            }
+        }
+    }
+
+    /**
+     * Metodo para procesar y escribir en el pdf.
+     * 
+     */
+    public void procesarMargenesEscribir() {
+        procesarMargenes();
+        getDocumento().add(getTabla());
+    }
+
+    /**
      * @param listaValores the listaValores to set
      */
     public void setListaValores(List<Object[]> listaValores) {
