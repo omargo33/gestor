@@ -13,9 +13,10 @@ public class GeneradorIngreso {
     public static void main(String[] args) {
         GeneradorIngreso.administradorWeblogic("aerocivil", "admin1admin", "Manifiesto-001", "localhost:7101");
         GeneradorIngreso.administradorWeblogic("admin", "admin1admin", "Administrativo-001", "localhost:7101");
-
+        /*   
         GeneradorIngreso.administradorGlassfish("adim", "admin1admin", "Manifiesto-001", "localhost:28083");
         GeneradorIngreso.administradorGlassfish("adim", "admin1admin", "Administrativo-001", "localhost:28083");
+        */
     }
 
     /**
