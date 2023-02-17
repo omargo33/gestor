@@ -108,7 +108,7 @@ public class Reporte {
      */
     public static int crearReportePDF(ModuloImpl moduloAplicacion, ImpresionBaseIText impresionBaseIText,
                                       Map<String, String> mapa, String nombreArchivo, String esquema, String tabla,
-                                      String usuario, String usuarioPrograma) {
+                                      String usuario, String usuarioPrograma) {        
         boolean isHorizontal = false;
         int codigoArchivo = 0;
         int codigoUsuario = buscarUsuario(moduloAplicacion, usuario);
@@ -119,7 +119,7 @@ public class Reporte {
             codigoGrupo + "-" +
             GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 12);
         String pathBase = moduloAplicacion.base_obtenerParametroTexto01("200");
-
+        
         String fullPath = Archivo.creaDirectorio(pathBase, esquema, tabla, nombreRamdon);
         String pathRelativo = fullPath.replaceFirst(pathBase, "");
         String extension = "none";
@@ -136,20 +136,21 @@ public class Reporte {
         }
 
         mapa.put("documentoDestino", fullPath);
-        if (impresionBaseIText.ejecutar(18, 36, 30, 30, isHorizontal, mapa)) {
-            try {
+        if (impresionBaseIText.ejecutar(18, 36, 30, 30, isHorizontal, mapa)) {                        
+            try {             
                 Path source = Paths.get(fullPath, new String[0]);
-                extension = Files.probeContentType(source);
+                extension = Files.probeContentType(source);             
             } catch (IOException e) {
                 Logger.getLogger("global").log(Level.SEVERE, e.toString());
             }
+
             largo = (int) (new File(fullPath)).length();
 
             codigoArchivo =
                 moduloAplicacion.base_archivoCrear(codigoGrupo, nombreArchivo, nombreRamdon, extension, pathRelativo,
                                                    largo, "Archivo Generado al solicitar un reporte", usuario,
-                                                   usuarioPrograma);
-        } else {
+                                                   usuarioPrograma);            
+        } else {            
             Logger.getLogger("global").log(Level.SEVERE, "No se pudo generar el reporte " + nombreArchivo);
             throw new JboException("No se pudo generar el reporte " + nombreArchivo);
         }
