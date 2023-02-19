@@ -8,12 +8,13 @@ import model.utilidades.estructuras.AccesoXML;
 
 
 public class GeneradorIngreso {
-    
-    private static String URL="http://%s/%s/faces/LOG001?server=%s&token=%s";
+
+    private static String URL = "http://%s/%s/faces/LOG001?server=%s&token=%s";
+
     public static void main(String[] args) {
         GeneradorIngreso.administradorWeblogic("aerocivil", "admin1admin", "Manifiesto-001", "localhost:7101");
         GeneradorIngreso.administradorWeblogic("admin", "admin1admin", "Administrativo-001", "localhost:7101");
-        /*   
+        /*
         GeneradorIngreso.administradorGlassfish("adim", "admin1admin", "Manifiesto-001", "localhost:28083");
         GeneradorIngreso.administradorGlassfish("adim", "admin1admin", "Administrativo-001", "localhost:28083");
         */
@@ -34,12 +35,12 @@ public class GeneradorIngreso {
     }
 
     private static void administradorWeblogic(String usuario, String clave, String aplicacion, String hostoPuerto) {
-        String data = String.format(URL,hostoPuerto,aplicacion, "WLS12", GeneradorIngreso.generaXML(usuario, clave));
+        String data = String.format(URL, hostoPuerto, aplicacion, "WLS12", GeneradorIngreso.generaXML(usuario, clave));
         System.out.println("Weblogic:" + aplicacion + "\n" + data + "\n");
     }
 
     private static void administradorGlassfish(String usuario, String clave, String aplicacion, String hostoPuerto) {
-        String data = String.format(URL,hostoPuerto,aplicacion, "GF5", GeneradorIngreso.generaXML(usuario, clave));        
+        String data = String.format(URL, hostoPuerto, aplicacion, "GF5", GeneradorIngreso.generaXML(usuario, clave));
         System.out.println("Glassfish:" + aplicacion + "\n" + data + "\n");
     }
 
