@@ -2,10 +2,6 @@ package model.bc;
 
 import java.math.BigDecimal;
 
-import java.sql.ResultSet;
-
-import java.text.SimpleDateFormat;
-
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +13,6 @@ import model.bc.modulo.Archivo;
 import model.bc.modulo.Grupo;
 import model.bc.modulo.Notificaciones;
 import model.bc.modulo.Parametros;
-import model.bc.modulo.Reporte;
 import model.bc.modulo.Rol;
 import model.bc.vista.ArchivoViewImpl;
 import model.bc.vistaNoDML.InformacionViewNoDMLImpl;
@@ -29,7 +24,12 @@ import oracle.jbo.JboException;
 import oracle.jbo.server.ViewLinkImpl;
 import oracle.jbo.server.ViewObjectImpl;
 
-
+/**
+ * Objeto para dar objetos de modulo de aplicacion.
+ *
+ * @author omargo33@hotmail.com
+ *
+ */
 public class ModuloImpl extends ModuloAplicacion implements Modulo {
     Map<String, ParametroViewNoDMLRowImpl> mapaParametro;
 
@@ -38,40 +38,159 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
         this.mapaParametro = new HashMap<>();
     }
 
+    /**
+     * Metodo para crear base de datos al crear archivo.
+     *
+     * @param idGrupo
+     * @param nombre
+     * @param nombreRamdon
+     * @param extension
+     * @param pathRelativo
+     * @param largo
+     * @param informacion
+     * @param usuario
+     * @param usuarioPrograma
+     * @return
+     */
+    public int base_archivoCrear(int idGrupo, String nombre, String nombreRamdon, String extension, String pathRelativo,
+                                 int largo, String informacion, String usuario, String usuarioPrograma) {
+        int idArchivo =
+            Archivo.crearArchivo(this, idGrupo, nombre, nombreRamdon, extension, pathRelativo, largo, usuario,
+                                 usuarioPrograma);
 
-    public int base_excelCrear(String tabla, String usuario, String usuarioPrograma) {
-        int idArchivo = 0;
-        String pattern = "yyyy-MM-dd-HH-mm-ssZ";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String nombrePagina = "Excel-Prueba-" + usuario + "-" + simpleDateFormat.format(new Date()) + ".xls";
 
-        ResultSet resultSet = getBaseDML().ejecutaConsulta("select * from MV_001_00.v_manifiesto vm", new Object[0]);
-        if (getBaseDML().getMensaje() != null) {
-            throw new JboException("no consulta SQL");
-        }
-
-
-        idArchivo =
-            Reporte.crearReporteExcel(this, resultSet, nombrePagina, getBundle("modulo.indice", new Object[0]), tabla,
-                                      usuario, usuarioPrograma);
-
-
+        Archivo.crearEventeoArchivo(this, idArchivo, informacion, "C", usuario, usuarioPrograma);
         return idArchivo;
     }
 
+    /**
+     * Metodo para crear espacio de archivos.
+     *
+     * @param id
+     * @param esquema
+     * @param tabla
+     * @param largoMaximo
+     * @param extensiones
+     * @param ancho
+     * @param alto
+     * @param maximoArchivo
+     * @param usuario
+     * @param usuarioPrograma
+     * @return
+     */
+    public int base_archivoCrearGrupo(int id, String esquema, String tabla, int largoMaximo, String extensiones,
+                                      int ancho, int alto, int maximoArchivo, String usuario, String usuarioPrograma) {
+        int codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
 
-    public int base_excelBuscarArchivos(String esquema, String tabla, String usuario) {
-        Logger.getLogger("global").log(Level.SEVERE, "omar omar " + esquema + " " + tabla + " " + usuario);
+        if (codigo == 0) {
+            codigo =
+                Grupo.crearGrupo(this, id, esquema, tabla, largoMaximo, extensiones, ancho, alto, maximoArchivo,
+                                 usuario, usuarioPrograma);
+        }
 
-        int idUsuario = Reporte.buscarUsuario(this, usuario);
 
-        Logger.getLogger("global").log(Level.SEVERE, "omar omar idUsuario " + idUsuario + " " + esquema + " " + tabla);
-
-        int idGrupo = Grupo.buscarGrupo(this, idUsuario, esquema, tabla);
-        Archivo.buscarArchivosByIdGrupo(this, idGrupo);
-        return idGrupo;
+        return codigo;
     }
 
+    /**
+     * Metodo para crear notificacion.
+     *
+     * @param idFormato
+     * @param idServicio
+     * @param titulo
+     * @param contenido
+     * @param direccionEnvio
+     * @param anular
+     * @param fechaEnvio
+     * @param usuario
+     * @param usuarioPrograma
+     * @param mapaParametros
+     * @param mapaAdjuntos
+     * @return
+     */
+    public int base_crearNotificacion(int idFormato, int idServicio, String titulo, String contenido,
+                                      String direccionEnvio, String anular, Date fechaEnvio, String usuario,
+                                      String usuarioPrograma, Map<String, String> mapaParametros,
+                                      Map<String, String> mapaAdjuntos) {
+        int idNotificacion =
+            Notificaciones.enviarNotificacion(this, idFormato, idServicio, titulo, contenido, direccionEnvio, anular,
+                                              fechaEnvio, usuario, usuarioPrograma, mapaParametros, mapaAdjuntos);
+
+
+        return idNotificacion;
+    }
+
+    /**
+     * Metodo para crear un evento en los archivos.
+     *
+     * @param idArchivo
+     * @param evento
+     * @param informacion
+     * @param usuario
+     * @param usuarioPrograma
+     * @return
+     */
+    public int base_archivoCrearEvento(int idArchivo, String evento, String informacion, String usuario,
+                                       String usuarioPrograma) {
+        return Archivo.crearEventeoArchivo(this, idArchivo, informacion, evento, usuario, usuarioPrograma);
+    }
+
+    /**
+     * Metodo para buscar el listado de archivos y su indice.
+     *
+     * @param idGrupo
+     * @return
+     */
+    public Map<String, String> base_grupoPathsArchivos(int idGrupo) {
+        return Grupo.buscarPathArchivosByGrupo(this, idGrupo);
+    }
+
+    /**
+     * Metodo para borrar todos los archivos de un grupo.
+     *
+     * @param idGrupo
+     * @param informacion
+     * @param usuario
+     * @param usuarioPrograma
+     */
+    public void base_grupoBorrarArchivos(int idGrupo, String informacion, String usuario, String usuarioPrograma) {
+        Grupo.borrarArchivosByGrupos(this, idGrupo, informacion, usuario, usuarioPrograma);
+    }
+
+    /**
+     * Metodo buscar
+     *
+     * @param id
+     * @param esquema
+     * @param tabla
+     * @return
+     */
+    public int base_grupoBuscarIdGrupo(int id, String esquema, String tabla) {
+        return Grupo.buscarGrupo(this, id, esquema, tabla);
+    }
+
+    /**
+     * Metodo para conocer el u parametro por indice del modulo de ejecucion.
+     *
+     * @param indiceParametro
+     * @return
+     */
+    private ParametroViewNoDMLRowImpl obtenerParametro(String indiceParametro) {
+        ParametroViewNoDMLRowImpl parametroRespuesta = this.mapaParametro.get(indiceParametro);
+        if (parametroRespuesta == null) {
+            this.mapaParametro = Parametros.obtenerParametros(this, getBundle("modulo.indice", new Object[0]));
+            parametroRespuesta = this.mapaParametro.get(indiceParametro);
+            if (parametroRespuesta == null) {
+                Logger.getLogger("global")
+                    .log(Level.SEVERE,
+                         "Error Indice=" + indiceParametro + "-" + getBundle("modulo.indice", new Object[0]));
+                throw new JboException(getBundle("ModuloImpl.obtenerParametro.txt_1",
+                                                 new Object[] { indiceParametro,
+                                                                getBundle("modulo.indice", new Object[0]) }));
+            }
+        }
+        return parametroRespuesta;
+    }
 
     public String base_rolesByNick(String nick) {
         return Rol.rolesActivosPorUsuario(this, nick);
@@ -84,7 +203,7 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
 
 
     public boolean base_isOnlyUsuarioRol(String nick, String rol, String indiceModulo) {
-        return Rol.validarRolPorModulo(this, indiceModulo,rol, nick);        
+        return Rol.validarRolPorModulo(this, indiceModulo, rol, nick);
     }
 
 
@@ -107,73 +226,8 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
         return obtenerParametro(indiceParametro).getValorNumero02();
     }
 
-
-    public int base_archivoCrearGrupo(int id, String esquema, String tabla, int largoMaximo, String extensiones,
-                                      int ancho, int alto, int maximoArchivo, String usuario, String usuarioPrograma) {
-        int codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
-
-        if (codigo == 0) {
-            codigo =
-                Grupo.crearGrupo(this, id, esquema, tabla, largoMaximo, extensiones, ancho, alto, maximoArchivo,
-                                 usuario, usuarioPrograma);
-        }
-
-
-        return codigo;
-    }
-
-
     public void base_archivoBorrar(int idArchivo, String informacion, String usuario, String usuarioPrograma) {
         Archivo.borrarArchivo(this, idArchivo, informacion, usuario, usuarioPrograma);
-    }
-
-
-    public int base_archivoCrear(int idGrupo, String nombre, String nombreRamdon, String extension, String pathRelativo,
-                                 int largo, String informacion, String usuario, String usuarioPrograma) {
-        int idArchivo =
-            Archivo.crearArchivo(this, idGrupo, nombre, nombreRamdon, extension, pathRelativo, largo, usuario,
-                                 usuarioPrograma);
-
-
-        Archivo.crearEventeoArchivo(this, idArchivo, informacion, "C", usuario, usuarioPrograma);
-        return idArchivo;
-    }
-
-
-    public int base_crearNotificacion(int idFormato, int idServicio, String titulo, String contenido,
-                                      String direccionEnvio, String anular, Date fechaEnvio, String usuario,
-                                      String usuarioPrograma, Map<String, String> mapaParametros,
-                                      Map<String, String> mapaAdjuntos) {
-        int idNotificacion =
-            Notificaciones.enviarNotificacion(this, idFormato, idServicio, titulo, contenido, direccionEnvio, anular,
-                                              fechaEnvio, usuario, usuarioPrograma, mapaParametros, mapaAdjuntos);
-
-
-        return idNotificacion;
-    }
-
-
-    public int base_archivoCrearEvento(int idArchivo, String evento, String informacion, String usuario,
-                                       String usuarioPrograma) {
-        return Archivo.crearEventeoArchivo(this, idArchivo, informacion, evento, usuario, usuarioPrograma);
-    }
-
-
-    private ParametroViewNoDMLRowImpl obtenerParametro(String indiceParametro) {
-        ParametroViewNoDMLRowImpl parametroRespuesta = this.mapaParametro.get(indiceParametro);
-        if (parametroRespuesta == null) {
-            this.mapaParametro = Parametros.obtenerParametros(this, getBundle("modulo.indice", new Object[0]));
-            parametroRespuesta = this.mapaParametro.get(indiceParametro);
-            if (parametroRespuesta == null) {
-                Logger.getLogger("global")
-                    .log(Level.SEVERE,
-                         "Error Indice=" + indiceParametro + "-" + getBundle("modulo.indice", new Object[0]));
-                throw new JboException(getBundle("ModuloImpl.obtenerParametro.txt_1",
-                                                 new Object[] { indiceParametro,
-                                                                getBundle("modulo.indice", new Object[0]) }));
-            }
-        }
-        return parametroRespuesta;
     }
 
 
@@ -266,9 +320,3 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
         return (VistaObjeto) findViewObject("Base_NotificacionParametroView1");
     }
 }
-
-
-/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/bc/ModuloImpl.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.2
- */

@@ -18,12 +18,9 @@ public interface Modulo extends ApplicationModule {
   String base_obtenerParametroTexto01(String paramString);
   
   boolean base_isUsuarioRol(String paramString1, String paramString2);
-  
-  int base_excelCrear(String paramString1, String paramString2, String paramString3);
-  
-  int base_excelBuscarArchivos(String paramString1, String paramString2, String paramString3);
-  
-  int base_crearNotificacion(int paramInt1, int paramInt2, String paramString1, String paramString2, String paramString3, String paramString4, Date paramDate, String paramString5, String paramString6, Map<String, String> paramMap1, Map<String, String> paramMap2);
+
+
+    int base_crearNotificacion(int paramInt1, int paramInt2, String paramString1, String paramString2, String paramString3, String paramString4, Date paramDate, String paramString5, String paramString6, Map<String, String> paramMap1, Map<String, String> paramMap2);
 
 
     BigDecimal base_obtenerParametroNumerico01(String indiceParametro);
@@ -35,6 +32,12 @@ public interface Modulo extends ApplicationModule {
     boolean base_isOnlyUsuarioRol(String nick, String rol, String indiceModulo);
 
     String base_rolesByNick(String nick);
+
+    void base_grupoBorrarArchivos(int idGrupo, String informacion, String usuario, String usuarioPrograma);
+
+    Map<String, String> base_grupoPathsArchivos(int idGrupo);
+
+    int base_grupoBuscarIdGrupo(int id, String esquema, String tabla);
 }
 
 

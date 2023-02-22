@@ -213,38 +213,6 @@
         Type="java.lang.String"/>
     </Method>
     <Method
-      Name="base_excelCrear"
-      MethodName="base_excelCrear">
-      <Return
-        Name="_return_type_"
-        Type="int"/>
-      <Parameter
-        Name="tabla"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="usuario"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="usuarioPrograma"
-        Type="java.lang.String"/>
-    </Method>
-    <Method
-      Name="base_excelBuscarArchivos"
-      MethodName="base_excelBuscarArchivos">
-      <Return
-        Name="_return_type_"
-        Type="int"/>
-      <Parameter
-        Name="esquema"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="tabla"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="usuario"
-        Type="java.lang.String"/>
-    </Method>
-    <Method
       Name="base_crearNotificacion"
       MethodName="base_crearNotificacion">
       <Return
@@ -499,38 +467,6 @@
       </Parameter>
     </Method>
     <Method
-      Name="base_excelBuscarArchivos"
-      MethodName="base_excelBuscarArchivos">
-      <Return
-        Name="_return_type_"
-        Type="int"/>
-      <Parameter
-        Name="esquema"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="tabla"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="usuario"
-        Type="java.lang.String"/>
-    </Method>
-    <Method
-      Name="base_excelCrear"
-      MethodName="base_excelCrear">
-      <Return
-        Name="_return_type_"
-        Type="int"/>
-      <Parameter
-        Name="tabla"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="usuario"
-        Type="java.lang.String"/>
-      <Parameter
-        Name="usuarioPrograma"
-        Type="java.lang.String"/>
-    </Method>
-    <Method
       Name="base_isOnlyUsuarioRol"
       MethodName="base_isOnlyUsuarioRol">
       <Return
@@ -607,6 +543,59 @@
         Type="java.lang.String"/>
       <Parameter
         Name="nick"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="base_grupoBorrarArchivos"
+      MethodName="base_grupoBorrarArchivos">
+      <Return
+        Name="_return_type_"
+        Type="void"/>
+      <Parameter
+        Name="idGrupo"
+        Type="int"/>
+      <Parameter
+        Name="informacion"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="usuario"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="usuarioPrograma"
+        Type="java.lang.String"/>
+    </Method>
+    <Method
+      Name="base_grupoPathsArchivos"
+      MethodName="base_grupoPathsArchivos">
+      <Return
+        Name="_return_type_"
+        Type="java.util.Map"
+        IsGeneric="true">
+        <Element
+          Name="String"
+          Type="java.lang.String"/>
+        <Element
+          Name="String1"
+          Type="java.lang.String"/>
+      </Return>
+      <Parameter
+        Name="idGrupo"
+        Type="int"/>
+    </Method>
+    <Method
+      Name="base_grupoBuscarIdGrupo"
+      MethodName="base_grupoBuscarIdGrupo">
+      <Return
+        Name="_return_type_"
+        Type="int"/>
+      <Parameter
+        Name="id"
+        Type="int"/>
+      <Parameter
+        Name="esquema"
+        Type="java.lang.String"/>
+      <Parameter
+        Name="tabla"
         Type="java.lang.String"/>
     </Method>
   </ClientInterface>
