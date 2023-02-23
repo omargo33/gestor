@@ -9,10 +9,22 @@ import oracle.jbo.Row;
 
 import org.apache.commons.lang3.StringUtils;
 
-
+/**
+ * Clase para dar atributos.
+ *
+ * @author omargo33@hotmail.com
+ *
+ */
 public class Atributos {
     public static final String NO_APLICA = "<NO APLICA>";
 
+    /**
+     * String no null.
+     *
+     * @param valor
+     * @param datoIntercambio
+     * @return
+     */
     public static String stringNoNull(Object valor, String datoIntercambio) {
         if (StringUtils.isBlank(String.valueOf(valor))) {
             return datoIntercambio;
@@ -20,7 +32,12 @@ public class Atributos {
         return String.valueOf(valor).trim();
     }
 
-
+    /**
+     * Obtiente el valor int de un objeto.
+     *
+     * @param valor
+     * @return
+     */
     public static Integer intValue(Object valor) {
         Integer respuesta = Integer.valueOf(0);
         if (valor != null)
@@ -33,41 +50,67 @@ public class Atributos {
         return respuesta;
     }
 
-
+    /**
+     * Trunca un valor string.
+     *
+     * @param valor
+     * @param datoIntercambio
+     * @param largo
+     * @return
+     */
     public static String stringLargo(Object valor, String datoIntercambio, int largo) {
         String respuesta = stringNoNull(valor, datoIntercambio);
         return StringUtils.substring(respuesta, 0, largo);
     }
 
-
+    /**
+     * Al ser nulo pone un valor por default.
+     *
+     * @param row
+     * @param campo
+     * @param datoIntercambio
+     * @return
+     */
     public String nvl(Row row, int campo, String datoIntercambio) {
         return (row.getAttribute(campo) == null) ? datoIntercambio : row.getAttribute(campo).toString();
     }
 
-
+    /**
+     * Get metodo SysTime mas tiempo en milisegundos.
+     *
+     * @param milisegundos
+     * @return
+     */
     public static Timestamp sysTime(long milisegundos) {
         return new Timestamp((new Date()).getTime() + milisegundos);
     }
 
-
+    /**
+     * Systime del servidor de aplicaciones.
+     *
+     * @return
+     */
     public static Timestamp sysTime() {
         return sysTime(0L);
     }
 
-
+    /**
+     * Fecha 
+     *
+     * @return
+     */
     public static Date sysDate() {
         return sysDate(0L);
     }
 
-
+    /**
+     * Fecha mas milisegundos.
+     *
+     * @param milisegundos
+     * @return
+     */
     public static Date sysDate(long milisegundos) {
         Date sqlDate = new Date((new Date()).getTime() + milisegundos);
         return sqlDate;
     }
 }
-
-
-/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/utilidades/Atributos.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.2
- */

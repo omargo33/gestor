@@ -46,8 +46,6 @@ public class Grupo {
         boolean estado = true;
         int codigo = buscarGrupo(moduloAplicacion, id, esquema, tabla);
 
-        System.out.println("revisar codigo "+ codigo );
-
         if (codigo > 0) {
             return codigo;
         }        
