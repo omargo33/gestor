@@ -130,6 +130,7 @@ public class Notificaciones
           Atributos.stringLargo(usuarioPrograma, "<NO APLICA>", 256));
       row.validate();
       vistaObjeto.insertRow(row);
+      
     
       if (moduloAplicacion.commitRollback(Integer.valueOf(codigo), "crearNotificacion")) {
         codigo = ((Integer)row.getAttribute(NotificacionImpl.IDNOTIFICACION)).intValue();
