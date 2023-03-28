@@ -1,19 +1,24 @@
 <?xml version = '1.0' encoding = 'UTF-8'?>
 <SDM>
    <OverallProperties
-      id="OverallProperties1"/>
+      id="OverallProperties1">
+      <property
+         name="x">126.15625</property>
+      <property
+         name="y">266.5</property>
+   </OverallProperties>
    <MethodCall
       id="MethodCall2">
       <property
          name="activityId">base_obtenerParametroTexto01</property>
       <property
-         name="x">333.15625</property>
+         name="x">126.15625</property>
       <property
-         name="start">false</property>
+         name="start">true</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">148.40625</property>
+         name="y">99.4375</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -24,13 +29,13 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">122.0</property>
+         name="x">322.8125</property>
       <property
-         name="start">true</property>
+         name="start">false</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>irInicio&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+         name="description">&lt;html>&lt;p>&lt;b>irInicio&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">154.625</property>
+         name="y">91.46875</property>
       <property
          name="page">/error/irInicio.jsff</property>
       <property
@@ -38,41 +43,12 @@
    </View>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase4"
+      id="ControlFlowCase7"
       from="MethodCall2"
-      to="UrlView5">
+      to="View3">
       <property
          name="fromOutcome">base_obtenerParametroTexto01</property>
       <property
-         name="sdm:polyPoints">R50,374.15625,148.375,615.0,154.75,L50</property>
-   </ControlFlowCase>
-   <UrlView
-      id="UrlView5">
-      <property
-         name="activityId">urlView1</property>
-      <property
-         name="x">656.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>urlView1&lt;/b>&lt;/p>&lt;p>Activity Type:  Url View&lt;/p></property>
-      <property
-         name="y">154.78125</property>
-      <property
-         name="finish">true</property>
-      <property
-         name="exceptionHandler">false</property>
-   </UrlView>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase7"
-      from="View3"
-      to="MethodCall2">
-      <property
-         name="tosrcid">__2</property>
-      <property
-         name="fromOutcome">Salir</property>
-      <property
-         name="fromsrcid">__1</property>
-      <property
-         name="sdm:polyPoints">R50,163.0,154.59375,292.15625,148.375,L50</property>
+         name="sdm:polyPoints">R50,167.15625,99.40625,281.8125,91.4375,L50</property>
    </ControlFlowCase>
 </SDM>
