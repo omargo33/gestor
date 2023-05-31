@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="x">87.44336</property>
+      <property
+         name="y">258.53125</property>
+   </OverallProperties>
+   <View
+      id="View10">
+      <property
+         name="activityId">Home</property>
+      <property
+         name="x">87.44336</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Home&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">91.46875</property>
+      <property
+         name="page">/Home.jspx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <MethodCall
+      id="MethodCall4">
+      <property
+         name="activityId">base_obtenerParametroTexto01</property>
+      <property
+         name="x">301.04297</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">91.46875</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase5"
+      from="View10"
+      to="MethodCall4">
+      <property
+         name="fromOutcome">informacion</property>
+      <property
+         name="sdm:polyPoints">R50,128.44336,91.4375,260.04297,91.4375,L50</property>
+   </ControlFlowCase>
+   <UrlView
+      id="UrlView6">
+      <property
+         name="activityId">urlView1</property>
+      <property
+         name="x">518.6992</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>urlView1&lt;/b>&lt;/p>&lt;p>Activity Type:  Url View&lt;/p></property>
+      <property
+         name="y">99.4375</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="exceptionHandler">false</property>
+   </UrlView>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase7"
+      from="MethodCall4"
+      to="UrlView6">
+      <property
+         name="fromOutcome">base_obtenerParametroTexto01</property>
+      <property
+         name="sdm:polyPoints">R50,342.04297,91.4375,477.69922,99.40625,L50</property>
+   </ControlFlowCase>
+</SDM>

@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Token"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="token"
+  AliasName="Token"
+  BindingStyle="JDBC"
+  RowClass="modelAdministrativo.bc.entidad.TokenImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="IdToken"
+    IsNotNull="true"
+    ColumnName="id_token"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="token"
+    PrimaryKey="true"
+    ChangeIndicator="true"
+    IsUpdateable="while_insert"
+    Domain="model.bc.dominio.IdEntidad"
+    DefaultValue="0">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdUsuario"
+    IsNotNull="true"
+    ColumnName="id_usuario"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="token"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Tipo"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="tipo"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="SocialNick"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="social_nick"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.Token.SocialNick_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Correo"
+    Precision="256"
+    ColumnName="correo"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+    <validation:RegExpValidationBean
+      Name="CorreoRule0"
+      ResId="validar.correo"
+      OnAttribute="Correo"
+      Pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      Inverse="false"/>
+    <validation:ListValidationBean
+      Name="CorreoRule1"
+      OnAttribute="Correo"
+      OperandType="JBO"
+      Inverse="true"
+      ListValue="modelAdministrativo.bc.vista.TokenView.Correo"
+      ResId="EL_CORREO_YA_EXITE__CAMBIE_DE_SER_NECESARIO"/>
+  </Attribute>
+  <Attribute
+    Name="Token"
+    IsNotNull="true"
+    Precision="512"
+    ColumnName="token"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="512"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Validador"
+    IsNotNull="true"
+    Precision="512"
+    ColumnName="validador"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="512"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="estado"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Usuario"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="usuario"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.Usuario">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="token"
+    Domain="model.bc.dominio.UsuarioFecha">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="ExpressionScript"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="usuario_programa"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="token"
+    Domain="model.bc.dominio.UsuarioPrograma">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Usuario1"
+    Association="modelAdministrativo.bc.entidad.asociacion.UsuarioTokenFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioTokenFkAssoc.Usuario1"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioTokenFkAssoc.Token"
+    Type="model.bc.Entidad"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Token.IdToken"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="TokenFk">
+    <DesignTime>
+      <Attr Name="_isCascadeDelete" Value="true"/>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="token_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Token.IdUsuario"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_Token">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Token"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Token.IdUsuario"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAdministrativo.ModelAdministrativoBundle"/>
+  </ResourceBundle>
+</Entity>

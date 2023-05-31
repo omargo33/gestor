@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="homeAdministradorPageDef"
+                Package="viewAdministrativo.pageDefs">
+    <parameters/>
+    <executables>
+        <variableIterator id="variables"/>
+        
+        <taskFlow id="dynamicRegion1" taskFlowId="${MenuBean.menuActual.dynamicTaskFlowId}" activation="deferred"
+                  xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded"
+                  parametersMap="${MenuBean.menuActual.mapaParametros}"></taskFlow>
+        
+        
+        <taskFlow id="menumaintaskflow1" taskFlowId="/WEB-INF/menu-lateral-task-flow.xml#menu-lateral-task-flow"
+                  activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding">
+            <parameters>
+                <parameter id="pUsuario" value="#{BaseBean.nameUser}"/>
+                <parameter id="pModulo" value="GS_001_00"/>
+            </parameters>
+        </taskFlow>
+    </executables>
+    <bindings>
+        <action id="Rollback" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false"
+                Action="rollbackTransaction"/>
+    </bindings>
+</pageDefinition>

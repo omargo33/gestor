@@ -1,0 +1,1 @@
+<?xml version="1.0" encoding="UTF-8" ?><pageTemplateDefs xmlns="http://xmlns.oracle.com/adf/faces/rich/pagetemplate">  <pagetemplate-jsp-ui-def>/plantilla/homePage.jspx</pagetemplate-jsp-ui-def>  <pagetemplate-jsp-ui-def>/plantilla/itemFrg.jspx</pagetemplate-jsp-ui-def>  <pagetemplate-jsp-ui-def>/plantilla/listaFrg.jspx</pagetemplate-jsp-ui-def></pageTemplateDefs>

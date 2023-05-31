@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RolUsuario"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="rol_usuario"
+  AliasName="RolUsuario"
+  BindingStyle="JDBC"
+  RowClass="modelAdministrativo.bc.entidad.RolUsuarioImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="IdRolUsuario"
+    IsNotNull="true"
+    ColumnName="id_rol_usuario"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="rol_usuario"
+    PrimaryKey="true"
+    DefaultValue="0"
+    Domain="model.bc.dominio.IdEntidad"
+    ChangeIndicator="true"
+    IsUpdateable="while_insert">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdRol"
+    IsNotNull="true"
+    ColumnName="id_rol"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="rol_usuario"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.RolUsuario.IdRol_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="IdUsuario"
+    IsNotNull="true"
+    ColumnName="id_usuario"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="rol_usuario"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.RolUsuario.IdUsuario_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Usuario"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="usuario"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="rol_usuario"
+    Domain="model.bc.dominio.Usuario">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="rol_usuario"
+    Domain="model.bc.dominio.UsuarioFecha">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="ExpressionScript"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="usuario_programa"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="rol_usuario"
+    Domain="model.bc.dominio.UsuarioPrograma">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  
+  <AccessorAttribute
+    Name="Rol2"
+    Association="modelAdministrativo.bc.entidad.asociacion.RolUsuarioFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.RolUsuarioFkAssoc.Rol2"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.RolUsuarioFkAssoc.RolUsuario"
+    Type="model.bc.Entidad"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="Usuario1"
+    Association="modelAdministrativo.bc.entidad.asociacion.UsuarioRolFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioRolFkAssoc.Usuario1"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioRolFkAssoc.RolUsuario"
+    Type="model.bc.Entidad"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.RolUsuario.IdRolUsuario"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RolUsuarioFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="rol_usuario_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.RolUsuario.IdRol"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RolUsuarioFk1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="rol_usuario_FK_1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.RolUsuario.IdUsuario"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_RolUsuario">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Rol_Usuario"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.RolUsuario.IdRol"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_RolUsuario1">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Rol_Usuario1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.RolUsuario.IdUsuario"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAdministrativo.ModelAdministrativoBundle"/>
+  </ResourceBundle>
+</Entity>

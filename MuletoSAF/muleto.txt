@@ -1,0 +1,14 @@
+## 
+## Informacion para 
+##
+## Configuring the WebLogic Server SQL Authenticator
+##
+https://www.oracle.com/webfolder/technetwork/tutorials/obe/fmw/wls/12c/12_2_1/sqlauthenticator/sqlauthenticator.html#section3 
+
+
+##
+## Error de recarga de aplicativo en desarrollo
+##
+
+
+https://forums.oracle.com/ords/apexds/post/adfccontext-class-cast-exception-when-doing-hot-deploy-from-9226

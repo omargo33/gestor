@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ItemFrgPageDef"
+                Package="modulo">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ModuloView1" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="ModuloView1Iterator"/>
+    <taskFlow id="moduloparametrosdetalletaskflow1"
+              taskFlowId="/WEB-INF/modulo-parametros-detalle-task-flow.xml#modulo-parametros-detalle-task-flow"
+              activation="deferred" xmlns="http://xmlns.oracle.com/adf/controller/binding" Refresh="ifNeeded">
+      <parameters>
+        <parameter id="hAccion" value="0"/>
+        <parameter id="hAccionValueId" value="#{bindings.IdModulo.inputValue}"/>
+        <parameter id="hPermisoCrear" value="#{pageFlowScope.pPermisoCrear}"/>
+        <parameter id="hPermisoActualizar" value="#{pageFlowScope.pPermisoActualizar}"/>
+        <parameter id="hPermisoBorrar" value="#{pageFlowScope.pPermisoBorrar}"/>
+        <parameter id="hPermisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+      </parameters>
+    </taskFlow>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="ModuloView1Iterator" id="IdModulo">
+      <AttrNames>
+        <Item Value="IdModulo"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ModuloView1Iterator" id="Indice">
+      <AttrNames>
+        <Item Value="Indice"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ModuloView1Iterator" id="Nombre">
+      <AttrNames>
+        <Item Value="Nombre"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ModuloView1Iterator" id="Contexto">
+      <AttrNames>
+        <Item Value="Contexto"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ModuloView1Iterator" id="Usuario">
+      <AttrNames>
+        <Item Value="Usuario"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ModuloView1Iterator" id="UsuarioFecha">
+      <AttrNames>
+        <Item Value="UsuarioFecha"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ModuloView1Iterator" id="UsuarioPrograma">
+      <AttrNames>
+        <Item Value="UsuarioPrograma"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ModuloView1Iterator" id="Execute" InstanceName="AdministrativoModuloDataControl.ModuloView1"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="ModuloView1Iterator" id="Delete" InstanceName="AdministrativoModuloDataControl.ModuloView1"
+            DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="true"
+            Action="commitTransaction"/>
+    <action id="Rollback" DataControl="AdministrativoModuloDataControl" RequiresUpdateModel="false"
+            Action="rollbackTransaction"/>
+    <list IterBinding="ModuloView1Iterator" StaticList="false" Uses="LOV_Estado" id="Estado1" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>

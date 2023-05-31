@@ -1,0 +1,25 @@
+<!--Sin Seguriades-->
+"Usuario" NDValue="[13a]" NDType="java.lang.String"/>
+"UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+
+
+<!--Con Seguriades-->
+"Usuario" NDValue="#{securityContext.userName}" NDType="java.lang.String"/>
+"UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+
+
+
+<af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+    <af:dialog id="d1" type="cancel" title="#{bndBase.msg_borrar_titulo}">
+        <f:facet name="buttonBar">
+            <af:button id="cb1" text="#{bndBase.btn_borrar}" destination="#{BaseBean.urlBase}#{session.servletContext.contextPath}/OutPage.jsp" targetFrame="_blank" useWindow="true">
+                <af:clientListener method="hidePopupP1" type="action"/>
+            </af:button>
+        </f:facet>
+        <af:panelBorderLayout id="pbl1">
+            <af:panelHeader id="ph1" text="#{bndBase.msg_borrar_advertencia}" messageType="warning">
+                <af:outputText value="#{bndBase.msg_borrar_mensaje}" id="ot1"/>
+            </af:panelHeader>
+        </af:panelBorderLayout>
+    </af:dialog>
+</af:popup>

@@ -1,0 +1,251 @@
+/**
+* Gestion de colores
+*
+*/
+:root {
+    --rojo: #E63946;
+    --blanco: #F1FAEE;
+    --celeste: #A8DADC;
+    --azul: #457B9D;
+    --darkBlue: #1D3557;
+    --menu-selected-background: #444342;
+    --borde-texto: #1d3557;
+}
+/**
+* Presentacion del menu.
+*
+*/
+.menu {
+    padding: 3px;
+    color: var(--blanco);
+}
+
+.menu a {
+    font-size: small;
+    font-weight: bolder;
+    text-transform: capitalize;
+    color: var(--blanco);
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-right: 0px;
+    display: block;
+}
+
+.menu a:link {
+}
+
+.menu a:visited {
+}
+
+.menu a:hover {
+    text-decoration: none;
+    color: var(--blanco);
+}
+
+.menu a:active {
+}
+/**
+* Presentacion del Scroll modulo como Pantalla.
+*
+*/
+.menuScroll {
+    /*width: 300px;    */
+}
+
+.menuScroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.menuScroll::-webkit-scrollbar-thumb {
+    background: var(--azul);
+    border-radius: 4px;
+}
+
+.menuScroll::-webkit-scrollbar-thumb:hover {
+    background: var(--azul);
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.menuScroll::-webkit-scrollbar-thumb:active {
+    background: var(--azul);
+}
+
+.menuScroll::-webkit-scrollbar-track {
+    background: var(--celeste);
+    border-radius: 4px;
+}
+
+.menuScroll::-webkit-scrollbar-track:hover, .menuScroll::-webkit-scrollbar-track:active {
+    background: var(--celeste);
+}
+/**
+* Presentacion del modulo como Pantalla de información base de cada producto.
+*
+* Base -> ViewController.webContent.vacio.Presentacion
+*/
+.presentacion .imagenModulo {
+    width: 73%;
+    height: auto;
+    margin-top: 17%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.presentacion .fontTitulo {
+    color: var(--azul);
+    font-size: 4vw;
+    font-weight: bolder;
+    text-shadow: var(--borde-texto) 1px 1px 2px;
+}
+
+.presentacion .fontDescripcion {
+    color: var(--celeste);
+    font-size: 2vw;
+    font-weight: bolder;
+    text-shadow: var(--borde-texto) 1px 1px 2px;
+}
+/**
+* Gestion de colores para estilos es con la pagina
+*
+* https://angel-rs.github.io/css-color-filter-generator/
+*
+*/
+.estilo16 {
+    width: 16px;
+    height: 16px;
+}
+
+.estilo24 {
+    width: 24px;
+    height: 24px;
+}
+
+.estilo32 {
+    width: 32px;
+    height: 32px;
+}
+
+.estilo48 {
+    width: 48px;
+    height: 48px;
+}
+
+.estilo64 {
+    width: 64px;
+    height: 64px;
+}
+
+.estilo128 {
+    width: 128px;
+    height: 128px;
+}
+
+.estilo256 {
+    width: 256px;
+    height: 256px;
+}
+
+.imagen25 {
+    width: 25%;
+}
+
+.estiloRojo {
+    filter: brightness(0) saturate(100%) invert(43%) sepia(50%) saturate(6011%) hue-rotate(333deg) brightness(90%) contrast(100%);
+}
+
+.estiloBlanco {
+    filter: brightness(0) saturate(100%) invert(97%) sepia(12%) saturate(195%) hue-rotate(43deg) brightness(100%) contrast(97%);
+}
+
+.estiloCeleste {
+    filter: brightness(0) saturate(100%) invert(96%) sepia(22%) saturate(7093%) hue-rotate(174deg) brightness(89%) contrast(93%);
+}
+
+.estiloAzul {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(14%) saturate(6286%) hue-rotate(186deg) brightness(64%) contrast(93%);
+}
+
+.estiloDarkBlue {
+    filter: brightness(0) saturate(100%) invert(17%) sepia(38%) saturate(999%) hue-rotate(174deg) brightness(89%) contrast(90%);
+}
+
+.colorRojo {
+    color: var(--rojo);
+}
+
+.colorBlanco {
+    color: var(--blanco);
+}
+
+.colorCeleste {
+    color: var(--celeste);
+}
+
+.colorAzul {
+    color: var(--azul);
+}
+
+.colorDarkBlue {
+    background-color: var(--darkBlue);
+}
+
+.panelRojo {
+    background-color: var(--rojo);
+}
+
+.panelBlanco {
+    background-color: var(--blanco);
+}
+
+.panelCeleste {
+    background-color: var(--celeste);
+}
+
+.panelAzul {
+    background-color: var(--azul);
+}
+
+.panelDarkBlue {
+    background-color: var(--darkBlue);
+}
+/**
+*
+* Imagen de Botton 
+*
+*/
+.xfp img {
+    width: 16px;
+    height: 16px;
+}
+
+a.linkEdit:hover {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(14%) saturate(6286%) hue-rotate(186deg) brightness(64%) contrast(93%);    
+    background: url('../../Imagen-001/icons/3994395_write_pen_pencil_stationery_edit.svg')no-repeat 100% 0;        
+    padding-right: 19px;
+    color: var(--azul);
+    font-weight: bolder;
+    text-decoration:none;
+}
+
+a.linkEdit{    
+    color: var(--azul);
+    font-weight: bolder;
+    text-decoration:none;
+}
+
+a.linkSelected:hover {
+    filter: brightness(0) saturate(100%) invert(68%) sepia(14%) saturate(6286%) hue-rotate(186deg) brightness(64%) contrast(93%);    
+    background: url('../../Imagen-001/icons/3994394_pin_marker_label_pushpin_thumbtack.svg')no-repeat 100% 0;        
+    background-size: 16px 16px;
+    padding-right: 19px;
+    color: var(--azul);
+    font-weight: bolder;
+    text-decoration:none;
+}
+
+a.linkSelected{    
+    color: var(--azul);
+    font-weight: bolder;
+    text-decoration:none;
+}

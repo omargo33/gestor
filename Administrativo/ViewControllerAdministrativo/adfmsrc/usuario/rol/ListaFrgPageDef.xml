@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ListaFrgPageDef"
+                Package="usuario.rol">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RolUsuarioView1" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="RolUsuarioView1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RolUsuarioView1Iterator" id="RolUsuarioView1">
+      <nodeDefinition DefName="modelAdministrativo.bc.vista.RolUsuarioView" Name="RolUsuarioView10">
+        <AttrNames>
+          <Item Value="IdRolUsuario"/>
+          <Item Value="IdRol"/>
+          <Item Value="IdUsuario"/>
+          <Item Value="UsuarioFecha"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

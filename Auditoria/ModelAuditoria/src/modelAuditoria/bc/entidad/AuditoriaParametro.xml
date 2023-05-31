@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaParametro"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="AR_001_00.auditoria_parametro"
+  AliasName="AuditoriaParametro"
+  BindingStyle="JDBC"
+  RowClass="modelAuditoria.bc.entidad.AuditoriaParametroImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="IdAuditoriaParametro"
+    ColumnName="id_auditoria_parametro"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria_parametro"
+    PrimaryKey="true"
+    
+    IsUpdateable="while_insert"
+    Domain="model.bc.dominio.IdEntidad">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdAuditoria"
+    ColumnName="id_auditoria"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria_parametro"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Nombre"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="nombre"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria_parametro"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Direccion"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="direccion"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria_parametro"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Valor"
+    Precision="256"
+    ColumnName="valor"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria_parametro"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>  
+  <AccessorAttribute
+    Name="Auditoria"
+    Association="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc"
+    AssociationEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc.Auditoria"
+    AssociationOtherEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc.AuditoriaParametro"
+    Type="model.bc.Entidad"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.AuditoriaParametro.IdAuditoriaParametro"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AuditoriaParametroFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="auditoria_parametro_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.AuditoriaParametro.IdAuditoria"/>
+    </AttrArray>
+  </Key>
+</Entity>

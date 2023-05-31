@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="viewLogin" ClientType="Generic">
+  
+             
+             
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/loggin/ingreso.jsff" usageId="viewLogin_ingresoPageDef"/>
+    <page path="/loggin/solicitarClave.jsff" usageId="viewLogin_solicitarClavePageDef"/>
+    <page path="/Home.jspx" usageId="viewLogin_HomeLoginPageDef"/>
+    <page path="PageFlow#base_obtenerParametroTexto01"
+          usageId="viewLogin_adfc_config___base_obtenerParametroTexto01PageDef"/>
+    <page path="/WEB-INF/declaracion-task-flow.xml#declaracion-task-flow@base_obtenerParametroTexto01"
+          usageId="viewLogin_declaracion_task_flow_declaracion_task_flow_base_obtenerParametroTexto01PageDef"/>
+    <page path="/WEB-INF/declaracion-task-flow.xml#declaracion-task-flow@base_obtenerParametroNumerico01"
+          usageId="viewLogin_declaracion_task_flow_declaracion_task_flow_base_obtenerParametroNumerico01PageDef"/>
+    <page path="/WEB-INF/login-task-flow.xml#login-task-flow@Rollback"
+          usageId="viewLogin_login_task_flow_login_task_flow_RollbackPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="viewLogin_ingresoPageDef" path="loggin.ingresoPageDef"/>
+    <page id="viewLogin_solicitarClavePageDef" path="loggin.solicitarClavePageDef"/>
+    <page id="viewLogin_HomeLoginPageDef" path="viewLogin.pageDefs.HomeLoginPageDef"/>
+    <page id="viewLogin_adfc_config___base_obtenerParametroTexto01PageDef"
+          path="viewLogin.pageDefs.adfc_config___base_obtenerParametroTexto01PageDef"/>
+    <page id="viewLogin_declaracion_task_flow_declaracion_task_flow_base_obtenerParametroTexto01PageDef"
+          path="viewLogin.pageDefs.declaracion_task_flow_declaracion_task_flow_base_obtenerParametroTexto01PageDef"/>
+    <page id="viewLogin_declaracion_task_flow_declaracion_task_flow_base_obtenerParametroNumerico01PageDef"
+          path="viewLogin.pageDefs.declaracion_task_flow_declaracion_task_flow_base_obtenerParametroNumerico01PageDef"/>
+    <page id="viewLogin_login_task_flow_login_task_flow_RollbackPageDef"
+          path="viewLogin.pageDefs.login_task_flow_login_task_flow_RollbackPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="LoginModuloDataControl" Package="modelLogin.bc"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="LoginModuloWeb" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

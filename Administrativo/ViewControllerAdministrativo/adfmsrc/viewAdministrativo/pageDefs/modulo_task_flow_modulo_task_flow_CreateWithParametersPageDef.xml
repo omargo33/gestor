@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
+                id="modulo_task_flow_modulo_task_flow_CreateWithParametersPageDef"
+                Package="viewAdministrativo.pageDefs" SkipValidation="true">
+  <parameters/>
+  <executables>
+    <iterator Binds="ModuloView1" RangeSize="25" DataControl="AdministrativoModuloDataControl"
+              id="ModuloView1Iterator"/>
+  </executables>
+  <bindings>
+    <action IterBinding="ModuloView1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Usuario" NDValue="#{BaseBean.nameUser}" NDType="java.lang.String"/>
+      <NamedData NDName="UsuarioPrograma" NDValue="#{session.servletContext.contextPath}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaEventoFkAssoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="Auditoria"
+    Cardinality="1"
+    Source="true"
+    Owner="modelAuditoria.bc.entidad.Auditoria">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="Auditoria"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.Auditoria.IdAuditoria"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AuditoriaEvento"
+    Cardinality="-1"
+    Owner="modelAuditoria.bc.entidad.AuditoriaEvento">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AuditoriaEvento"/>
+      <Attr Name="_foreignKey" Value="modelAuditoria.bc.entidad.AuditoriaEvento.AuditoriaEventoFk"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.AuditoriaEvento.IdAuditoria"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

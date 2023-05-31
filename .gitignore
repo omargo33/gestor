@@ -1,0 +1,8 @@
+/.data/
+/target/
+/classes/
+/deploy/
+/ejecutaMVN.sh
+/copyDeploy.sh
+/Libreria/Excel2020/classes/
+/Libreria/Excel2020/target/

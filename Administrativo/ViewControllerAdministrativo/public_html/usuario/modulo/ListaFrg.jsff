@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1"
+    xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+    xmlns:f="http://java.sun.com/jsf/core">
+    <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1">
+
+        <f:attribute name="titulo" value="#{bnd.modulo_usuario_listaFrg_titulo}"/>
+        <f:attribute name="tituloDescripcion" value="#{bnd.modulo_usuario_listaFrg_descripcion}"/>
+        <f:facet name="elementoBusqueda"/>
+        <f:facet name="elementoCentro">            
+            <af:table value="#{bindings.ModuloUsuarioViewNoDML1.collectionModel}" var="row"
+                      rows="#{bindings.ModuloUsuarioViewNoDML1.rangeSize}"
+                      emptyText="#{bindings.ModuloUsuarioViewNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                      rowBandingInterval="0"
+                      selectedRowKeys="#{bindings.ModuloUsuarioViewNoDML1.collectionModel.selectedRow}"
+                      selectionListener="#{bindings.ModuloUsuarioViewNoDML1.collectionModel.makeCurrent}"
+                      rowSelection="single" fetchSize="#{bindings.ModuloUsuarioViewNoDML1.rangeSize}" id="t1"
+                      columnStretching="column:c3">
+                <?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                <af:column headerText="#{bindings.ModuloUsuarioViewNoDML1.hints.Indice.label}" id="c1">
+                    <af:outputText value="#{row.Indice}"
+                                   shortDesc="#{bindings.ModuloUsuarioViewNoDML1.hints.Indice.tooltip}" id="ot1"/>
+                </af:column>
+                <af:column headerText="#{bindings.ModuloUsuarioViewNoDML1.hints.Nombre.label}" id="c2">
+                    <af:outputText value="#{row.Nombre}"
+                                   shortDesc="#{bindings.ModuloUsuarioViewNoDML1.hints.Nombre.tooltip}" id="ot2"/>
+                </af:column>
+                <af:column headerText="#{bindings.ModuloUsuarioViewNoDML1.hints.Contexto.label}" id="c3">
+                    <af:outputText value="#{row.Contexto}"
+                                   shortDesc="#{bindings.ModuloUsuarioViewNoDML1.hints.Contexto.tooltip}" id="ot3"/>
+                </af:column>
+                <af:column headerText="#{bindings.ModuloUsuarioViewNoDML1.hints.Estado.label}" id="c4">
+                    <af:selectOneChoice value="#{row.bindings.Estado.inputValue}" label="#{row.bindings.Estado.label}"
+                                        required="#{bindings.ModuloUsuarioViewNoDML1.hints.Estado.mandatory}"
+                                        shortDesc="#{bindings.ModuloUsuarioViewNoDML1.hints.Estado.tooltip}"
+                                        readOnly="true" id="soc1">
+                        <f:selectItems value="#{row.bindings.Estado.items}" id="si1"/>
+                        <f:validator binding="#{row.bindings.Estado.validator}"/>
+                    </af:selectOneChoice>
+                </af:column>
+            </af:table>
+        </f:facet>
+        <f:facet name="elementoAcciones">
+            
+        </f:facet>
+    </af:pageTemplate>
+</jsp:root>

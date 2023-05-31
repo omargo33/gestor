@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaEvento"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="AR_001_00.auditoria_evento"
+  AliasName="AuditoriaEvento"
+  BindingStyle="JDBC"
+  RowClass="modelAuditoria.bc.entidad.AuditoriaEventoImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="IdAuditoriaEvento"
+    ColumnName="id_auditoria_evento"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria_evento"
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    Domain="model.bc.dominio.IdEntidad">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdAuditoria"
+    ColumnName="id_auditoria"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria_evento"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Descripcion"
+    IsNotNull="true"
+    Precision="512"
+    ColumnName="descripcion"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria_evento"
+    Domain="model.bc.dominio.Descripcion">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="512"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Tipo"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="tipo"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="AR_001_00.auditoria_evento"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Orden"
+    ColumnName="orden"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria_evento"
+    Domain="model.bc.dominio.NumeroEntero">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Parte"
+    IsNotNull="true"
+    ColumnName="parte"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="AR_001_00.auditoria_evento"
+    Domain="model.bc.dominio.NumeroEntero">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="AR_001_00.auditoria_evento"
+    Domain="model.bc.dominio.UsuarioFecha"/>  
+  <AccessorAttribute
+    Name="Auditoria"
+    Association="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc"
+    AssociationEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc.Auditoria"
+    AssociationOtherEnd="modelAuditoria.bc.entidad.asociacion.AuditoriaEventoFkAssoc.AuditoriaEvento"
+    Type="model.bc.Entidad"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.AuditoriaEvento.IdAuditoriaEvento"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="AuditoriaEventoFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="auditoria_evento_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.entidad.AuditoriaEvento.IdAuditoria"/>
+    </AttrArray>
+  </Key>
+</Entity>

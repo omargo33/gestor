@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+    <af:masonryLayout id="ml1">
+        <af:panelGroupLayout id="pgl3" styleClass="AFMasonryTileSize1x1 tileStyle"
+                             inlineStyle="background-color:#457B9D;" layout="horizontal" halign="center">
+            <af:matchMediaBehavior propertyName="styleClass" matchedPropertyValue="AFMasonryTileSize2x1 tileStyle"
+                                   mediaQuery="screen and (max-width: 768px)"/>
+            <af:matchMediaBehavior propertyName="styleClass" matchedPropertyValue="AFMasonryTileSize1x1 tileStyle"
+                                   mediaQuery="screen and (min-width: 769px)"/>
+            <af:panelGroupLayout id="pgl6" layout="horizontal" halign="center">
+                <af:image id="i4" source="../../ViewControllerImagen/logo_complet_128.png"/>
+            </af:panelGroupLayout>
+        </af:panelGroupLayout>
+        <af:panelHeader text="#{bnd.usuario_estadisticas_pendientes}" id="ph1"
+                        styleClass="AFMasonryTileSize1x1 tileStyle" size="3" headerLevel="3"
+                        inlineStyle="background-color:#F1FAEE;" messageType="none">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:panelGroupLayout id="pgl4" layout="vertical" halign="center">
+                <af:outputText value="#{bindings.Usuarios.inputValue}" shortDesc="#{bindings.Usuarios.hints.tooltip}"
+                               id="ot1" inlineStyle="font-size:32px;">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.Usuarios.format}"/>
+                </af:outputText>
+                <af:outputText value="#{bnd.usuario_estadisticas_pendientes_usuarios}" id="ot3"
+                               inlineStyle="font-weight:bolder;"/>
+                <af:spacer id="s2" height="2" width="2"/>
+                <af:outputText value="#{bindings.UsuariosCorreo.inputValue}"
+                               shortDesc="#{bindings.UsuariosCorreo.hints.tooltip}" id="ot2"
+                               inlineStyle="font-size:32px;">
+                    <af:convertNumber groupingUsed="false" pattern="#{bindings.UsuariosCorreo.format}"/>
+                </af:outputText>
+                <af:outputText value="#{bnd.usuario_estadisticas_pendientes_sinClave}" id="ot4"
+                               inlineStyle="font-weight:bolder;"/>
+                <f:facet name="separator"/>
+            </af:panelGroupLayout>
+        </af:panelHeader>
+        <af:panelHeader id="pgl2" styleClass="AFMasonryTileSize1x1 tileStyle" text="#{bnd.usuario_estadisticas_redes}"
+                        size="3" inlineStyle="background-color:#A8DADC;" headerLevel="3" messageType="none">
+            <f:facet name="context"/>
+            <f:facet name="toolbar"/>
+            <f:facet name="menuBar"/>
+            <f:facet name="legend"/>
+            <f:facet name="info"/>
+            <af:listView value="#{bindings.AccesosRedesNoDML1.collectionModel}" var="item"
+                         emptyText="#{bindings.AccesosRedesNoDML1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                         fetchSize="#{bindings.AccesosRedesNoDML1.rangeSize}" id="lv10">
+                <af:listItem id="li1" inlineStyle="background-color:#A8DADC;">
+                    <af:panelGroupLayout layout="horizontal" id="pgl1" inlineStyle="background-color:#A8DADC;"
+                                         halign="center">
+                        <f:facet name="separator">
+                            <af:spacer width="7" id="s1"/>
+                        </f:facet>
+                        <af:image id="i1" shortDesc="image" rendered="#{item.bindings.Tipo.inputValue eq 'C'}"
+                                  source="../../ViewControllerImagen/email_16.png"/>
+                        <af:image id="i2" source="../../ViewControllerImagen/google_circulo_16.png"
+                                  shortDesc="image" rendered="#{item.bindings.Tipo.inputValue eq 'G'}"/>
+                        <af:image id="i3" shortDesc="image"
+                                  source="../../ViewControllerImagen/facebook_circulo_16.png"
+                                  rendered="#{item.bindings.Tipo.inputValue eq 'F'}"/>
+                        <af:outputText value="#{item.bindings.Cantidad.inputValue}" id="of2"
+                                       inlineStyle="font-size:16px; font-weight:bolder;">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.AccesosRedesNoDML1.hints.Cantidad.format}"/>
+                        </af:outputText>
+                    </af:panelGroupLayout>
+                </af:listItem>
+            </af:listView>
+        </af:panelHeader>
+        <af:panelGroupLayout id="pgl5" styleClass="AFMasonryTileSize1x1 tileStyle"
+                             inlineStyle="background-color:#1D3557;" halign="center" layout="horizontal">
+            <af:matchMediaBehavior propertyName="styleClass" matchedPropertyValue="AFMasonryTileSize2x1 tileStyle"
+                                   mediaQuery="screen and (max-width: 768px)"/>
+            <af:matchMediaBehavior propertyName="styleClass" matchedPropertyValue="AFMasonryTileSize1x1 tileStyle"
+                                   mediaQuery="screen and (min-width: 769px)"/>
+        </af:panelGroupLayout>
+    </af:masonryLayout>
+</jsp:root>

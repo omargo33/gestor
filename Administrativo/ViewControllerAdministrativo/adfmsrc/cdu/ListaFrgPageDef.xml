@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ListaFrgPageDef" Package="cdu">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CodigoDefinidoUsuarioEncabezadoView1" RangeSize="25"
+              DataControl="AdministrativoModuloDataControl" id="CodigoDefinidoUsuarioEncabezadoView1Iterator"/>
+    <searchRegion Criteria="CodigoDefinidoUsuarioEncabezadoViewCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CodigoDefinidoUsuarioEncabezadoView1Iterator"
+                  id="CodigoDefinidoUsuarioEncabezadoViewCriteriaQuery"/>
+    <page path="plantilla.listaFrgPageDef" id="ptb1" Refresh="ifNeeded"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CodigoDefinidoUsuarioEncabezadoView1Iterator" id="CodigoDefinidoUsuarioEncabezadoView1">
+      <nodeDefinition DefName="modelAdministrativo.bc.vista.CodigoDefinidoUsuarioEncabezadoView"
+                      Name="CodigoDefinidoUsuarioEncabezadoView10">
+        <AttrNames>
+          <Item Value="IdCodigoDefinidoUsuario"/>
+          <Item Value="IdModulo"/>
+          <Item Value="Grupo"/>
+          <Item Value="CodigoTexto"/>
+          <Item Value="Nombre"/>
+          <Item Value="Descripcion"/>
+          <Item Value="Orden"/>
+          <Item Value="Estado"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <methodAction id="cduAbajo" RequiresUpdateModel="true" Action="invokeMethod" MethodName="cduAbajo"
+                  IsViewObjectMethod="true" DataControl="AdministrativoModuloDataControl"                  
+                  InstanceName="data.AdministrativoModuloDataControl.CodigoDefinidoUsuarioEncabezadoView1"                  
+                  />
+    <methodAction id="cduArriba" RequiresUpdateModel="true" Action="invokeMethod" MethodName="cduArriba"
+                  IsViewObjectMethod="true" DataControl="AdministrativoModuloDataControl"
+                  InstanceName="data.AdministrativoModuloDataControl.CodigoDefinidoUsuarioEncabezadoView1"/>
+    <methodAction id="cduPrimero" RequiresUpdateModel="true" Action="invokeMethod" MethodName="cduPrimero"
+                  IsViewObjectMethod="true" DataControl="AdministrativoModuloDataControl"
+                  InstanceName="data.AdministrativoModuloDataControl.CodigoDefinidoUsuarioEncabezadoView1"/>
+    <methodAction id="cduUltimo" RequiresUpdateModel="true" Action="invokeMethod" MethodName="cduUltimo"
+                  IsViewObjectMethod="true" DataControl="AdministrativoModuloDataControl"
+                  InstanceName="data.AdministrativoModuloDataControl.CodigoDefinidoUsuarioEncabezadoView1"/>
+  </bindings>
+</pageDefinition>

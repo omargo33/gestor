@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="listaFrgPageDef" Package="rol">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RolView1" RangeSize="25" DataControl="AdministrativoModuloDataControl" id="RolView1Iterator"/>
+    <searchRegion Criteria="RolViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="RolView1Iterator" id="RolViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RolView1Iterator" id="RolView1">
+      <nodeDefinition DefName="modelAdministrativo.bc.vista.RolView" Name="RolView10">
+        <AttrNames>
+          <Item Value="IdRol"/>
+          <Item Value="Nombre"/>
+          <Item Value="Tipo"/>
+          <Item Value="Estado"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

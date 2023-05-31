@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CodigoDefinidoUsuario"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="codigo_definido_usuario"
+  AliasName="CodigoDefinidoUsuario"
+  BindingStyle="JDBC"
+  RowClass="modelAdministrativo.bc.entidad.CodigoDefinidoUsuarioImpl">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="IdCodigoDefinidoUsuario"
+    IsNotNull="true"
+    ColumnName="id_codigo_definido_usuario"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="codigo_definido_usuario"
+    PrimaryKey="true"
+    Domain="model.bc.dominio.IdEntidad"
+    IsUpdateable="while_insert"
+    DefaultValue="0"
+    ChangeIndicator="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdModulo"
+    IsNotNull="true"
+    ColumnName="id_modulo"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.IdModulo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Grupo"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="grupo"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.Grupo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CodigoTexto"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="codigo_texto"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.CodigoTexto_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="CodigoNumero"
+    IsNotNull="true"
+    ColumnName="codigo_numero"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.NumeroEntero">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.CodigoNumero_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.CodigoNumero_FMT_FORMATTER"/>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.CodigoNumero_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Nombre"
+    IsNotNull="true"
+    Precision="64"
+    ColumnName="nombre"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="64"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.Nombre_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Descripcion"
+    Precision="512"
+    ColumnName="descripcion"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.Descripcion">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="512"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.Descripcion_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Orden"
+    IsNotNull="true"
+    ColumnName="orden"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="codigo_definido_usuario"
+    DefaultValue="0"
+    Domain="model.bc.dominio.NumeroEntero">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.Orden_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Estado"
+    IsNotNull="true"
+    Precision="8"
+    ColumnName="estado"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.ComboBox"
+    DefaultValue="A">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.Estado_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Usuario"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="usuario"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.Usuario">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.UsuarioFecha">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="ExpressionScript"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    Precision="256"
+    ColumnName="usuario_programa"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="codigo_definido_usuario"
+    Domain="model.bc.dominio.UsuarioPrograma">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <AccessorAttribute
+    Name="Modulo"
+    Association="modelAdministrativo.bc.entidad.asociacion.ModuloCodigoDefinidoUsuarioFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.ModuloCodigoDefinidoUsuarioFkAssoc.Modulo"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.ModuloCodigoDefinidoUsuarioFkAssoc.CodigoDefinidoUsuario"
+    Type="model.bc.Entidad"
+    IsUpdateable="true"/>
+  <AccessorAttribute
+    Name="CodigoTextoCodigoDefinidoUsuario"
+    Association="modelAdministrativo.bc.entidad.asociacion.CodigoDefinidoUsuarioFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.CodigoDefinidoUsuarioFkAssoc.CodigoTextoCodigoDefinidoUsuario"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.CodigoDefinidoUsuarioFkAssoc.GrupoCodigoDefinidoUsuario"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="GrupoCodigoDefinidoUsuario"
+    Association="modelAdministrativo.bc.entidad.asociacion.CodigoDefinidoUsuarioFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.CodigoDefinidoUsuarioFkAssoc.GrupoCodigoDefinidoUsuario"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.CodigoDefinidoUsuarioFkAssoc.CodigoTextoCodigoDefinidoUsuario"
+    Type="modelAdministrativo.bc.entidad.CodigoDefinidoUsuarioImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.IdCodigoDefinidoUsuario"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CodigoDefinidoUsuarioFk">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="codigo_definido_usuario_FK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.IdModulo"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="fk_CodigoDefinidoUsuario">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="PRIMARY"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="fk_Codigo_Definido_Usuario"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.CodigoDefinidoUsuario.IdModulo"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAdministrativo.ModelAdministrativoBundle"/>
+  </ResourceBundle>
+</Entity>

@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:panelGroupLayout id="pgl4">
+        <af:pageTemplate viewId="/plantilla/itemFrg.jspx" id="pt1">
+            <f:attribute name="titulo" value="#{bnd.modulo_itemFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion" value="#{bnd.modulo_itemFrg_descripcion}"/>
+            <f:attribute name="permisoVerAuditoria" value="#{pageFlowScope.pPermisoVerAuditoria}"/>
+            <f:facet name="elementoCentro">
+                <af:panelFormLayout id="pfl1" labelWidth="140">
+                    <af:inputText value="#{bindings.Indice.inputValue}" label="#{bindings.Indice.hints.label}"
+                                  required="#{bindings.Indice.hints.mandatory}"
+                                  columns="#{bindings.Indice.hints.displayWidth}"
+                                  maximumLength="#{bindings.Indice.hints.precision}"
+                                  shortDesc="#{bindings.Indice.hints.tooltip}" id="it2">
+                        <f:validator binding="#{bindings.Indice.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Nombre.inputValue}" label="#{bindings.Nombre.hints.label}"
+                                  required="#{bindings.Nombre.hints.mandatory}"
+                                  columns="#{bindings.Nombre.hints.displayWidth}"
+                                  maximumLength="#{bindings.Nombre.hints.precision}"
+                                  shortDesc="#{bindings.Nombre.hints.tooltip}" id="it3">
+                        <f:validator binding="#{bindings.Nombre.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Contexto.inputValue}" label="#{bindings.Contexto.hints.label}"
+                                  required="#{bindings.Contexto.hints.mandatory}"
+                                  columns="#{bindings.Contexto.hints.displayWidth}"
+                                  maximumLength="#{bindings.Contexto.hints.precision}"
+                                  shortDesc="#{bindings.Contexto.hints.tooltip}" id="it4">
+                        <f:validator binding="#{bindings.Contexto.validator}"/>
+                    </af:inputText>
+                    <f:facet name="footer">
+                        <bl01:botonesGuardarBorrar id="bgb1" actualizarAccion="#{BackingItemFrg.actionGuardar}"
+                                                   actualizarPermiso="#{pageFlowScope.pPermisoActualizar}"
+                                                   borrarAccion="#{BackingItemFrg.actionDelete}"
+                                                   borrarDisabled="#{bindings.IdModulo.inputValue eq 0}"
+                                                   borrarPermiso="#{pageFlowScope.pPermisoBorrar}"/>
+                    </f:facet>
+                </af:panelFormLayout>
+            </f:facet>
+            <f:facet name="elementoCancelar">
+                <bl01:botonesCancelar id="bc1" inicioAccion="Inicio">
+                    <f:facet name="botonesAcciones"/>
+                </bl01:botonesCancelar>
+            </f:facet>
+            <f:facet name="elementoAuditoria">
+                <af:panelFormLayout id="pfl2" labelWidth="110">
+                    <f:facet name="footer"/>
+                    <af:inputText value="#{bindings.IdModulo.inputValue}" label="#{bindings.IdModulo.hints.label}"
+                                  required="#{bindings.IdModulo.hints.mandatory}"
+                                  columns="#{bindings.IdModulo.hints.displayWidth}"
+                                  maximumLength="#{bindings.IdModulo.hints.precision}"
+                                  shortDesc="#{bindings.IdModulo.hints.tooltip}" id="it1">
+                        <f:validator binding="#{bindings.IdModulo.validator}"/>
+                        <af:convertNumber groupingUsed="false" pattern="#{bindings.IdModulo.format}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.Usuario.inputValue}" label="#{bindings.Usuario.hints.label}"
+                                  required="#{bindings.Usuario.hints.mandatory}"
+                                  columns="#{bindings.Usuario.hints.displayWidth}"
+                                  maximumLength="#{bindings.Usuario.hints.precision}"
+                                  shortDesc="#{bindings.Usuario.hints.tooltip}" id="it5">
+                        <f:validator binding="#{bindings.Usuario.validator}"/>
+                    </af:inputText>
+                    <af:inputDate value="#{bindings.UsuarioFecha.inputValue}"
+                                  label="#{bindings.UsuarioFecha.hints.label}"
+                                  required="#{bindings.UsuarioFecha.hints.mandatory}"
+                                  columns="#{bindings.UsuarioFecha.hints.displayWidth}"
+                                  shortDesc="#{bindings.UsuarioFecha.hints.tooltip}" id="id1">
+                        <f:validator binding="#{bindings.UsuarioFecha.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.UsuarioFecha.format}"/>
+                    </af:inputDate>
+                    <af:inputText value="#{bindings.UsuarioPrograma.inputValue}"
+                                  label="#{bindings.UsuarioPrograma.hints.label}"
+                                  required="#{bindings.UsuarioPrograma.hints.mandatory}"
+                                  columns="#{bindings.UsuarioPrograma.hints.displayWidth}"
+                                  maximumLength="#{bindings.UsuarioPrograma.hints.precision}"
+                                  shortDesc="#{bindings.UsuarioPrograma.hints.tooltip}" id="it6">
+                        <f:validator binding="#{bindings.UsuarioPrograma.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice value="#{bindings.Estado1.inputValue}" label="#{bindings.Estado1.label}"
+                                        required="#{bindings.Estado1.hints.mandatory}"
+                                        shortDesc="#{bindings.Estado1.hints.tooltip}" id="soc1">
+                        <f:selectItems value="#{bindings.Estado1.items}" id="si1"/>
+                        <f:validator binding="#{bindings.Estado1.validator}"/>
+                    </af:selectOneChoice>
+                </af:panelFormLayout>
+            </f:facet>
+        </af:pageTemplate>
+        <af:region value="#{bindings.moduloparametrosdetalletaskflow1.regionModel}" id="r1"
+                   rendered="#{bindings.IdModulo.inputValue ne 0}"/>
+    </af:panelGroupLayout>
+</jsp:root>

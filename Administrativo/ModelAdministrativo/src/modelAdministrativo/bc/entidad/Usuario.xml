@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="Usuario"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="usuario"
+  AliasName="Usuario"
+  BindingStyle="JDBC"
+  RowClass="modelAdministrativo.bc.entidad.UsuarioImpl"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
+  <DesignTime>
+    <Attr Name="_codeGenFlag2" Value="DML"/>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <Attribute
+    Name="IdUsuario"
+    IsNotNull="true"
+    ColumnName="id_usuario"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="usuario"
+    PrimaryKey="true"
+    Domain="model.bc.dominio.IdEntidad"
+    DefaultValue="0"
+    IsUpdateable="while_insert"
+    ChangeIndicator="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="IdArchivo"
+    ColumnName="id_archivo"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="usuario"
+    Domain="model.bc.dominio.IdEntidad">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.Usuario.IdArchivo_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="Nick"
+    IsUnique="true"
+    Precision="128"
+    ColumnName="nick"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+    <validation:LengthValidationBean
+      Name="NickRule0"
+      ResId="validar.largo"
+      OnAttribute="Nick"
+      CompareType="GREATERTHANEQUALTO"
+      DataType="CHARACTER"
+      CompareLength="3"
+      Inverse="false">
+      <validation:ResExpressions
+        Name="NickRule0_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[3
+]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:LengthValidationBean>
+    <validation:ListValidationBean
+      Name="NickRule2"
+      ResId="validar.unicoCampo"
+      OnAttribute="Nick"
+      OperandType="JBO"
+      Inverse="true"
+      ListValue="modelAdministrativo.bc.vista.UsuarioView.Nick"/>
+    <validation:RegExpValidationBean
+      Name="NickRule1"
+      ResId="validar.usuario"
+      OnAttribute="Nick"
+      Pattern="[a-z0-9_-]{3,16}$"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="Nombre"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="nombre"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:LengthValidationBean
+      Name="NombreRule0"
+      ResId="validar.largo"
+      OnAttribute="Nombre"
+      CompareType="GREATERTHANEQUALTO"
+      DataType="CHARACTER"
+      CompareLength="3"
+      Inverse="false">
+      <validation:ResExpressions
+        Name="NombreRule0_ResExprList">
+        <validation:Expression
+          trustMode="untrusted"
+          Name="0"><![CDATA[3]]></validation:Expression>
+      </validation:ResExpressions>
+    </validation:LengthValidationBean>
+  </Attribute>
+  <Attribute
+    Name="Apellido"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="apellido"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    Domain="model.bc.dominio.Texto">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Usuario"
+    IsNotNull="true"
+    Precision="128"
+    ColumnName="usuario"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    Domain="model.bc.dominio.Usuario">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="128"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Validador"
+    IsNotNull="true"
+    Precision="512"
+    ColumnName="validador"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    Domain="model.bc.dominio.Descripcion">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="512"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    ColumnName="usuario_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="usuario"
+    Domain="model.bc.dominio.UsuarioFecha">
+    <TransientExpression
+      trustMode="untrusted"
+      Name="ExpressionScript"><![CDATA[adf.currentDateTime]]></TransientExpression>
+  </Attribute>
+  <Attribute
+    Name="UsuarioPrograma"
+    Precision="256"
+    ColumnName="usuario_programa"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    Domain="model.bc.dominio.UsuarioPrograma"
+    IsNotNull="true">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="256"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Estado"
+    Precision="8"
+    ColumnName="estado"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR"
+    TableName="usuario"
+    DefaultValue="A"
+    Domain="model.bc.dominio.ComboBox">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="8"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContadorIngreso"
+    ColumnName="contador_ingreso"
+    SQLType="INTEGER"
+    Type="java.lang.Integer"
+    ColumnType="INT"
+    TableName="usuario"
+    Domain="model.bc.dominio.Texto"
+    DefaultValue="0">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="10"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.Usuario.ContadorIngreso_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="ContadorFecha"
+    ColumnName="contador_fecha"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="DATETIME"
+    TableName="usuario"
+    Domain="model.bc.dominio.FechaCorta">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="modelAdministrativo.bc.entidad.Usuario.ContadorFecha_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <AccessorAttribute
+    Name="RolUsuario"
+    Association="modelAdministrativo.bc.entidad.asociacion.UsuarioRolFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioRolFkAssoc.RolUsuario"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioRolFkAssoc.Usuario1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="Token"
+    Association="modelAdministrativo.bc.entidad.asociacion.UsuarioTokenFkAssoc"
+    AssociationEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioTokenFkAssoc.Token"
+    AssociationOtherEnd="modelAdministrativo.bc.entidad.asociacion.UsuarioTokenFkAssoc.Usuario1"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <Key
+    Name="AltKeyNick"
+    AltKey="true">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="usuario"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Usuario.Nick"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="Primary1"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="PRIMARY"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Usuario.IdUsuario"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsuarioNickIdx">
+    <DesignTime>
+      <Attr Name="_isUnique" Value="true"/>
+      <Attr Name="_DBObjectName" Value="usuario_nick_IDX"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Usuario.Nick"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UsuarioUsuarioProgramaCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"usuario_programa" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="Usuario_Usuario_Programa_Check"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAdministrativo.bc.entidad.Usuario.UsuarioPrograma"/>
+    </AttrArray>
+  </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAdministrativo.ModelAdministrativoBundle"/>
+  </ResourceBundle>
+</Entity>

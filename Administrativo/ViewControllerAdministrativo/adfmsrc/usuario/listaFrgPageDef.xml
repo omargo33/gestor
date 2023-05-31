@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="listaFrgPageDef"
+                Package="usuario">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UsuarioView1" RangeSize="15" DataControl="AdministrativoModuloDataControl"
+              id="UsuarioView1Iterator"/>
+    <searchRegion Criteria="UsuarioViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="UsuarioView1Iterator" id="UsuarioViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="UsuarioView1Iterator" id="UsuarioView1">
+      <nodeDefinition DefName="modelAdministrativo.bc.vista.UsuarioView" Name="UsuarioView10">
+        <AttrNames>
+          <Item Value="Nick"/>
+          <Item Value="IdUsuario"/>
+          <Item Value="NombreCompleto"/>
+          <Item Value="Estado"/>
+          <Item Value="UsuarioFecha"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

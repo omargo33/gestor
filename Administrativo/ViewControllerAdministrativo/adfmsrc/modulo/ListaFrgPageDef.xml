@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ListaFrgPageDef"
+                Package="modulo">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ModuloView1" RangeSize="15" DataControl="AdministrativoModuloDataControl"
+              id="ModuloView1Iterator"/>
+    <searchRegion Criteria="ModuloViewCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ModuloView1Iterator" id="ModuloViewCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ModuloView1Iterator" id="ModuloView1">
+      <nodeDefinition DefName="modelAdministrativo.bc.vista.ModuloView" Name="ModuloView10">
+        <AttrNames>
+          <Item Value="IdModulo"/>
+          <Item Value="Indice"/>
+          <Item Value="Nombre"/>
+          <Item Value="Contexto"/>
+          <Item Value="Estado"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

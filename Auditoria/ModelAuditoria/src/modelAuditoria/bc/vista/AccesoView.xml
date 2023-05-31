@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AccesoView"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full">
+  <EntityUsage
+    Name="Acceso"
+    Entity="modelAuditoria.bc.entidad.Acceso"/>
+  <ViewAttribute
+    Name="IdAcceso"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdAcceso"
+    EntityUsage="Acceso"
+    AliasName="id_acceso"/>
+  <ViewAttribute
+    Name="Nombre"
+    PrecisionRule="true"
+    EntityAttrName="Nombre"
+    EntityUsage="Acceso"
+    AliasName="nombre"/>
+  <ViewAttribute
+    Name="Token"
+    PrecisionRule="true"
+    EntityAttrName="Token"
+    EntityUsage="Acceso"
+    AliasName="token"/>
+  <ViewAttribute
+    Name="TokenApi"
+    PrecisionRule="true"
+    EntityAttrName="TokenApi"
+    EntityUsage="Acceso"
+    AliasName="token_api"/>
+  <ViewAttribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UsuarioFecha"
+    EntityUsage="Acceso"
+    AliasName="usuario_fecha"/>
+  <ViewAttribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UsuarioPrograma"
+    EntityUsage="Acceso"
+    AliasName="usuario_programa"/>
+</ViewObject>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="cdu-detalle-task-flow">
+    <template-reference>
+      <document>/WEB-INF/plantilla/detalle-template.xml</document>
+      <id>detalle-template</id>
+    </template-reference>
+    <view id="ItemFrg">
+      <page>/cdu/detalle/ItemFrg.jsff</page>
+    </view>
+    <view id="ListaFrg">
+      <page>/cdu/detalle/ListaFrg.jsff</page>
+    </view>
+    <method-call id="Create">
+      <method>#{bindings.CreateWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>Create</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="Recargar">
+      <method>#{bindings.ejecutarIdEntidad.execute}</method>
+      <outcome>
+        <fixed-outcome>Recargar</fixed-outcome>
+      </outcome>
+    </method-call>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

@@ -1,0 +1,10 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="x">91.5</property>
+      <property
+         name="y">430.59375</property>
+   </OverallProperties>
+</SDM>

@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core" xmlns:bl01="/baseLib01">
+    <af:panelGroupLayout id="pgl1">
+        <af:pageTemplate viewId="/plantilla/listaFrg.jspx" id="pt1" value="#{bindings.ptb1}">
+            <f:attribute name="titulo" value="#{bnd.cdu_listaFrg_titulo}"/>
+            <f:attribute name="tituloDescripcion" value="#{bnd.cdu_listaFrg_descripcion}"/>
+            <f:facet name="elementoBusqueda">
+                <af:query id="qryId1"
+                          value="#{bindings.CodigoDefinidoUsuarioEncabezadoViewCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.CodigoDefinidoUsuarioEncabezadoViewCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.CodigoDefinidoUsuarioEncabezadoViewCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.CodigoDefinidoUsuarioEncabezadoViewCriteriaQuery.processQueryOperation}"
+                          headerText="#{bnd.msg_busquea_titulo}" conjunctionReadOnly="true"
+                          searchButtonText="#{bnd.btn_buscar}" resetButtonText="#{bnd.btn_limpiar}" labelWidth="240"
+                          saveQueryMode="hidden" modeChangeVisible="false" disclosed="true"
+                          resultComponentId="::resId1"/>
+            </f:facet>
+            <f:facet name="elementoCentro">
+                <af:table value="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.collectionModel}" var="row"
+                          rows="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.rangeSize}"
+                          emptyText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.rangeSize}"
+                          id="resId1" columnStretching="column:resId1c6" contextMenuSelect="true" varStatus="vs"
+                          scrollPolicy="page">
+                    <?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.IdCodigoDefinidoUsuario.label}"
+                               id="resId1c1" width="100">
+                        <af:outputText value="#{row.IdCodigoDefinidoUsuario}"
+                                       shortDesc="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.IdCodigoDefinidoUsuario.tooltip}"
+                                       id="ot1">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.IdCodigoDefinidoUsuario.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.CodigoTexto.label}"
+                               id="resId1c4">
+                        <af:link text="#{row.CodigoTexto}" id="l1" action="Editar"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.IdModulo.label}"
+                               id="resId1c2" width="150">
+                        <af:selectOneChoice value="#{row.bindings.IdModulo.inputValue}"
+                                            label="#{row.bindings.IdModulo.label}"
+                                            required="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.IdModulo.mandatory}"
+                                            shortDesc="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.IdModulo.tooltip}"
+                                            readOnly="true" id="soc1">
+                            <f:selectItems value="#{row.bindings.IdModulo.items}" id="si1"/>
+                            <f:validator binding="#{row.bindings.IdModulo.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Nombre.label}"
+                               id="resId1c5">
+                        <af:outputText value="#{row.Nombre}"
+                                       shortDesc="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Nombre.tooltip}"
+                                       id="ot4"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Descripcion.label}"
+                               id="resId1c6">
+                        <af:outputText value="#{row.Descripcion}"
+                                       shortDesc="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Descripcion.tooltip}"
+                                       id="ot5"/>
+                    </af:column>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Orden.label}"
+                               id="resId1c7">
+                        <af:outputText value="#{row.Orden}"
+                                       shortDesc="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Orden.tooltip}"
+                                       id="ot6">
+                            <af:convertNumber groupingUsed="false"
+                                              pattern="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Orden.format}"/>
+                        </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Estado.label}"
+                               id="resId1c8">
+                        <af:selectOneChoice value="#{row.bindings.Estado.inputValue}"
+                                            label="#{row.bindings.Estado.label}"
+                                            required="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Estado.mandatory}"
+                                            shortDesc="#{bindings.CodigoDefinidoUsuarioEncabezadoView1.hints.Estado.tooltip}"
+                                            readOnly="true" id="soc2">
+                            <f:selectItems value="#{row.bindings.Estado.items}" id="si2"/>
+                            <f:validator binding="#{row.bindings.Estado.validator}"/>
+                        </af:selectOneChoice>
+                    </af:column>
+                    <f:facet name="contextMenu">
+                        <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                            <af:menu text="menu 1" id="m1">
+                                <af:commandMenuItem actionListener="#{bindings.cduPrimero.execute}"
+                                                    text="#{bnd.btn_primero}" disabled="#{!bindings.cduPrimero.enabled}"
+                                                    id="cmi3"/>
+                                <af:commandMenuItem actionListener="#{bindings.cduArriba.execute}"
+                                                    text="#{bnd.btn_arriba}" disabled="#{!bindings.cduArriba.enabled}"
+                                                    id="cmi2"/>
+                                <af:commandMenuItem actionListener="#{bindings.cduAbajo.execute}"
+                                                    text="#{bnd.btn_abajo}" disabled="#{!bindings.cduAbajo.enabled}"
+                                                    id="cmi1"/>
+                                <af:commandMenuItem actionListener="#{bindings.cduUltimo.execute}"
+                                                    text="#{bnd.btn_ultimo}" disabled="#{!bindings.cduUltimo.enabled}"
+                                                    id="cmi4"/>
+                            </af:menu>
+                        </af:popup>
+                    </f:facet>
+                </af:table>
+            </f:facet>
+            <f:facet name="elementoAcciones">
+                <bl01:botonesAtrasCrear id="bac1" atrasAccion="Inicio" crearAccion="Create"
+                                        crearTexto="#{bnd.cdu_listaFrg_boton_crear}"
+                                        crearPermiso="#{pageFlowScope.pPermisoCrear}"/>
+            </f:facet>
+        </af:pageTemplate>
+        <bl01:informacionBotonDerecho id="ibd1"/>
+    </af:panelGroupLayout>
+</jsp:root>

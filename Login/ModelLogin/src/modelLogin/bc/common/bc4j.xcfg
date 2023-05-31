@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+    <AppModuleConfigBag ApplicationName="modelLogin.bc.LoginModulo">
+        <AppModuleConfig name="LoginModuloLocal" jbo.project="modelLogin.ModelLogin"
+                         ApplicationName="modelLogin.bc.LoginModulo" DeployPlatform="LOCAL" JDBCName="Login-001">
+            <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver"
+                      jbo.SQLBuilder="SQL92"/>
+            <Security AppModuleJndiName="modelLogin.bc.LoginModulo"/>
+        </AppModuleConfig>
+        <AppModuleConfig name="LoginModuloWeb" jbo.project="modelLogin.ModelLogin"
+                         ApplicationName="modelLogin.bc.LoginModulo" DeployPlatform="LOCAL" jbo.passivationstore="file">
+            <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+            <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver"
+                      JDBCDataSource="jdbc/Login-001DS" jbo.SQLBuilder="SQL92"/>
+            <Security AppModuleJndiName="modelLogin.bc.LoginModulo"/>
+        </AppModuleConfig>
+    </AppModuleConfigBag>
+</BC4JConfig>

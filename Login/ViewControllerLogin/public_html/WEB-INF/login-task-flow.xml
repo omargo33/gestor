@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="login-task-flow">
+    <default-activity>Rollback</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__13">
+      <managed-bean-name>BackingIngreso</managed-bean-name>
+      <managed-bean-class>viewLogin.loggin.Ingreso</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <view id="ingreso">
+      <page>/loggin/ingreso.jsff</page>
+    </view>
+    <view id="solicitarClave">
+      <page>/loggin/solicitarClave.jsff</page>
+    </view>
+    <view id="ok">
+      <page>/loggin/ok.jsff</page>
+    </view>
+    <url-view id="urlSalida">
+      <url>../LOG002</url>
+    </url-view>
+    <method-call id="Rollback">
+      <method>#{bindings.Rollback.execute}</method>
+      <outcome>
+        <fixed-outcome>Rollback</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__3">
+      <from-activity-id>ingreso</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>solicitar</from-outcome>
+        <to-activity-id>solicitarClave</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__4">
+        <from-outcome>login</from-outcome>
+        <to-activity-id>urlSalida</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>atras</from-outcome>
+        <to-activity-id>Rollback</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>solicitarClave</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>ok</from-outcome>
+        <to-activity-id>ok</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__1">
+      <from-activity-id>Rollback</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>Rollback</from-outcome>
+        <to-activity-id>ingreso</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

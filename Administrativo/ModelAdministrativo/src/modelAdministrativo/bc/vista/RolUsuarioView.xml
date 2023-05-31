@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RolUsuarioView"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="JDBC"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="RolView1"
+    ViewObjectName="modelAdministrativo.bc.vista.RolView"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UsuarioView1"
+    ViewObjectName="modelAdministrativo.bc.vista.UsuarioView"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_IdRol"
+    ListVOName="RolView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdRol"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdRol"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Nombre"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_IdUsuario"
+    ListVOName="UsuarioView1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="IdUsuario"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IdUsuario"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Nick"/>
+      <Item Value="NombreCompleto"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="RolUsuario"
+    Entity="modelAdministrativo.bc.entidad.RolUsuario"/>
+  <ViewAttribute
+    Name="IdRolUsuario"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdRolUsuario"
+    EntityUsage="RolUsuario"
+    AliasName="id_rol_usuario"/>
+  <ViewAttribute
+    Name="IdRol"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdRol"
+    EntityUsage="RolUsuario"
+    AliasName="id_rol"
+    LOVName="LOV_IdRol">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IdUsuario"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="IdUsuario"
+    EntityUsage="RolUsuario"
+    AliasName="id_usuario"
+    LOVName="LOV_IdUsuario">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="combo"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Usuario"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Usuario"
+    EntityUsage="RolUsuario"
+    AliasName="usuario"/>
+  <ViewAttribute
+    Name="UsuarioFecha"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UsuarioFecha"
+    EntityUsage="RolUsuario"
+    AliasName="usuario_fecha"/>
+  <ViewAttribute
+    Name="UsuarioPrograma"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="UsuarioPrograma"
+    EntityUsage="RolUsuario"
+    AliasName="usuario_programa"/>
+</ViewObject>

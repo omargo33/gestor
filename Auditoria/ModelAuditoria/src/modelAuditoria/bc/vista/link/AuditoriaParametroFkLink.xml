@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AuditoriaParametroFkLink"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="modelAuditoria.bc.entidad.asociacion.AuditoriaParametroFkAssoc">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="modelAuditoria.bc.vista.link.AuditoriaParametroFkLink_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="AuditoriaView"
+    Cardinality="1"
+    Source="true"
+    Owner="modelAuditoria.bc.vista.AuditoriaView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="AuditoriaView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.vista.AuditoriaView.IdAuditoria"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AuditoriaParametroView"
+    Cardinality="-1"
+    Owner="modelAuditoria.bc.vista.AuditoriaParametroView">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="AuditoriaParametroView"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="modelAuditoria.bc.vista.AuditoriaParametroView.IdAuditoria"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="modelAuditoria.ModelAuditoriaBundle"/>
+  </ResourceBundle>
+</ViewLink>

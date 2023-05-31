@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
+             SeparateXMLFiles="false" Package="viewAdministrativo" ClientType="Generic">
+    <definitionFactories>
+        <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+                 className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+        <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+    </definitionFactories>
+    <pageMap>
+        <page path="/Home.jspx" usageId="viewAdministrativo_homeAdministradorPageDef"/>
+        <page path="/usuario/ListaFrg.jsff" usageId="viewAdministrativo_listaFrgPageDef"/>
+        <page path="/WEB-INF/usuario-task-flow.xml#usuario-task-flow@Create"
+              usageId="viewAdministrativo_usuario_task_flow_usuario_task_flow_CreatePageDef"/>
+        <page path="/usuario/ItemFrg.jsff" usageId="viewAdministrativo_itemFrgPageDef"/>
+        <page path="/rol/ListaFrg.jsff" usageId="viewAdministrativo_listaFrgPageDef1"/>
+        <page path="/WEB-INF/rol-task-flow.xml#rol-task-flow@Create"
+              usageId="viewAdministrativo_rol_task_flow_rol_task_flow_CreatePageDef"/>
+        <page path="/rol/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef"/>
+        <page path="/WEB-INF/modulo-task-flow.xml#modulo-task-flow@Create"
+              usageId="viewAdministrativo_modulo_task_flow_modulo_task_flow_CreateWithParametersPageDef"/>
+        <page path="/modulo/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef1"/>
+        <page path="/modulo/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef"/>
+        <page path="/cdu/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef1"/>
+        <page path="/cdu/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef2"/>
+        <page path="/WEB-INF/cdu-task-flow.xml#cdu-task-flow@Create"
+              usageId="viewAdministrativo_cdu_task_flow_cdu_task_flow_CreateWithParametersPageDef"/>
+        <page path="/WEB-INF/cdu-detalle-task-flow.xml#cdu-detalle-task-flow@Create"
+              usageId="viewAdministrativo_cdu_detalle_task_flow_cdu_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page path="/cdu/detalle/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef2"/>
+        <page path="/cdu/detalle/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef3"/>
+        <page path="/WEB-INF/plantilla/detalle-template.xml#detalle-template@Rollback"
+              usageId="viewAdministrativo_detalle_template_detalle_template_Rollback1PageDef"/>
+        <page path="/WEB-INF/cdu-detalle-task-flow.xml#cdu-detalle-task-flow@Recargar"
+              usageId="viewAdministrativo_cdu_detalle_task_flow_cdu_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page path="/usuario/rol/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef3"/>
+        <page path="/usuario/rol/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef4"/>
+        <page path="/WEB-INF/usuario-rol-detalle-task-flow.xml#usuario-rol-detalle-task-flow@Recargar"
+              usageId="viewAdministrativo_usuario_rol_detalle_task_flow_usuario_rol_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page path="/WEB-INF/modulo-parametros-detalle-task-flow.xml#modulo-parametros-detalle-task-flow@Recargar"
+              usageId="viewAdministrativo_modulo_parametros_detalle_task_flow_modulo_parametros_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page path="/WEB-INF/modulo-parametros-detalle-task-flow.xml#modulo-parametros-detalle-task-flow@Create"
+              usageId="viewAdministrativo_modulo_parametros_detalle_task_flow_modulo_parametros_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page path="/modulo/parametro/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef5"/>
+        <page path="/modulo/parametro/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef6"/>
+        <page path="/informacion/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef7"/>
+        <page path="/informacion/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef6"/>
+        <page path="/WEB-INF/informacion-task-flow.xml#informacion-task-flow@Create"
+              usageId="viewAdministrativo_informacion_task_flow_informacion_task_flow_CreateWithParametersPageDef"/>
+        <page path="/error/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef7"/>
+        <page path="/error/ItemFrg.jsff" usageId="viewAdministrativo_itemFrgPageDef2"/>
+        <page path="/WEB-INF/error-task-flow.xml#error-task-flow@Create"
+              usageId="viewAdministrativo_error_task_flow_error_task_flow_CreateWithParametersPageDef"/>
+        <page path="/WEB-INF/usuario-rol-detalle-task-flow.xml#usuario-rol-detalle-task-flow@Create"
+              usageId="viewAdministrativo_usuario_rol_detalle_task_flow_usuario_rol_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page path="/usuario/token/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef8"/>
+        <page path="/usuario/token/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef8"/>
+        <page path="/WEB-INF/usuario-token-task-flow.xml#usuario-token-task-flow@Create"
+              usageId="viewAdministrativo_usuario_token_task_flow_usuario_token_task_flow_CreateWithParametersPageDef"/>
+        <page path="/WEB-INF/usuario-token-task-flow.xml#usuario-token-task-flow@Recargar"
+              usageId="viewAdministrativo_usuario_token_task_flow_usuario_token_task_flow_ejecutarIdEntidadPageDef"/>
+        <page path="/info/usuario/estadisticas.jsff" usageId="viewAdministrativo_estadisticasPageDef"/>
+        <page path="/menu/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef4"/>
+        <page path="/menu/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef5"/>
+        <page path="/WEB-INF/menu-task-flow.xml#menu-task-flow@Create"
+              usageId="viewAdministrativo_menu_task_flow_menu_task_flow_CreateWithParametersPageDef"/>
+        <page path="/WEB-INF/menu-permiso-detalle-task-flow.xml#menu-permiso-detalle-task-flow@Recargar"
+              usageId="viewAdministrativo_menu_permiso_detalle_task_flow_menu_permiso_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page path="/WEB-INF/menu-permiso-detalle-task-flow.xml#menu-permiso-detalle-task-flow@Create"
+              usageId="viewAdministrativo_menu_permiso_detalle_task_flow_menu_permiso_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page path="/menu/permisos/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef9"/>
+        <page path="/menu/permisos/ItemFrg.jsff" usageId="viewAdministrativo_ItemFrgPageDef9"/>
+   
+        <page path="/WEB-INF/plantilla/maestro-template.xml#maestro-template@Rollback"
+              usageId="viewAdministrativo_maestro_template_maestro_template_RollbackPageDef"/>
+        <page path="/WEB-INF/menu-main-task-flow.xml#menu-main-task-flow@Rollback"
+              usageId="viewAdministrativo_menu_main_task_flow_menu_main_task_flow_RollbackPageDef"/>
+        <page path="/WEB-INF/usuario-modulo-task-flow.xml#usuario-modulo-task-flow@Recargar"
+              usageId="viewAdministrativo_usuario_modulo_task_flow_usuario_modulo_task_flow_SetCurrentRowWithKeyValuePageDef"/>
+        <page path="/usuario/modulo/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef10"/>
+        <page path="/clave/ListaFrg.jsff" usageId="viewAdministrativo_ListaFrgPageDef11"/>
+        <page path="/WEB-INF/clave-task-flow.xml#clave-task-flow@base_obtenerParametroTexto01"
+              usageId="viewAdministrativo_clave_task_flow_clave_task_flow_base_obtenerParametroTexto01PageDef"/>
+    </pageMap>
+    <pageDefinitionUsages>
+        <page id="viewAdministrativo_homeAdministradorPageDef"
+              path="viewAdministrativo.pageDefs.homeAdministradorPageDef"/>
+        <page id="viewAdministrativo_listaFrgPageDef" path="usuario.listaFrgPageDef"/>
+        <page id="viewAdministrativo_usuario_task_flow_usuario_task_flow_CreatePageDef"
+              path="viewAdministrativo.pageDefs.usuario_task_flow_usuario_task_flow_CreatePageDef"/>
+        <page id="viewAdministrativo_itemFrgPageDef" path="usuario.itemFrgPageDef"/>
+        <page id="viewAdministrativo_plantillaMaestroDetalle_plantillaMaestroDetalle_RollbackPageDef"
+              path="plantilla.plantillaMaestroDetalle_plantillaMaestroDetalle_RollbackPageDef"/>
+        <page id="viewAdministrativo_listaFrgPageDef1" path="rol.listaFrgPageDef"/>
+        <page id="viewAdministrativo_rol_task_flow_rol_task_flow_CreatePageDef"
+              path="viewAdministrativo.pageDefs.rol_task_flow_rol_task_flow_CreatePageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef" path="rol.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_modulo_task_flow_modulo_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.modulo_task_flow_modulo_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef1" path="modulo.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef" path="modulo.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef1" path="cdu.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef2" path="cdu.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_cdu_task_flow_cdu_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.cdu_task_flow_cdu_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_cdu_detalle_task_flow_cdu_detalle_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.cdu_detalle_task_flow_cdu_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef2" path="cdu.detalle.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef3" path="cdu.detalle.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_detalle_template_detalle_template_Rollback1PageDef"
+              path="plantilla.detalle_template_detalle_template_Rollback1PageDef"/>
+        <page id="viewAdministrativo_cdu_detalle_task_flow_cdu_detalle_task_flow_ejecutarIdEntidadPageDef"
+              path="viewAdministrativo.pageDefs.cdu_detalle_task_flow_cdu_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page id="viewAdministrativo_maestro_template_maetro_template_Rollback1PageDef"
+              path="plantilla.maestro_template_maetro_template_Rollback1PageDef"/>
+        <page id="viewAdministrativo_itemFrgPageDef1" path="plantilla.itemFrgPageDef"/>
+        <page id="viewAdministrativo_listaFrgPageDef2" path="plantilla.listaFrgPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef3" path="usuario.rol.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef4" path="usuario.rol.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_usuario_rol_detalle_task_flow_usuario_rol_detalle_task_flow_ejecutarIdEntidadPageDef"
+              path="viewAdministrativo.pageDefs.usuario_rol_detalle_task_flow_usuario_rol_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        
+        <page id="viewAdministrativo_modulo_parametros_detalle_task_flow_modulo_parametros_detalle_task_flow_ejecutarIdEntidadPageDef"
+              path="viewAdministrativo.pageDefs.modulo_parametros_detalle_task_flow_modulo_parametros_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page id="viewAdministrativo_modulo_parametros_detalle_task_flow_modulo_parametros_detalle_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.modulo_parametros_detalle_task_flow_modulo_parametros_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef5" path="modulo.parametro.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef6" path="modulo.parametro.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef7" path="informacion.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef6" path="informacion.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_informacion_task_flow_informacion_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.informacion_task_flow_informacion_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef7" path="error.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_itemFrgPageDef2" path="error.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_error_task_flow_error_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.error_task_flow_error_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_usuario_rol_detalle_task_flow_usuario_rol_detalle_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.usuario_rol_detalle_task_flow_usuario_rol_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef8" path="usuario.token.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef8" path="usuario.token.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_usuario_token_task_flow_usuario_token_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.usuario_token_task_flow_usuario_token_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_usuario_token_task_flow_usuario_token_task_flow_ejecutarIdEntidadPageDef"
+              path="viewAdministrativo.pageDefs.usuario_token_task_flow_usuario_token_task_flow_ejecutarIdEntidadPageDef"/>
+        <page id="viewAdministrativo_estadisticasPageDef" path="info.usuario.estadisticasPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef4" path="menu.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef5" path="menu.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_menu_task_flow_menu_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.menu_task_flow_menu_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_menu_permiso_detalle_task_flow_menu_permiso_detalle_task_flow_ejecutarIdEntidadPageDef"
+              path="viewAdministrativo.pageDefs.menu_permiso_detalle_task_flow_menu_permiso_detalle_task_flow_ejecutarIdEntidadPageDef"/>
+        <page id="viewAdministrativo_menu_permiso_detalle_task_flow_menu_permiso_detalle_task_flow_CreateWithParametersPageDef"
+              path="viewAdministrativo.pageDefs.menu_permiso_detalle_task_flow_menu_permiso_detalle_task_flow_CreateWithParametersPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef9" path="menu.permisos.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ItemFrgPageDef9" path="menu.permisos.ItemFrgPageDef"/>
+        <page id="viewAdministrativo_maestro_template_maestro_template_RollbackPageDef"
+              path="plantilla.maestro_template_maestro_template_RollbackPageDef"/>
+        <page id="viewAdministrativo_menu_main_task_flow_menu_main_task_flow_RollbackPageDef"
+              path="viewAdministrativo.pageDefs.menu_main_task_flow_menu_main_task_flow_RollbackPageDef"/>
+        <page id="viewAdministrativo_usuario_modulo_task_flow_usuario_modulo_task_flow_SetCurrentRowWithKeyValuePageDef"
+              path="viewAdministrativo.pageDefs.usuario_modulo_task_flow_usuario_modulo_task_flow_SetCurrentRowWithKeyValuePageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef10" path="usuario.modulo.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_ListaFrgPageDef11" path="clave.ListaFrgPageDef"/>
+        <page id="viewAdministrativo_clave_task_flow_clave_task_flow_base_obtenerParametroTexto01PageDef"
+              path="viewAdministrativo.pageDefs.clave_task_flow_clave_task_flow_base_obtenerParametroTexto01PageDef"/>
+    </pageDefinitionUsages>
+    <dataControlUsages>
+        <BC4JDataControl id="AdministrativoModuloDataControl" Package="modelAdministrativo.bc"
+                         FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                         SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                         SupportsSortCollection="true" Configuration="AdministrativoModuloWeb" syncMode="Immediate"
+                         xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+    </dataControlUsages>
+</Application>

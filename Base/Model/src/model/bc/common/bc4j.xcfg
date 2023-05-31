@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!---->
+<BC4JConfig xmlns="http://xmlns.oracle.com/bc4j/configuration" version="11.1">
+    <AppModuleConfigBag ApplicationName="model.bc.Modulo" default="ModuloWeb">
+        <AppModuleConfig name="ModuloLocal" jbo.project="model.Model" ApplicationName="model.bc.Modulo"
+                         DeployPlatform="LOCAL" JDBCName="Base-001">
+            <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver"
+                      jbo.SQLBuilder="SQL92"/>
+            <Security AppModuleJndiName="model.bc.Modulo"/>
+        </AppModuleConfig>
+        <AppModuleConfig name="ModuloShared" jbo.project="model.Model" ApplicationName="model.bc.Modulo"
+                         DeployPlatform="LOCAL" JDBCName="Base-001">
+            <AM-Pooling jbo.ampool.maxpoolsize="1" jbo.ampool.isuseexclusive="false"/>
+            <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver"
+                      jbo.SQLBuilder="SQL92"/>
+            <Security AppModuleJndiName="model.bc.Modulo"/>
+        </AppModuleConfig>
+        <AppModuleConfig name="ModuloWeb" jbo.project="model.Model" ApplicationName="model.bc.Modulo"
+                         DeployPlatform="LOCAL" jbo.passivationstore="file">
+            <Database jbo.TypeMapEntries="Java" jbo.sql92.JdbcDriverClass="com.mysql.jdbc.Driver" jbo.SQLBuilder="SQL92"
+                      jbo.locking.mode="optimistic" JDBCDataSource="jdbc/Base-001DS"/>
+            <Security AppModuleJndiName="model.bc.Modulo"/>
+        </AppModuleConfig>
+    </AppModuleConfigBag>
+</BC4JConfig>

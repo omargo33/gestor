@@ -1,0 +1,55 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1">
+      <property
+         name="x">87.443375</property>
+      <property
+         name="y">83.5</property>
+   </OverallProperties>
+   <View
+      id="View3">
+      <property
+         name="activityId">HomeBase</property>
+      <property
+         name="x">245.38672</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>HomeBase&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="page">/HomeBase.jspx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View4">
+      <property
+         name="activityId">pageError</property>
+      <property
+         name="x">386.38672</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>pageError&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="page">/pageError.jspx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <View
+      id="View5">
+      <property
+         name="activityId">upLoadFile</property>
+      <property
+         name="x">527.3867</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>upLoadFile&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">83.5</property>
+      <property
+         name="page">/upLoadFile.jspx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+</SDM>
