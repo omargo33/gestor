@@ -115,11 +115,11 @@ public class Correo {
                 enviarMail();
                 estado = true;
             } catch (Exception e) {
-                LOG.error("Correo {0} no se pudo enviar por {1}", this.correo, e.toString());
+                LOG.error("Correo {} no se pudo enviar por {}", this.correo, e.toString());
                 descripcionEstado = "Tiene el siguiente error:" + e.toString();
             }
         } else {
-            LOG.error("Correo {0} no tiene el formato correcto", this.correo);
+            LOG.error("Correo {} no tiene el formato correcto", this.correo);
             descripcionEstado = "Correo invalido";
         }
         return estado;
@@ -181,7 +181,7 @@ public class Correo {
                             multipart.addBodyPart(messageBodyPart);
                         } catch (IOException | MessagingException e) {
                             this.adjuntosRespuesta.add(a + " " + e.toString());
-                            LOG.error("enviarMail() - add attachment {0}", e.toString());
+                            LOG.error("enviarMail() - add attachment {}", e.toString());
                         }
                     }
                 }
@@ -285,10 +285,7 @@ public class Correo {
             this.userName = this.propiedades.getProperty("13a.usuario");
             this.clave = this.propiedades.getProperty("13a.clave");
 
-            LOG.info("info info "+valorTrueString);            
-            LOG.info("info info "+this.propiedades.getProperty("13a.instancia.servidor"));            
             valorTrueString = this.propiedades.getProperty("13a.instancia.servidor");
-            LOG.info("info info "+valorTrueString);
             
             this.instaciaServidorAplicacion = valorTrueString.equalsIgnoreCase("true");
 
@@ -300,7 +297,7 @@ public class Correo {
             this.propiedades.remove("13a.instancia.servidor");
             this.propiedades.remove("13a.acceso.ssl");
         } catch (IOException ex) {
-            LOG.error("No se puede procesar las propiedades {0}", ex.toString());
+            LOG.error("No se puede procesar las propiedades {}", ex.toString());
         }
     }
 

@@ -164,7 +164,7 @@ public class Login {
         Date fechaInicio = new Date();
 
 
-        Date fechaFin = addMinutosToDate(fechaInicio, 30);
+        Date fechaFin = addMinutosToDate(fechaInicio, 60);
 
         AccesoXML accesoXML = new AccesoXML();
         accesoXML.setFechaEmision(fechaInicio.getTime());
