@@ -1,7 +1,7 @@
 package viewLogin.utilidades;
 
 public class Flow {
-  public static final String BUNDLE = "viewLogin.ViewControllerLoginBundle";
+    public static final String BUNDLE = "viewLogin.ViewControllerLoginBundle";
 }
 
 

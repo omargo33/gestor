@@ -37,9 +37,6 @@ public class CorreoTarea {
 
     @Scheduled(cron = "2 * * * * *", zone = "GMT-5")
     public void realizarTarea() {
-        
-        LOG.info("subido!!");
-        
         enviarNotificaciones();
     }
 
@@ -73,7 +70,6 @@ public class CorreoTarea {
                 correo.setCuerpo(ensamblarCuerpo(n.getIdNotificacion(), formato.getFormatoHtml(), n.getContenido()));
                 correo.setAdjuntos(encontrarAdjuntos(n.getIdNotificacion()));
                 
-                LOG.info("info info "+servicio.getValor01() + " " + servicio.getValor02());
                 correo.setPropiedades(servicio.getValor01() + " " + servicio.getValor02());
                 
                 if (correo.enviarCorreo()) {

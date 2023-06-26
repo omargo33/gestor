@@ -142,7 +142,7 @@ public class Token extends Entidad {
      * @param userAgent
      * @param usuarioPrograma
      */
-    public static void ccambiarTokenCompleto(AdministrativoModuloImpl moduloAplicacion, String socialNick, String passwordOld,
+    public static void cambiarTokenCompleto(AdministrativoModuloImpl moduloAplicacion, String socialNick, String passwordOld,
                                             String passwordNew, String passwordConfirmar, String expresionRegular,
                                             String mensajeExpresionRegular, String ip, String userAgent,
                                             String usuarioPrograma) {

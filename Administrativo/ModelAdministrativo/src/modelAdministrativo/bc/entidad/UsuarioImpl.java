@@ -108,9 +108,16 @@ public class UsuarioImpl extends Entidad {
     protected void doDML(int operation, TransactionEvent e) {
         if (operation == DML_UPDATE)
             setAttribute(VALIDADOR, String.valueOf(getAttribute(NICK).hashCode()));
-        
-        if (operation == DML_DELETE)
-            noBorrar(ROLUSUARIO, TOKEN);
+
+        /*if (operation == DML_DELETE)
+            noBorrar(ROLUSUARIO, TOKEN);*/
+
+        if (operation == DML_DELETE) {
+            setAttribute(ESTADO, "X");
+            setAttribute(NICK, String.valueOf(getAttribute(IDUSUARIO)) + String.valueOf(getAttribute(NICK)));
+            operation = DML_UPDATE;
+        }
+
 
         super.doDML(operation, e);
         //Id refresh
