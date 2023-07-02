@@ -1,15 +1,11 @@
 package viewAdministrativo.usuario;
 
 
-import java.util.logging.Logger;
-
 import oracle.adf.view.rich.component.rich.fragment.RichRegion;
-
 
 import view.plantilla.BasePPR;
 
 import view.utilidades.ADFUtils;
-import view.utilidades.Flow;
 
 public class PPRItemFrg extends BasePPR {
 

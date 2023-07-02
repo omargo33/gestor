@@ -178,15 +178,15 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
     private ParametroViewNoDMLRowImpl obtenerParametro(String indiceParametro) {
         ParametroViewNoDMLRowImpl parametroRespuesta = this.mapaParametro.get(indiceParametro);
         if (parametroRespuesta == null) {
-            this.mapaParametro = Parametros.obtenerParametros(this, getBundle("modulo.indice", new Object[0]));
+            this.mapaParametro = Parametros.obtenerParametros(this, getBundle("modulo.indice"));
             parametroRespuesta = this.mapaParametro.get(indiceParametro);
             if (parametroRespuesta == null) {
                 Logger.getLogger("global")
-                    .log(Level.SEVERE,
-                         "Error Indice=" + indiceParametro + "-" + getBundle("modulo.indice", new Object[0]));
+                    .log(Level.WARNING,
+                         "Error Indice=" + indiceParametro + "-" + getBundle("modulo.indice"));
                 throw new JboException(getBundle("ModuloImpl.obtenerParametro.txt_1",
-                                                 new Object[] { indiceParametro,
-                                                                getBundle("modulo.indice", new Object[0]) }));
+                                                  indiceParametro,
+                                                                getBundle("modulo.indice") ));
             }
         }
         return parametroRespuesta;

@@ -64,12 +64,12 @@ public class Download extends HttpServlet {
             escribirArchivo(archivo, response);
             escribirEventoDescarga(idArchivo, user, moduloImpl);
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         } finally {
             try {
                 Configuration.releaseRootApplicationModule((ApplicationModule) moduloImpl, true);
             } catch (Exception e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
             }
         }
     }
@@ -122,17 +122,17 @@ public class Download extends HttpServlet {
                 bytesRead = fileInputStream.read(buffer);
             }
         } catch (IOException e) {
-            Logger.getLogger("global").log(Level.SEVERE, ".leerEscribirPDF() 0 " + e.toString());
+            Logger.getLogger("global").log(Level.WARNING, ".leerEscribirPDF() 0 " + e.toString());
         } finally {
             try {
                 fileInputStream.close();
             } catch (IOException e) {
-                Logger.getLogger("global").log(Level.SEVERE, ".leerEscribirPDF() 1 " + e.toString());
+                Logger.getLogger("global").log(Level.WARNING, ".leerEscribirPDF() 1 " + e.toString());
             }
             try {
                 outputStream.close();
             } catch (IOException e) {
-                Logger.getLogger("global").log(Level.SEVERE, ".leerEscribirPDF() 2 " + e.toString());
+                Logger.getLogger("global").log(Level.WARNING, ".leerEscribirPDF() 2 " + e.toString());
             }
         }
     }
@@ -143,7 +143,7 @@ public class Download extends HttpServlet {
         try {
             estatus = new byte[4096];
         } catch (OutOfMemoryError e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return estatus;
     }

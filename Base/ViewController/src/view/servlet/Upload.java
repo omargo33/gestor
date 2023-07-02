@@ -157,7 +157,7 @@ public class Upload extends HttpServlet {
                 Path source = Paths.get(fullPath, new String[0]);
                 extension = Files.probeContentType(source);
             } catch (IOException e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
                 return false;
             }
 
@@ -167,13 +167,13 @@ public class Upload extends HttpServlet {
 
                                          getNameUser(), "/faces/Upload");
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
             estado = false;
         } finally {
             try {
                 Configuration.releaseRootApplicationModule((ApplicationModule) moduloImpl, true);
             } catch (Exception e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
                 estado = false;
             }
         }
@@ -213,7 +213,7 @@ public class Upload extends HttpServlet {
             response.sendRedirect(datosRequest.getURLBase() + URL + datosRequest.getParametrosURL());
             printWriter.close();
         } catch (IOException e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
     }
 

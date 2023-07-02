@@ -51,12 +51,12 @@ public class GeneradorFile {
             out.close();
         } catch (Exception e) {
             estado = false;
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         } finally {
             try {
                 inputStream.close();
             } catch (IOException e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
                 estado = false;
             }
         }
@@ -84,13 +84,13 @@ public class GeneradorFile {
                 os.write(buffer, 0, length);
             }
         } catch (IOException e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         } finally {
             try {
                 is.close();
                 os.close();
             } catch (Exception e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
             }
         }
     }
@@ -129,7 +129,7 @@ public class GeneradorFile {
             hce.cerrarLibro();
         } catch (Exception e) {
             estado = false;
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return estado;
     }

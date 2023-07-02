@@ -42,7 +42,7 @@ public class Rol {
         Object respuesta =
             moduloAplicacion.getBaseDML().ejecutaConsultaUnicoDato(SQL_ROL_ACTIVO, new Object[] { role, nick });
         if (moduloAplicacion.getBaseDML().getMensaje() != null) {
-            Logger.getLogger("global").log(Level.SEVERE, "error " + moduloAplicacion.getBaseDML().getMensaje());
+            Logger.getLogger("global").log(Level.WARNING, "error " + moduloAplicacion.getBaseDML().getMensaje());
 
             throw new JboException("no consulta SQL 001");
         }

@@ -218,7 +218,7 @@ public class DML {
     private String controlInyeccionSQL(String parametro) {
         for (int i = 0; i < PALABRAS_RESERVADAS_INYECCION_SQL.length; i++) {
             if (parametro.toUpperCase().indexOf(PALABRAS_RESERVADAS_INYECCION_SQL[i]) >= 0) {
-                Logger.getLogger("global").log(Level.SEVERE, PALABRAS_RESERVADAS_INYECCION_SQL[i] + " " + parametro);
+                Logger.getLogger("global").log(Level.WARNING, PALABRAS_RESERVADAS_INYECCION_SQL[i] + " " + parametro);
                 return "";
             }
         }

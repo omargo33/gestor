@@ -42,7 +42,7 @@ public class CodigoDefinidoUsuario {
             //moduloAplicacion.errorMysql(respuesta, "modelAdministrativo.bc.modulo.unMovimiento");
         } catch (Exception e) {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
-                .log(Level.SEVERE,
+                .log(Level.WARNING,
                      moduloAplicacion.getBundle("000003", sql, "modelAdministrativo.bc.modulo", "unMovimiento",
                                                 e.toString()));
             throw new JboException(moduloAplicacion.getBundle("CodigoDefinidoUsuario.unMovimiento"));
@@ -75,7 +75,7 @@ public class CodigoDefinidoUsuario {
             //moduloAplicacion.errorMysql(respuesta, "modelAdministrativo.bc.modulo.ejecutarExtremos");
         } catch (Exception e) {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
-                .log(Level.SEVERE,
+                .log(Level.WARNING,
                      moduloAplicacion.getBundle("000003", sql, "modelAdministrativo.bc.modulo", "ejecutarExtremos",
                                                 e.toString()));
             throw new JboException(moduloAplicacion.getBundle("CodigoDefinidoUsuario.ejecutarExtremos"));

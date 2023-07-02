@@ -62,7 +62,7 @@
         try {
           indiceInteger = Integer.parseInt(indice);
         } catch (Exception e) {
-          Logger.getLogger("global").log(Level.SEVERE, "convert error=" + e.toString());
+          Logger.getLogger("global").log(Level.WARNING, "convert error=" + e.toString());
           indiceInteger = 0;
         } 
       }

@@ -80,7 +80,7 @@ public class ModuloAplicacion extends ApplicationModuleImpl implements BundleInt
         } catch (JboException ex) {
             getDBTransaction().rollback();
             Logger.getLogger("global")
-                .log(Level.SEVERE,
+                .log(Level.WARNING,
                      getBundle("000001",
                                new Object[] { String.valueOf(datoControl), getClass().getName(), metodo, ex }));
             estado = false;
@@ -99,7 +99,7 @@ public class ModuloAplicacion extends ApplicationModuleImpl implements BundleInt
             vistaRefrescar.setCurrentRow(vistaRefrescar.findByKey(llaveOriginal, 1)[0]);
             vistaRefrescar.executeQuery();
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, ".refrescarVistaKeyAtribute()" + e.toString());
+            Logger.getLogger("global").log(Level.WARNING, ".refrescarVistaKeyAtribute()" + e.toString());
         }
     }
 
@@ -111,7 +111,7 @@ public class ModuloAplicacion extends ApplicationModuleImpl implements BundleInt
             getDBTransaction().rollback();
         } catch (JboException ex) {
             Logger.getLogger("global")
-                .log(Level.SEVERE,
+                .log(Level.WARNING,
                      getBundle("000000",
                                new Object[] { String.valueOf(datoControl), getClass().getName(), metodo, ex }));
             estado = false;
@@ -125,7 +125,7 @@ public class ModuloAplicacion extends ApplicationModuleImpl implements BundleInt
         if (codigoError != 0) {
             String mensajeError =
                 getBundle("000004", new Object[] { metodo, "errorMysql", Integer.valueOf(codigoError) });
-            Logger.getLogger("global").log(Level.SEVERE, mensajeError);
+            Logger.getLogger("global").log(Level.WARNING, mensajeError);
             throw new JboException(getBundle("CodigoDefinidoUsuario.errorMysql", new Object[0]));
         }
     }
