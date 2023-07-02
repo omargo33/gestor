@@ -77,7 +77,7 @@ public class Reporte {
                 Path source = Paths.get(fullPath, new String[0]);
                 extension = Files.probeContentType(source);
             } catch (IOException e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
             }
             largo = (int) (new File(fullPath)).length();
 
@@ -86,7 +86,7 @@ public class Reporte {
                                                    largo, "Archivo Generado al solicitar un reporte", usuario,
                                                    usuarioPrograma);
         } else {
-            Logger.getLogger("global").log(Level.SEVERE, "No se pudo generar el repoerte " + nombreArchivo);
+            Logger.getLogger("global").log(Level.WARNING, "No se pudo generar el repoerte " + nombreArchivo);
             throw new JboException("No se pudo generar el reporte " + nombreArchivo);
         }
         return codigoArchivo;
@@ -141,7 +141,7 @@ public class Reporte {
                 Path source = Paths.get(fullPath, new String[0]);
                 extension = Files.probeContentType(source);             
             } catch (IOException e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
             }
 
             largo = (int) (new File(fullPath)).length();
@@ -151,7 +151,7 @@ public class Reporte {
                                                    largo, "Archivo Generado al solicitar un reporte", usuario,
                                                    usuarioPrograma);            
         } else {            
-            Logger.getLogger("global").log(Level.SEVERE, "No se pudo generar el reporte " + nombreArchivo);
+            Logger.getLogger("global").log(Level.WARNING, "No se pudo generar el reporte " + nombreArchivo);
             throw new JboException("No se pudo generar el reporte " + nombreArchivo);
         }
         return codigoArchivo;

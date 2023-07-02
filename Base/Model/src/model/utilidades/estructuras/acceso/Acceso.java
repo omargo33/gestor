@@ -95,7 +95,7 @@ public class Acceso {
         boolean estado = true;
         Long fechaActual = Long.valueOf((new Date()).getTime());
         if (getFechaValido() < fechaActual.longValue()) {
-            Logger.getLogger("global").log(Level.SEVERE, "000006");
+            Logger.getLogger("global").log(Level.WARNING, "000006");
             estado = false;
         }
         return estado;

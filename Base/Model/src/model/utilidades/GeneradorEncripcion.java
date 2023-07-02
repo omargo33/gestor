@@ -30,7 +30,7 @@ public class GeneradorEncripcion {
             standardPBEStringEncryptor.setPassword(semilla);
             return standardPBEStringEncryptor.encrypt(cadena);
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
             return null;
         }
     }
@@ -44,7 +44,7 @@ public class GeneradorEncripcion {
             standardPBEStringEncryptor.setPassword(semilla);
             return standardPBEStringEncryptor.decrypt(cadena);
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
             return cadena;
         }
     }
@@ -56,7 +56,7 @@ public class GeneradorEncripcion {
             respuesta = "{SHA-1}" + (new BASE64Encoder()).encode(
                 MessageDigest.getInstance("SHA1").digest(cadena.getBytes()));
         } catch (NoSuchAlgorithmException e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return respuesta;
     }
@@ -69,7 +69,7 @@ public class GeneradorEncripcion {
             byte[] hash = digest.digest(cadena.getBytes("UTF-8"));
             respuesta = DatatypeConverter.printHexBinary(hash);
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return respuesta;
     }

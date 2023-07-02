@@ -49,7 +49,7 @@ public class Entidad extends EntityImpl implements BundleInterface {
                 (String) getBaseDML()
                 .ejecutaConsultaUnicoDato(SQL_PARAMETRO_TEXTO_01, getBundle("modulo.indice"), indice);
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return respuesta;
     }
@@ -61,7 +61,7 @@ public class Entidad extends EntityImpl implements BundleInterface {
                 (String) getBaseDML()
                 .ejecutaConsultaUnicoDato(SQL_PARAMETRO_TEXTO_02, getBundle("modulo.indice"), indice);
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return respuesta;
     }
@@ -74,7 +74,7 @@ public class Entidad extends EntityImpl implements BundleInterface {
                 ((Double) getBaseDML()
                  .ejecutaConsultaUnicoDato(SQL_PARAMETRO_NUMERO_01, getBundle("modulo.indice"), indice)).doubleValue();
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return Double.valueOf(respuesta);
     }
@@ -86,7 +86,7 @@ public class Entidad extends EntityImpl implements BundleInterface {
                 ((Double) getBaseDML()
                  .ejecutaConsultaUnicoDato(SQL_PARAMETRO_NUMERO_02, getBundle("modulo.indice"), indice)).doubleValue();
         } catch (Exception e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
         }
         return Double.valueOf(respuesta);
     }
@@ -99,7 +99,7 @@ public class Entidad extends EntityImpl implements BundleInterface {
                 rowSet = (EntityRowSetImpl) getAttribute(i);
                 largo = rowSet.size();
             } catch (Exception e) {
-                Logger.getLogger("global").log(Level.SEVERE, e.toString());
+                Logger.getLogger("global").log(Level.WARNING, e.toString());
             }
 
             if (largo > 0) {

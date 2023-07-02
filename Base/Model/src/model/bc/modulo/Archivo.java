@@ -1,11 +1,5 @@
 package model.bc.modulo;
 
-import java.sql.Timestamp;
-
-import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import model.bc.ModuloImpl;
 import model.bc.VistaObjeto;
 import model.bc.entidad.ArchivoEventoImpl;
@@ -16,15 +10,12 @@ import model.utilidades.Atributos;
 
 import oracle.jbo.Key;
 import oracle.jbo.Row;
-import oracle.jbo.VariableValueManager;
-import oracle.jbo.ViewCriteria;
-import oracle.jbo.ViewCriteriaManager;
 
 /**
  * Objeto para crear entradas de archivos a los grupos de recursos del sistema.
- * 
+ *
  * @author omargo33@hotmail.com
- * 
+ *
  */
 public class Archivo {
     public static final String EVENTO_CARGAR = "C";

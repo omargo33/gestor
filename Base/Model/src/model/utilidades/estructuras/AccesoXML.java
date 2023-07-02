@@ -32,7 +32,7 @@ public class AccesoXML extends Acceso {
             mar.marshal(this, sw);
             respuesta = sw.toString();
         } catch (JAXBException e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
             respuesta = "";
         }
         return respuesta;
@@ -54,7 +54,7 @@ public class AccesoXML extends Acceso {
             setUsuario(accesoPivote.getUsuario());
             setEncriptado(accesoPivote.isEncriptado());
         } catch (JAXBException e) {
-            Logger.getLogger("global").log(Level.SEVERE, e.toString());
+            Logger.getLogger("global").log(Level.WARNING, e.toString());
             estado = false;
         }
 
@@ -92,7 +92,7 @@ public class AccesoXML extends Acceso {
         if (cargarXML(new String(decodedBytes))) {
             decifrar();
         } else {
-            Logger.getLogger("global").log(Level.SEVERE, "000005");
+            Logger.getLogger("global").log(Level.WARNING, "000005");
         }
     }
 }
