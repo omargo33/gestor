@@ -85,6 +85,10 @@ public class CorreoService {
         
         notificacionEvento.setIdNotificacionEvento(0l);
         notificacionEvento.setIdNotificacion(notificacion.getIdNotificacion());
+
+        // truncar a 512
+        informacion=informacion.length()>512?informacion.substring(0, 512):informacion;
+
         notificacionEvento.setInformacion(informacion);
         notificacionEvento.setTipo(tipo);
         notificacionEvento.setUsuarioFecha(new Date());
