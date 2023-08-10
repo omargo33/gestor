@@ -5,27 +5,29 @@
     <f:view>
         <af:document title="Home" id="d1">
             <af:messages id="m1"/>
-            <af:resource type="javascript" source='/resources/js/timeSession.js'/>
             <af:form id="f1">
-                <af:pageTemplate viewId="/plantilla/homePage.jspx" id="pt1">
-                    <f:facet name="footer">
-                        
+                <af:switcher id="s1" facetName="#{MenuBean.menuValidAutorizacion}">
+                    <f:facet name="vacio"/>
+                    <f:facet name="menu">
+                        <af:pageTemplate viewId="/plantilla/homePage.jspx" id="pt1">
+                            <f:facet name="footer"></f:facet>
+                            <f:facet name="start">
+                                <af:region value="#{bindings.menumaintaskflow1.regionModel}" id="r1"/>
+                            </f:facet>
+                            <f:facet name="center">
+                                <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r2"
+                                           rendered="#{MenuBean.menuActual != null}"/>
+                            </f:facet>
+                            <f:facet name="end"/>
+                            <f:attribute name="endWidth" value="180"/>
+                            <f:attribute name="brandingMaxWidth" value="1024px"/>
+                            <f:attribute name="startWidth" value="180"/>
+                            <f:attribute name="startWidthMax" value="380"/>
+                            <f:attribute name="endWidthMin" value="50"/>
+                            <f:attribute name="showFooter" value="false"/>
+                        </af:pageTemplate>
                     </f:facet>
-                    <f:facet name="start">
-                        <af:region value="#{bindings.menumaintaskflow1.regionModel}" id="r1"/>
-                    </f:facet>
-                    <f:facet name="center">
-                        <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r2" rendered="#{MenuBean.menuActual != null}" /> 
-                    </f:facet>
-                    <f:facet name="end"/>
-                    <f:attribute name="endWidth" value="180"/>
-                    <f:attribute name="brandingMaxWidth" value="1024px"/>
-                    <f:attribute name="startWidth" value="180"/>
-                    <f:attribute name="startWidthMax" value="380"/>
-                    <f:attribute name="endWidthMin" value="50"/>
-                    <f:attribute name="showFooter" value="false"/>
-                </af:pageTemplate>
-                <af:button text="aliveClick" id="alive1" action="#{BaseBean.getFechaHoyCorto}" immediate="true" visible="false"/>
+                </af:switcher>
             </af:form>
         </af:document>
     </f:view>

@@ -113,9 +113,9 @@
       <property
          name="activityId">Error</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">70.500015</property>
       <property
@@ -150,7 +150,7 @@
       <property
          name="fromsrcid">__1</property>
       <property
-         name="sdm:polyPoints">R50,107.55008,221.46872,169.44992,222.96875,L50</property>
+         name="sdm:polyPoints">R50,106.49992,221.46875,170.50008,222.96875,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -178,7 +178,7 @@
       <property
          name="fromsrcid">__21</property>
       <property
-         name="sdm:polyPoints">R50,253.55023,222.96875,331.44974,221.90625,L50</property>
+         name="sdm:polyPoints">R50,252.50008,222.96875,332.4999,221.90625,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"

@@ -178,17 +178,28 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
     private ParametroViewNoDMLRowImpl obtenerParametro(String indiceParametro) {
         ParametroViewNoDMLRowImpl parametroRespuesta = this.mapaParametro.get(indiceParametro);
         if (parametroRespuesta == null) {
-            this.mapaParametro = Parametros.obtenerParametros(this, getBundle("modulo.indice"));
+
+            String modulo = getBundle("modulo.indice");
+
+            Logger.getLogger("global").log(Level.WARNING, "obtenerParametro modulo " + modulo);
+            Logger.getLogger("global").log(Level.WARNING, "obtenerParametro indice " + indiceParametro);
+
+            if (modulo.startsWith("<No Definido")) {
+                modulo = "BD_001_00";
+                Logger.getLogger("global").log(Level.WARNING, "modulo re asignado " + modulo);
+            }
+            this.mapaParametro = Parametros.obtenerParametros(this, modulo);
             parametroRespuesta = this.mapaParametro.get(indiceParametro);
             if (parametroRespuesta == null) {
                 Logger.getLogger("global")
-                    .log(Level.WARNING,
-                         "Error Indice=" + indiceParametro + "-" + getBundle("modulo.indice"));
-                throw new JboException(getBundle("ModuloImpl.obtenerParametro.txt_1",
-                                                  indiceParametro,
-                                                                getBundle("modulo.indice") ));
+                    .log(Level.WARNING, "Error Indice=" + indiceParametro + "-" + getBundle("modulo.indice"));
+                throw new JboException(getBundle("ModuloImpl.obtenerParametro.txt_1", indiceParametro,
+                                                 getBundle("modulo.indice")));
             }
         }
+
+        Logger.getLogger("global")
+            .log(Level.WARNING, "obtenerParametro modulo parametro selecionado " + parametroRespuesta.getIndice());
         return parametroRespuesta;
     }
 

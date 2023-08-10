@@ -33,9 +33,9 @@ import oracle.jbo.common.Configuration;
 
 /**
  * Objeto para subir archivos al servidor.
- * 
+ *
  * @author omargo33@hotmail.com
- * 
+ *
  */
 @WebServlet(name = "Upload", urlPatterns = { "/faces/Upload" })
 @MultipartConfig(location = "/tmp", fileSizeThreshold = 1024 * 1024, maxFileSize = 1024 * 1024 * 10,
@@ -128,7 +128,7 @@ public class Upload extends HttpServlet {
         boolean estado = true;
         int largo = 0;
         String extension = "";
-        ModuloImpl moduloImpl = null;
+        ApplicationModule am = null;
 
         String pathBase = "";
         String fullPath = "";
@@ -140,8 +140,8 @@ public class Upload extends HttpServlet {
             GeneradorClaves.getPassword("23456789ABCDEFGHJKMNPQRTUVWXYZabcdefghijkmnpqrtuvwxyz", 12);
 
         try {
-            ApplicationModule am = Configuration.createRootApplicationModule(IMPLEMENTACION, CONFIG);
-            moduloImpl = (ModuloImpl) am;
+            am = Configuration.createRootApplicationModule(IMPLEMENTACION, CONFIG);
+            ModuloImpl moduloImpl = (ModuloImpl) am;
 
             pathBase = moduloImpl.base_obtenerParametroTexto01("200");
 
@@ -171,7 +171,7 @@ public class Upload extends HttpServlet {
             estado = false;
         } finally {
             try {
-                Configuration.releaseRootApplicationModule((ApplicationModule) moduloImpl, true);
+                Configuration.releaseRootApplicationModule(am, true);
             } catch (Exception e) {
                 Logger.getLogger("global").log(Level.WARNING, e.toString());
                 estado = false;
@@ -240,9 +240,9 @@ public class Upload extends HttpServlet {
         return valido;
     }
 
-
+    
     public class DatosRequest {
-        private final String PARAMETROS_REENVIO = "&aExtensiones=%s&nameUser=%s&aEsquema=%s&aTabla=%s&idGrupo=%s";
+        //private final String PARAMETROS_REENVIO = "&aExtensiones=%s&nameUser=%s&aEsquema=%s&aTabla=%s&idGrupo=%s";
         String aExtensiones = "";
         String nameUser = "";
         String aEsquema = "";
@@ -252,6 +252,10 @@ public class Upload extends HttpServlet {
 
 
         public DatosRequest() {
+            limpiar();
+        }
+
+        private void limpiar() {
             this.aExtensiones = "";
             this.nameUser = "";
             this.aEsquema = "";
@@ -262,15 +266,20 @@ public class Upload extends HttpServlet {
 
 
         public DatosRequest(HttpServletRequest request) {
-            this.aExtensiones = String.valueOf(request.getParameter("aExtensiones"));
-            this.nameUser = String.valueOf(request.getParameter("nameUser"));
-            this.aEsquema = String.valueOf(request.getParameter("aEsquema"));
-            this.aTabla = String.valueOf(request.getParameter("aTabla"));
-            this.idGrupo = String.valueOf(request.getParameter("idGrupo"));
-            String scheme = request.getScheme();
-            String host = request.getHeader("Host");
-            String contextPath = request.getContextPath();
-            this.URLBase = scheme + "://" + host + contextPath;
+            try {
+                this.aExtensiones = String.valueOf(request.getParameter("aExtensiones"));
+                this.nameUser = String.valueOf(request.getParameter("nameUser"));
+                this.aEsquema = String.valueOf(request.getParameter("aEsquema"));
+                this.aTabla = String.valueOf(request.getParameter("aTabla"));
+                this.idGrupo = String.valueOf(request.getParameter("idGrupo"));
+                String scheme = request.getScheme();
+                String host = request.getHeader("Host");
+                String contextPath = request.getContextPath();
+                this.URLBase = scheme + "://" + host + contextPath;
+                Logger.getLogger("global").log(Level.INFO, "DatosRequest() data Generada" + toString());
+            } catch (Exception e) {
+                limpiar();
+            }
         }
 
 
@@ -313,6 +322,13 @@ public class Upload extends HttpServlet {
 
         public String getURLBase() {
             return this.URLBase;
+        }
+
+
+        @Override
+        public String toString() {
+            return "Aextension=" + getAExtensiones() + " NameUser=" + getNameUser() + " aEsquema " + getAEsquema() +
+                   " aTabla " + getATabla() + " idGrupo " + getIdGrupo() + " urlBase " + getURLBase();
         }
     }
 }
