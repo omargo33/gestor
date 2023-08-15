@@ -48,9 +48,9 @@
       <property
          name="activityId">Menu</property>
       <property
-         name="pageFragment">true</property>
-      <property
          name="inherited">true</property>
+      <property
+         name="pageFragment">true</property>
       <property
          name="x">463.46094</property>
       <property
@@ -104,7 +104,7 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">R50,504.46094,274.125,619.1172,279.4375,L50</property>
+         name="sdm:polyPoints">R54,504.46094,277.625,619.1172,279.4375,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -168,7 +168,7 @@
       <property
          name="fromsrcid">__10</property>
       <property
-         name="sdm:polyPoints">T50,91.5,287.21875,459.96094,220.125,T44</property>
+         name="sdm:polyPoints">T50,91.5,287.21875,463.46094,220.125,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
@@ -232,26 +232,11 @@
       <property
          name="exceptionHandler">false</property>
    </UrlView>
-   <MethodCall
-      id="MethodCall18">
-      <property
-         name="activityId">base_obtenerParametroTexto01</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="x">660.1172</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">91.46875</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
    <ControlFlowCase
       islink="true"
-      id="ControlFlowCase19"
+      id="ControlFlowCase21"
       from="View5"
-      to="MethodCall18">
+      to="UrlView17">
       <property
          name="tosrcid">__3</property>
       <property
@@ -261,22 +246,6 @@
       <property
          name="fromsrcid">__4</property>
       <property
-         name="sdm:polyPoints">T56,466.96094,220.125,619.1172,91.4375,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase20"
-      from="MethodCall18"
-      to="UrlView17">
-      <property
-         name="tosrcid">__16</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="fromOutcome">base_obtenerParametroTexto01</property>
-      <property
-         name="fromsrcid">__15</property>
-      <property
-         name="sdm:polyPoints">R50,701.1172,91.4375,836.77344,99.40625,L50</property>
+         name="sdm:polyPoints">R46,504.46094,270.625,836.77344,99.40625,L50</property>
    </ControlFlowCase>
 </SDM>

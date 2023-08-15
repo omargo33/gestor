@@ -199,7 +199,7 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
         }
 
         Logger.getLogger("global")
-            .log(Level.WARNING, "obtenerParametro modulo parametro selecionado " + parametroRespuesta.getIndice());
+            .log(Level.WARNING, "obtenerParametro modulo parametro selecionado " +indiceParametro+" con el resultado "+ parametroRespuesta.myString());
         return parametroRespuesta;
     }
 

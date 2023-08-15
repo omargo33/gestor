@@ -3,6 +3,9 @@ package model.bc.modulo;
 import java.util.HashMap;
 import java.util.Map;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import model.bc.ModuloImpl;
 import model.bc.vistaNoDML.ModuloViewNoDMLRowImpl;
 import model.bc.vistaNoDML.ParametroViewNoDMLRowImpl;
@@ -17,6 +20,10 @@ import oracle.jbo.server.ViewObjectImpl;
 public class Parametros {
     public static Map<String, ParametroViewNoDMLRowImpl> obtenerParametros(ModuloImpl moduloAplicacion,
                                                                            String indiceModulo) {
+
+        Logger.getLogger("global").log(Level.INFO, ".obtenerParametros() " + moduloAplicacion + " " + indiceModulo);
+
+
         Map<String, ParametroViewNoDMLRowImpl> mapaParametro = new HashMap<>();
         ViewObjectImpl viewObjectImpl = moduloAplicacion.getBase_ModuloViewNoDML1();
         ViewCriteriaManager vcm = viewObjectImpl.getViewCriteriaManager();
@@ -35,9 +42,3 @@ public class Parametros {
         return mapaParametro;
     }
 }
-
-
-/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseModelADFLib-01.jar!/model/bc/modulo/Parametros.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.2
- */

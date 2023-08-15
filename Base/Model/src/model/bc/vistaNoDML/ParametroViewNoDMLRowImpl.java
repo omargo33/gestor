@@ -156,6 +156,13 @@ public class ParametroViewNoDMLRowImpl extends ViewRowImpl {
     public String getUsuarioPrograma() {
         return (String) getAttributeInternal(USUARIOPROGRAMA);
     }
+
+
+    public String myString() {
+        return "indice " + this.getIndice() + "id_modulo " + String.valueOf(this.getIdModulo()) + " valor texto " +
+               this.getValorTexto01() + " valor texto 2 " + this.getValorTexto02() + " valor numerivo " +
+               String.valueOf(this.getValorNumero01()) + " valor numerivo 2" + String.valueOf(this.getValorNumero02());
+    }
 }
 
 

@@ -82,8 +82,6 @@
               usageId="viewAdministrativo_clave_task_flow_clave_task_flow_base_obtenerParametroTexto01PageDef"/>
         <page path="/WEB-INF/menu-main-task-flow.xml#menu-main-task-flow@RollbackModulo"
               usageId="viewAdministrativo_menu_main_task_flow_menu_main_task_flow_Rollback1PageDef"/>
-        <page path="/WEB-INF/menu-main-task-flow.xml#menu-main-task-flow@base_obtenerParametroTexto01"
-              usageId="viewAdministrativo_menu_main_task_flow_menu_main_task_flow_base_obtenerParametroTexto01PageDef"/>
     </pageMap>
     <pageDefinitionUsages>
         <page id="viewAdministrativo_homeAdministradorPageDef"
@@ -168,8 +166,6 @@
               path="viewAdministrativo.pageDefs.clave_task_flow_clave_task_flow_base_obtenerParametroTexto01PageDef"/>
         <page id="viewAdministrativo_menu_main_task_flow_menu_main_task_flow_Rollback1PageDef"
               path="viewAdministrativo.pageDefs.menu_main_task_flow_menu_main_task_flow_Rollback1PageDef"/>
-        <page id="viewAdministrativo_menu_main_task_flow_menu_main_task_flow_base_obtenerParametroTexto01PageDef"
-              path="viewAdministrativo.pageDefs.menu_main_task_flow_menu_main_task_flow_base_obtenerParametroTexto01PageDef"/>
     </pageDefinitionUsages>
     <dataControlUsages>
         <BC4JDataControl id="AdministrativoModuloDataControl" Package="modelAdministrativo.bc"

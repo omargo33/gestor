@@ -2,6 +2,9 @@ package view.plantilla;
 
 import java.io.IOException;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -13,7 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Clase para salir correctamente tras un time out.
- * 
+ *
  * @author omargo33@hotmail.com
  * @since 2023-08-06
  * @see "https://adfdevelopers.blogspot.com/2009/06/detecting-and-handling-user-session.html"
@@ -33,7 +36,7 @@ public class ApplicationSessionExpiryFilter implements Filter {
      * Metodo para filtrar perdidas de sesion.
      *
      * Si la sesion esta expirada la reenvia
-     *                                     
+     *
      * @param request
      * @param response
      * @param chain
@@ -46,10 +49,23 @@ public class ApplicationSessionExpiryFilter implements Filter {
         String currentWebSession = ((HttpServletRequest) request).getSession().getId();
         boolean sessionOk = currentWebSession.equalsIgnoreCase(requestedSession);
         if (!sessionOk && requestedSession != null) {
-            
+
             ((HttpServletResponse) response).sendRedirect(_filterConfig.getInitParameter("SessionTimeoutRedirect"));
         } else {
-            chain.doFilter(request, response);
+
+            if (request == null) {
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, "request es null Revisar");
+            }
+
+            if (response == null) {
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, "response es null Revisar");
+            }
+
+            if (chain == null) {
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.INFO, "chain es null Revisar");
+            }
+            
+                chain.doFilter(request, response);
         }
     }
 }

@@ -78,9 +78,9 @@
       <property
          name="activityId">Menu</property>
       <property
-         name="inherited">true</property>
-      <property
          name="pageFragment">true</property>
+      <property
+         name="inherited">true</property>
       <property
          name="x">463.46094</property>
       <property
@@ -220,53 +220,6 @@
          name="sdm:polyPoints">B56,466.96094,314.84375,619.1172,443.53125,L50</property>
    </ControlFlowCase>
    <MethodCall
-      id="MethodCall17">
-      <property
-         name="activityId">base_obtenerParametroTexto01</property>
-      <property
-         name="inherited">false</property>
-      <property
-         name="x">660.1172</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">255.5625</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase26"
-      from="MethodCall17"
-      to="UrlView16">
-      <property
-         name="tosrcid">__16</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="fromOutcome">base_obtenerParametroTexto01</property>
-      <property
-         name="fromsrcid">__15</property>
-      <property
-         name="sdm:polyPoints">R50,701.1172,255.53125,836.77344,263.5,L50</property>
-   </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase27"
-      from="View16"
-      to="MethodCall17">
-      <property
-         name="tosrcid">__3</property>
-      <property
-         name="inherited">true</property>
-      <property
-         name="fromOutcome">logout</property>
-      <property
-         name="fromsrcid">__4</property>
-      <property
-         name="sdm:polyPoints">R50,504.46094,260.84375,619.1172,255.53125,L50</property>
-   </ControlFlowCase>
-   <MethodCall
       id="MethodCall25">
       <property
          name="activityId">RollbackModulo</property>
@@ -279,4 +232,20 @@
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase24"
+      from="View16"
+      to="UrlView16">
+      <property
+         name="tosrcid">__3</property>
+      <property
+         name="inherited">true</property>
+      <property
+         name="fromOutcome">logout</property>
+      <property
+         name="fromsrcid">__4</property>
+      <property
+         name="sdm:polyPoints">R50,504.46094,260.84375,836.77344,263.5,L50</property>
+   </ControlFlowCase>
 </SDM>
