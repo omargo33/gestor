@@ -54,12 +54,12 @@ public class Download extends HttpServlet {
 
 
     private void descargarArchivo(int idArchivo, String user, HttpServletResponse response) {
-        ModuloImpl moduloImpl = null;
+        ApplicationModule am = null;
         Archivo archivo = new Archivo();
 
         try {
-            ApplicationModule am = Configuration.createRootApplicationModule(IMPLEMENTACION, CONFIG);
-            moduloImpl = (ModuloImpl) am;
+            am = Configuration.createRootApplicationModule(IMPLEMENTACION, CONFIG);
+            ModuloImpl moduloImpl= (ModuloImpl) am;
             archivo = buscarInformacionArchivo(idArchivo, moduloImpl);
             escribirArchivo(archivo, response);
             escribirEventoDescarga(idArchivo, user, moduloImpl);
@@ -67,7 +67,7 @@ public class Download extends HttpServlet {
             Logger.getLogger("global").log(Level.WARNING, e.toString());
         } finally {
             try {
-                Configuration.releaseRootApplicationModule((ApplicationModule) moduloImpl, true);
+                Configuration.releaseRootApplicationModule(am, true);
             } catch (Exception e) {
                 Logger.getLogger("global").log(Level.WARNING, e.toString());
             }

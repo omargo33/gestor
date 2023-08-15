@@ -18,7 +18,7 @@
       <property
          name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
       <property
-         name="y">99.4375</property>
+         name="y">105.40625</property>
       <property
          name="exceptionHandler">false</property>
    </MethodCall>
@@ -49,6 +49,6 @@
       <property
          name="fromOutcome">base_obtenerParametroTexto01</property>
       <property
-         name="sdm:polyPoints">R50,167.15625,99.40625,281.8125,91.4375,L50</property>
+         name="sdm:polyPoints">R50,167.15625,105.40625,281.8125,91.4375,L50</property>
    </ControlFlowCase>
 </SDM>

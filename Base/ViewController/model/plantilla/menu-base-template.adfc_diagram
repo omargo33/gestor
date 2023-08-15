@@ -356,33 +356,10 @@
       islink="true"
       id="ControlFlowCase26"
       from="View6"
-      to="MethodCall27">
+      to="UrlView25">
       <property
          name="fromOutcome">logout</property>
       <property
-         name="sdm:polyPoints">R50,523.96094,413.46875,658.1172,407.5538,L50</property>
-   </ControlFlowCase>
-   <MethodCall
-      id="MethodCall27">
-      <property
-         name="activityId">base_obtenerParametroTexto01</property>
-      <property
-         name="x">699.1172</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>base_obtenerParametroTexto01&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">407.58505</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase28"
-      from="MethodCall27"
-      to="UrlView25">
-      <property
-         name="fromOutcome">base_obtenerParametroTexto01</property>
-      <property
-         name="sdm:polyPoints">R50,740.1172,407.5538,875.77344,415.52255,L50</property>
+         name="sdm:polyPoints">R50,523.96094,413.46875,875.77344,415.52255,L50</property>
    </ControlFlowCase>
 </SDM>
