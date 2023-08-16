@@ -80,13 +80,31 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
      */
     public int base_archivoCrearGrupo(int id, String esquema, String tabla, int largoMaximo, String extensiones,
                                       int ancho, int alto, int maximoArchivo, String usuario, String usuarioPrograma) {
-        int codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+            .log(Level.WARNING,
+                 "base_archivoCrearGrupo() 001 " + id + "-" + esquema + "-" + tabla + "-" + largoMaximo + "-" +
+                 extensiones + "-" + ancho + "-" + alto + "-" + maximoArchivo + "-" + usuario + "-" + usuarioPrograma);
+        int codigo = 0;
+        try {
+            codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
 
-        if (codigo == 0) {
-            codigo =
-                Grupo.crearGrupo(this, id, esquema, tabla, largoMaximo, extensiones, ancho, alto, maximoArchivo,
-                                 usuario, usuarioPrograma);
+            if (codigo == 0) {
+                codigo =
+                    Grupo.crearGrupo(this, id, esquema, tabla, largoMaximo, extensiones, ancho, alto, maximoArchivo,
+                                     usuario, usuarioPrograma);
+
+                codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
+
+                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+                    .log(Level.WARNING, "base_archivoCrearGrupo() reconsultado 001");
+            }
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "base_archivoCrearGrupo() " + e.toString());
+
         }
+
+        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
+            .log(Level.WARNING, "base_archivoCrearGrupo() reconsultado 001 " + codigo);
 
 
         return codigo;
@@ -199,7 +217,9 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
         }
 
         Logger.getLogger("global")
-            .log(Level.WARNING, "obtenerParametro modulo parametro selecionado " +indiceParametro+" con el resultado "+ parametroRespuesta.myString());
+            .log(Level.WARNING,
+                 "obtenerParametro modulo parametro selecionado " + indiceParametro + " con el resultado " +
+                 parametroRespuesta.myString());
         return parametroRespuesta;
     }
 
