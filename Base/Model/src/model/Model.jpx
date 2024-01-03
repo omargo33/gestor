@@ -40,6 +40,8 @@
         <Attr Name="_domainNames5" Value="model.bc.dominio.ComboBox"/>
         <Attr Name="_domainNames8" Value="model.bc.dominio.FechaCorta"/>
         <Attr Name="_domainNames7" Value="model.bc.dominio.Usuario"/>
+        <Attr Name="_domainNames12" Value="model.bc.dominio.NumeroDoubleLatam"/>
+        <Attr Name="_propSetNames12" Value="model.bc.dominio.NumeroDoubleLatam"/>
     </DesignTime>
     <Containee
       Name="bc"
