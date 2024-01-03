@@ -97,7 +97,7 @@ public class Upload extends HttpServlet {
             urlRespuesta =
                 String.format(this.URL,
                               new Object[] { "error",
-                                             String.format("El archivo \"%s\" no tiene el formato adecuado",
+                                             String.format("El nombre del archivo \"%s\" no tiene el formato adecuado",
                                                            new Object[] { nombreTruncado }) });
         } else if (subirPlataforma(this.datosRequest, nombreArchivo)) {
 
@@ -172,6 +172,8 @@ public class Upload extends HttpServlet {
         } finally {
             try {
                 Configuration.releaseRootApplicationModule(am, true);
+                System.gc();
+                Logger.getLogger("global").log(Level.INFO, "aplicado gc carga");
             } catch (Exception e) {
                 Logger.getLogger("global").log(Level.WARNING, e.toString());
                 estado = false;
@@ -226,6 +228,26 @@ public class Upload extends HttpServlet {
      */
     private boolean validarArchivo(String fileName, DatosRequest datosRequest) {
         boolean valido = false;
+
+        if(fileName.indexOf("$") > 0){
+            return valido;
+        }
+        
+        if(fileName.startsWith("-")){
+            return valido;
+        }
+        
+        if(fileName.startsWith(" ")){
+            return valido;
+        }
+        
+        if(fileName.startsWith(".")){
+            return valido;
+        }
+    
+        if(fileName.startsWith("~")){
+            return valido;
+        }
 
         String extensiones = String.valueOf(datosRequest.getAExtensiones());
         extensiones = extensiones.replaceAll("\\.", " ");

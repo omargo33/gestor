@@ -1,5 +1,8 @@
 package view.archivo;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.faces.component.UIComponent;
 
 import oracle.adf.view.rich.component.rich.RichPopup;
@@ -22,20 +25,38 @@ public class PPRListaFrg extends BasePPR {
         iniciarDatosFormularios();
     }
 
-
     private void init() {
         setIf1(new RichInlineFrame());
     }
 
-
     private void iniciarDatosFormularios() {
-        String url = "/faces/upLoadFile.jspx?nameUser=%s&idGrupo=%s&aTabla=%s&aEsquema=%s&aExtensiones=%s";
-        String nameUser = String.valueOf(ADFUtils.evaluateEL("#{BaseBean.nameUser}"));
-        String idGrupo = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idGrupo}"));
-        String atabla = String.valueOf(ADFUtils.evaluateEL("#{pageFlowScope.aTabla}"));
-        String aEsquema = String.valueOf(ADFUtils.evaluateEL("#{pageFlowScope.aEsquema}"));
-        String aExtensiones = String.valueOf(ADFUtils.evaluateEL("#{pageFlowScope.aExtensiones}"));
-        getIf1().setSource(String.format(url, new Object[] { nameUser, idGrupo, atabla, aEsquema, aExtensiones }));
+        String data="0";
+        try {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "iniciarDatosFormularios() ov ");
+            
+            String url = "/faces/upLoadFile.jspx?nameUser=%s&idGrupo=%s&aTabla=%s&aEsquema=%s&aExtensiones=%s";
+            data="1";
+            String nameUser = String.valueOf(ADFUtils.evaluateEL("#{BaseBean.nameUser}"));
+            data="2";
+            String idGrupo = String.valueOf(ADFUtils.evaluateEL("#{sessionScope.idGrupo}"));
+            data="3";
+            String atabla = String.valueOf(ADFUtils.evaluateEL("#{pageFlowScope.aTabla}"));
+            data="4";
+            String aEsquema = String.valueOf(ADFUtils.evaluateEL("#{pageFlowScope.aEsquema}"));
+            data="5";
+            String aExtensiones = String.valueOf(ADFUtils.evaluateEL("#{pageFlowScope.aExtensiones}"));
+            data="6";
+            getIf1().setSource(String.format(url, new Object[] { nameUser, idGrupo, atabla, aEsquema, aExtensiones }));
+            data="7";
+            
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "iniciarDatosFormularios() ov " +
+            getIf1().getSource()
+                                                            );
+            
+            
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "iniciarDatosFormularios() ov " +data + " " + e);
+        }
     }
 
 
@@ -50,9 +71,13 @@ public class PPRListaFrg extends BasePPR {
 
 
     public String refrescar() {
-        getP1Arch().hide();
-        doPartialRefresh((UIComponent) getP1Arch());
-        doPartialRefresh((UIComponent) getT1());
+        try {
+            getP1Arch().hide();
+            doPartialRefresh((UIComponent) getP1Arch());
+            doPartialRefresh((UIComponent) getT1());
+        } catch (Exception e) {
+            Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "refrescar() ov " + e);
+        }
         return "Inicio";
     }
 

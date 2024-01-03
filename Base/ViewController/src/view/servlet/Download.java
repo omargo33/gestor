@@ -68,6 +68,8 @@ public class Download extends HttpServlet {
         } finally {
             try {
                 Configuration.releaseRootApplicationModule(am, true);
+                System.gc();
+                Logger.getLogger("global").log(Level.INFO, "aplicado gc descarga");
             } catch (Exception e) {
                 Logger.getLogger("global").log(Level.WARNING, e.toString());
             }
@@ -222,9 +224,3 @@ public class Download extends HttpServlet {
         }
     }
 }
-
-
-/* Location:              /home/omarv/Documentos/jdeveloper/mywork122140/dup/Manifiesto-001/Manifiesto-0012171724535622629922.war!/WEB-INF/lib/BaseViewADFLib-01.jar!/view/servlet/Download.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.2
- */

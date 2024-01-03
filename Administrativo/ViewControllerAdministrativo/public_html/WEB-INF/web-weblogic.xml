@@ -102,7 +102,7 @@
     <!-- filtro de session -->
     <filter>
         <filter-name>SessionExpiryFilter</filter-name>
-        <filter-class>view.plantilla.BaseSessionExpiryFilter</filter-class>
+        <filter-class>view.plantilla.ApplicationSessionExpiryFilter</filter-class>
         <init-param>
             <description>Url a ser direccionado el sistema</description>
             <param-name>urlRedirect</param-name>
