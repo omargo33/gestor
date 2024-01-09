@@ -116,7 +116,6 @@
                     </af:inputText>
                 </af:panelFormLayout>
             </f:facet>
-        </af:pageTemplate>                
-        
+        </af:pageTemplate>
     </af:panelGroupLayout>
 </jsp:root>

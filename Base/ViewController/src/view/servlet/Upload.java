@@ -298,7 +298,6 @@ public class Upload extends HttpServlet {
                 String host = request.getHeader("Host");
                 String contextPath = request.getContextPath();
                 this.URLBase = scheme + "://" + host + contextPath;
-                Logger.getLogger("global").log(Level.INFO, "DatosRequest() data Generada" + toString());
             } catch (Exception e) {
                 limpiar();
             }

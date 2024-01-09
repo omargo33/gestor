@@ -12,15 +12,12 @@ public class GeneradorIngreso {
     private static String URL = "http://%s/%s/faces/LOG001?server=%s&token=%s";
 
     public static void main(String[] args) {
-
         String tokenHeader = "Bearer skldjflskdajfklasdjfkljsadklf1222sadjfsdjflaksjdfl";
-        // tokenHeader = null;
 
         if (tokenHeader != null && tokenHeader.startsWith("Bearer")) {
             int i = tokenHeader.indexOf(" ");
             System.out.println(tokenHeader.substring(i).trim());
         }
-
 
         GeneradorIngreso.administradorWeblogic("aerocivil", "admin1admin", "Manifiesto-001", "localhost:7101");
         GeneradorIngreso.administradorWeblogic("admin", "admin1admin", "Administrativo-001", "localhost:7101");

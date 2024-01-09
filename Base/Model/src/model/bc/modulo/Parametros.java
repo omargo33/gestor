@@ -21,9 +21,6 @@ public class Parametros {
     public static Map<String, ParametroViewNoDMLRowImpl> obtenerParametros(ModuloImpl moduloAplicacion,
                                                                            String indiceModulo) {
 
-        Logger.getLogger("global").log(Level.INFO, ".obtenerParametros() " + moduloAplicacion + " " + indiceModulo);
-
-
         Map<String, ParametroViewNoDMLRowImpl> mapaParametro = new HashMap<>();
         ViewObjectImpl viewObjectImpl = moduloAplicacion.getBase_ModuloViewNoDML1();
         ViewCriteriaManager vcm = viewObjectImpl.getViewCriteriaManager();
