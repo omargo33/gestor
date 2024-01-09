@@ -80,10 +80,6 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
      */
     public int base_archivoCrearGrupo(int id, String esquema, String tabla, int largoMaximo, String extensiones,
                                       int ancho, int alto, int maximoArchivo, String usuario, String usuarioPrograma) {
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
-            .log(Level.WARNING,
-                 "base_archivoCrearGrupo() 001 " + id + "-" + esquema + "-" + tabla + "-" + largoMaximo + "-" +
-                 extensiones + "-" + ancho + "-" + alto + "-" + maximoArchivo + "-" + usuario + "-" + usuarioPrograma);
         int codigo = 0;
         try {
             codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
@@ -94,18 +90,11 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
                                      usuario, usuarioPrograma);
 
                 codigo = Grupo.buscarGrupo(this, id, esquema, tabla);
-
-                Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
-                    .log(Level.WARNING, "base_archivoCrearGrupo() reconsultado 001");
             }
         } catch (Exception e) {
             Logger.getLogger(Logger.GLOBAL_LOGGER_NAME).log(Level.WARNING, "base_archivoCrearGrupo() " + e.toString());
 
         }
-
-        Logger.getLogger(Logger.GLOBAL_LOGGER_NAME)
-            .log(Level.WARNING, "base_archivoCrearGrupo() reconsultado 001 " + codigo);
-
 
         return codigo;
     }
@@ -199,9 +188,6 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
 
             String modulo = getBundle("modulo.indice");
 
-            Logger.getLogger("global").log(Level.WARNING, "obtenerParametro modulo " + modulo);
-            Logger.getLogger("global").log(Level.WARNING, "obtenerParametro indice " + indiceParametro);
-
             if (modulo.startsWith("<No Definido")) {
                 modulo = "BD_001_00";
                 Logger.getLogger("global").log(Level.WARNING, "modulo re asignado " + modulo);
@@ -216,10 +202,6 @@ public class ModuloImpl extends ModuloAplicacion implements Modulo {
             }
         }
 
-        Logger.getLogger("global")
-            .log(Level.WARNING,
-                 "obtenerParametro modulo parametro selecionado " + indiceParametro + " con el resultado " +
-                 parametroRespuesta.myString());
         return parametroRespuesta;
     }
 
